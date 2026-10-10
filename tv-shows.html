@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คอนเทนท์รายการ (Clip & Content) - RIIZE</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Inter & Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        riize: { orange: '#FF5500', coral: '#FF7744', blue: '#0066FF', dark: '#0A0B0E', card: '#14161D', border: '#242834' } 
+                    },
+                    fontFamily: { sans: ['Inter', 'Kanit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-riize-dark text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-riize-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center space-x-3">
+                    <a href="index.html" class="text-xl sm:text-2xl font-black tracking-tighter text-white">
+                        Fanclub Site for <span class="text-riize-orange">RIIZE</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-semibold">
+                    <a href="index.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-home">หน้าหลัก</a>
+                    <a href="members/index.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-members">ประวัติสมาชิก</a>
+                    <a href="discography.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-discography">ผลงานเพลง</a>
+                    <a href="other-works.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-other-works">Live Stage & Works</a>
+                    <a href="stats-awards.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-awards">สถิติ/รางวัล</a>
+                    <a href="tv-shows.html" class="text-riize-orange font-bold" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+                    <a href="little-riize.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-little">Little RIIZE</a>
+
+                    <!-- ปุ่มสลับภาษา TH | EN -->
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-riize-dark border border-riize-orange/40 hover:border-riize-orange text-xs font-bold transition-all hover:scale-105">
+                        <i class="fas fa-globe text-riize-orange mr-1"></i>
+                        <span id="lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center space-x-3 md:hidden">
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-2.5 py-1 rounded-full bg-riize-dark border border-riize-orange/40 text-xs font-bold">
+                        <i class="fas fa-globe text-riize-orange text-xs mr-0.5"></i>
+                        <span id="mobile-lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="mobile-lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-riize-border focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-riize-border px-4 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-home">หน้าหลัก</a>
+            <a href="members/index.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-members">ประวัติสมาชิก</a>
+            <a href="discography.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-discography">ผลงานเพลง</a>
+            <a href="other-works.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-other-works">Live Stage & Works</a>
+            <a href="stats-awards.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-awards">สถิติ/รางวัล</a>
+            <a href="tv-shows.html" class="block px-3 py-2 rounded-md font-medium text-riize-orange bg-riize-orange/10" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+            <a href="little-riize.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-little">Little RIIZE</a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner Section -->
+    <header class="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden flex items-center justify-center bg-riize-dark">
+        <div class="absolute inset-0 w-full h-full overflow-hidden">
+            <img src="https://cdnimg.melon.co.kr/cm2/photo/images/000/803/45/269/80345269_20260615183056_org.jpg" 
+                 alt="RIIZE Official Banner" 
+                 class="w-full h-full object-cover object-center opacity-60 filter brightness-90">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-riize-dark via-riize-dark/40 to-transparent"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-riize-orange/20 border border-riize-orange/50 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-riize-orange animate-ping"></span>
+                <span class="text-xs sm:text-sm font-semibold text-riize-orange uppercase tracking-wider" data-i18n="shows-tag">CLIP & CONTENT</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white my-2" data-i18n="shows-title">
+                คอนเทนท์รายการ
+            </h1>
+            
+            <p class="text-lg sm:text-2xl text-gray-300 font-light max-w-2xl mx-auto" data-i18n="shows-subtitle">
+                รวบรวมรายการวาไรตี้และคลิปไฮไลต์ความสนุกของ RIIZE แยกตามปี รับชมได้ทันที
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+        
+        <!-- Year Filter Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <button onclick="filterYear('all')" id="btn-year-all" class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all bg-riize-orange text-white shadow-lg shadow-riize-orange/30">
+                All (ทั้งหมด)
+            </button>
+            <button onclick="filterYear('2026')" id="btn-year-2026" class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange">
+                2026
+            </button>
+            <button onclick="filterYear('2025')" id="btn-year-2025" class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange">
+                2025
+            </button>
+            <button onclick="filterYear('2024')" id="btn-year-2024" class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange">
+                2024
+            </button>
+            <button onclick="filterYear('2023')" id="btn-year-2023" class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange">
+                2023
+            </button>
+        </div>
+
+        <section class="space-y-6 pt-4">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white flex items-center">
+                <i class="fas fa-video text-riize-orange mr-3"></i> 
+                <span id="section-heading-text" data-i18n="shows-section-title">รายการทั้งหมด (Variety Shows & Web Content)</span>
+            </h2>
+
+            <!-- Variety Grid Container -->
+            <div id="variety-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+<footer class="border-t border-riize-border/60 glass-panel mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div>
+                <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
+                <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+            </div>
+            <div class="text-xs text-gray-500">
+                Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript สำหรับ เปิด/ปิด Mobile Menu -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+
+    <!-- JavaScript สลับภาษา -->
+    <script src="js/lang.js"></script>
+
+    <!-- Variety Shows Data & Year Filter Script -->
+    <script>
+        const varietyData = [
+            {
+                year: '2026',
+                title: 'WE RIIZE (2026 Special)',
+                category: { th: 'Official Web Variety', en: 'Official Web Variety' },
+                platform: 'YouTube',
+                youtubeId: 'iUw3LPM7OBU',
+                desc: {
+                    th: 'รายการเรียลลิตี้ออฟฟิเชียลประจำปี 2026 อัปเดตชีวิตและความสนุกสนานล่าสุดของสมาชิก',
+                    en: 'Official 2026 reality show showcasing the latest updates and fun moments of the members.'
+                }
+            },
+            {
+                year: '2025',
+                title: 'Rise & Real (2025 World Tour Vlog)',
+                category: { th: 'Log / Vlog Series', en: 'Log / Vlog Series' },
+                platform: 'YouTube',
+                youtubeId: 'iUw3LPM7OBU',
+                desc: {
+                    th: 'บันทึกการเดินทางทัวร์คอนเสิร์ตทั่วโลกและเบื้องหลังเวทีในปี 2025',
+                    en: 'Vlog series capturing global tour journeys and behind-the-scenes moments in 2025.'
+                }
+            },
+            {
+                year: '2024',
+                title: 'Idol Human Theater (2024)',
+                category: { th: 'Web Variety Show', en: 'Web Variety Show' },
+                platform: 'KBS Kpop',
+                youtubeId: 'iUw3LPM7OBU',
+                desc: {
+                    th: 'รายการวาไรตี้สารคดีจำลองสุดฮา โชว์เคมีและมุกตลกธรรมชาติในปี 2024',
+                    en: 'Mockumentary comedy show showcasing natural chemistry and humor in 2024.'
+                }
+            },
+            {
+                year: '2024',
+                title: 'Running Man (2024 Guest)',
+                category: { th: 'TV Variety Show', en: 'TV Variety Show' },
+                platform: 'SBS',
+                youtubeId: 'iUw3LPM7OBU',
+                desc: {
+                    th: 'สมาชิกวงเข้าร่วมรายการวิ่งแข่งเล่นเกมสุดสนุกร่วมกับรุ่นพี่ MC',
+                    en: 'Guest appearance on the iconic gameshow competing in outdoor races.'
+                }
+            },
+            {
+                year: '2023',
+                title: 'Debut Era Variety Highlights',
+                category: { th: 'Web Content', en: 'Web Content' },
+                platform: 'YouTube',
+                youtubeId: 'iUw3LPM7OBU',
+                desc: {
+                    th: 'รวมความทรงจำและคอนเทนต์ช่วงเริ่มต้นเดบิวต์ในปี 2023 ของวง RIIZE',
+                    en: 'Compilation of memories and variety content from RIIZE debut era in 2023.'
+                }
+            },
+            {
+                year: '2023',
+                title: 'Silence Of Dance (2023)',
+                category: { th: 'Web Content', en: 'Web Content' },
+                platform: 'MUPLY',
+                youtubeId: 'iUw3LPM7OBU',
+                desc: {
+                    th: 'มิชชั่นเต้นเพลงเดบิวต์โดยห้ามส่งเสียงหรือทำอุปกรณ์ตกช่วงโปรโมทแรกๆ',
+                    en: 'Stealth dance challenge to perform choreo without making noise during debut promotions.'
+                }
+            }
+        ];
+
+        let selectedYear = 'all';
+
+        function filterYear(year) {
+            selectedYear = year;
+            
+            // อัปเดตสไตล์ปุ่มกดเลือกปี
+            const years = ['all', '2026', '2025', '2024', '2023'];
+            years.forEach(y => {
+                const btn = document.getElementById(`btn-year-${y}`);
+                if (!btn) return;
+                if (y === year) {
+                    btn.className = "px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all bg-riize-orange text-white shadow-lg shadow-riize-orange/30";
+                } else {
+                    btn.className = "px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange";
+                }
+            });
+
+            renderVarietyShows();
+        }
+
+        function renderVarietyShows() {
+            const container = document.getElementById('variety-grid');
+            if (!container) return;
+
+            const lang = typeof currentLang !== 'undefined' ? currentLang : 'th';
+
+            // กรองข้อมูลตามปีที่เลือก
+            const filteredData = selectedYear === 'all' 
+                ? varietyData 
+                : varietyData.filter(show => show.year === selectedYear);
+
+            container.innerHTML = filteredData.map(show => `
+                <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between border border-riize-border/60 hover:border-riize-orange transition-all space-y-4">
+                    <div>
+                        <!-- Category, Year & Platform Header -->
+                        <div class="flex items-center justify-between mb-3">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-xs px-2.5 py-1 rounded bg-riize-orange/20 text-riize-orange font-bold uppercase tracking-wider">${show.category[lang]}</span>
+                                <span class="text-xs px-2 py-0.5 rounded bg-white/10 text-gray-300 font-semibold">${show.year}</span>
+                            </div>
+                            <span class="text-xs text-gray-400 font-semibold"><i class="fas fa-tv text-riize-orange mr-1.5"></i>${show.platform}</span>
+                        </div>
+
+                        <!-- YouTube Embed Player -->
+                        ${show.youtubeId ? `
+                            <div class="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 bg-black shadow-lg mb-3">
+                                <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/${show.youtubeId}" title="${show.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                            </div>
+                        ` : ''}
+
+                        <!-- Show Title -->
+                        <h3 class="text-xl font-extrabold text-white mb-2 flex items-center">
+                            <i class="fas fa-play-circle text-riize-orange mr-2 text-sm"></i> ${show.title}
+                        </h3>
+
+                        <!-- Show Description -->
+                        <p class="text-sm text-gray-300 leading-relaxed">${show.desc[lang]}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderVarietyShows();
+        });
+    </script>
+</body>
+</html>

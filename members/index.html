@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประวัติสมาชิก - RIIZE</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Inter & Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External Custom Style -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        riize: { orange: '#FF5500', coral: '#FF7744', blue: '#0066FF', dark: '#0A0B0E', card: '#14161D', border: '#242834' } 
+                    },
+                    fontFamily: { sans: ['Inter', 'Kanit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-riize-dark text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-riize-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center space-x-3">
+                    <a href="../index.html" class="text-xl sm:text-2xl font-black tracking-tighter text-white">
+                        Fanclub Site for <span class="text-riize-orange">RIIZE</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-semibold">
+                    <a href="../index.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-home">หน้าหลัก</a>
+                    <a href="index.html" class="text-riize-orange font-bold" data-i18n="nav-members">ประวัติสมาชิก</a>
+                    <a href="../discography.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-discography">ผลงานเพลง</a>
+                    <a href="../other-works.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-other-works">Live Stage & Works</a>
+                    <a href="../stats-awards.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-awards">สถิติ/รางวัล</a>
+                    <a href="../tv-shows.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+                    <a href="../little-riize.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-little">Little RIIZE</a>
+
+                    <!-- ปุ่มสลับภาษา TH | EN -->
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-riize-dark border border-riize-orange/40 hover:border-riize-orange text-xs font-bold transition-all hover:scale-105">
+                        <i class="fas fa-globe text-riize-orange mr-1"></i>
+                        <span id="lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center space-x-3 md:hidden">
+                    <!-- ปุ่มสลับภาษา (Mobile) -->
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-2.5 py-1 rounded-full bg-riize-dark border border-riize-orange/40 text-xs font-bold">
+                        <i class="fas fa-globe text-riize-orange text-xs mr-0.5"></i>
+                        <span id="mobile-lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="mobile-lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-riize-border focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-riize-border px-4 pt-2 pb-4 space-y-2">
+            <a href="../index.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-home">หน้าหลัก</a>
+            <a href="index.html" class="block px-3 py-2 rounded-md font-medium text-riize-orange bg-riize-orange/10" data-i18n="nav-members">ประวัติสมาชิก</a>
+            <a href="../discography.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-discography">ผลงานเพลง</a>
+            <a href="../other-works.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-other-works">Live Stage & Works</a>
+            <a href="../stats-awards.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-awards">สถิติ/รางวัล</a>
+            <a href="../tv-shows.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+            <a href="../little-riize.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-little">Little RIIZE</a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner Section -->
+    <header class="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden flex items-center justify-center bg-riize-dark">
+        <!-- Background Image Container -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden">
+            <img src="https://cdnimg.melon.co.kr/cm2/photo/images/000/803/45/269/80345269_20260615183056_org.jpg" 
+                 alt="RIIZE Official Banner" 
+                 class="w-full h-full object-cover object-center opacity-60 filter brightness-90">
+        </div>
+
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-riize-dark via-riize-dark/40 to-transparent"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-riize-orange/20 border border-riize-orange/50 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-riize-orange animate-ping"></span>
+                <span class="text-xs sm:text-sm font-semibold text-riize-orange uppercase tracking-wider" data-i18n="members-tag">MEMBER PROFILES</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white my-2" data-i18n="members-title">
+                ประวัติสมาชิก
+            </h1>
+            
+            <p class="text-lg sm:text-2xl text-gray-300 font-light max-w-2xl mx-auto" data-i18n="members-subtitle">
+                คลิกที่ปุ่มการ์ดสมาชิกเพื่อเข้าชมประวัติและผลงานเดี่ยวฉบับเต็ม
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+        <!-- ประวัติวง RIIZE สรุป -->
+        <section class="glass-panel p-8 rounded-2xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-riize-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+            <h2 class="text-3xl font-extrabold text-white mb-4" data-i18n="members-bio-title">ประวัติวง RIIZE</h2>
+            <p class="text-gray-300 leading-relaxed text-lg" data-i18n="members-bio-desc">
+                <strong>RIIZE (ไรซ์)</strong> เป็นวงบอยกรุ๊ปจากค่าย SM Entertainment ที่รวมความสามารถอันโดดเด่นของสมาชิก นำเสนอแนวดนตรีสไตล์ <em>Emotional Pop</em> ชื่อวงเกิดจากการรวมคำว่า <strong>"RISE"</strong> (การเติบโต) และ <strong>"REALISE"</strong> (การทำให้สำเร็จ)
+            </p>
+        </section>
+
+        <!-- โซนการ์ดสมาชิกทั้ง 6 คน -->
+        <section>
+            <h2 class="text-3xl font-extrabold text-white mb-8" data-i18n="members-list-title">สมาชิกทั้งหมด (6 Members)</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Member Card 1: SHOTARO -->
+                <div class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-64 bg-riize-border rounded-xl mb-4 overflow-hidden">
+                            <img src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/028/92/719/2892719_20260612155100_500.jpg" alt="SHOTARO" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-1">SHOTARO (โชทาโร่)</h3>
+                        <p class="text-riize-orange text-sm font-semibold mb-3">Main Dancer / Rapper</p>
+                    </div>
+                    <a href="member1.html" class="mt-4 w-full py-2.5 rounded-xl bg-riize-orange hover:bg-riize-coral text-white font-bold text-center transition-all block" data-i18n="member-view-btn">
+                        ดูประวัติและผลงานเดี่ยว <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Member Card 2: EUNSEOK -->
+                <div class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-64 bg-riize-border rounded-xl mb-4 overflow-hidden">
+                            <img src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/515/3478515_20260612155110_500.jpg" alt="EUNSEOK" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-1">EUNSEOK (อึนซอก)</h3>
+                        <p class="text-riize-orange text-sm font-semibold mb-3">Vocalist / Visual</p>
+                    </div>
+                    <a href="member2.html" class="mt-4 w-full py-2.5 rounded-xl bg-riize-orange hover:bg-riize-coral text-white font-bold text-center transition-all block" data-i18n="member-view-btn">
+                        ดูประวัติและผลงานเดี่ยว <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Member Card 3: SUNGCHAN -->
+                <div class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-64 bg-riize-border rounded-xl mb-4 overflow-hidden">
+                            <img src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/028/92/718/2892718_20260612155125_500.jpg" alt="SUNGCHAN" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-1">SUNGCHAN (ซองชาน)</h3>
+                        <p class="text-riize-orange text-sm font-semibold mb-3">Rapper / Vocalist</p>
+                    </div>
+                    <a href="member3.html" class="mt-4 w-full py-2.5 rounded-xl bg-riize-orange hover:bg-riize-coral text-white font-bold text-center transition-all block" data-i18n="member-view-btn">
+                        ดูประวัติและผลงานเดี่ยว <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Member Card 4: WONBIN -->
+                <div class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-64 bg-riize-border rounded-xl mb-4 overflow-hidden">
+                            <img src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/517/3478517_20260612155139_500.jpg" alt="WONBIN" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-1">WONBIN (วอนบิน)</h3>
+                        <p class="text-riize-orange text-sm font-semibold mb-3">Center / Vocalist / Dancer</p>
+                    </div>
+                    <a href="member4.html" class="mt-4 w-full py-2.5 rounded-xl bg-riize-orange hover:bg-riize-coral text-white font-bold text-center transition-all block" data-i18n="member-view-btn">
+                        ดูประวัติและผลงานเดี่ยว <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Member Card 5: SOHEE -->
+                <div class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-64 bg-riize-border rounded-xl mb-4 overflow-hidden">
+                            <img src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/523/3478523_20260612155158_500.jpg" alt="SOHEE" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-1">SOHEE (โซฮี)</h3>
+                        <p class="text-riize-orange text-sm font-semibold mb-3">Main Vocalist</p>
+                    </div>
+                    <a href="member5.html" class="mt-4 w-full py-2.5 rounded-xl bg-riize-orange hover:bg-riize-coral text-white font-bold text-center transition-all block" data-i18n="member-view-btn">
+                        ดูประวัติและผลงานเดี่ยว <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+                <!-- Member Card 6: ANTON -->
+                <div class="glass-panel glass-panel-hover p-6 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-full h-64 bg-riize-border rounded-xl mb-4 overflow-hidden">
+                            <img src="https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/525/3478525_20260612155202_500.jpg" alt="ANTON" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-1">ANTON (แอนตัน)</h3>
+                        <p class="text-riize-orange text-sm font-semibold mb-3">Vocalist / Producer / Maknae</p>
+                    </div>
+                    <a href="member6.html" class="mt-4 w-full py-2.5 rounded-xl bg-riize-orange hover:bg-riize-coral text-white font-bold text-center transition-all block" data-i18n="member-view-btn">
+                        ดูประวัติและผลงานเดี่ยว <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+<footer class="border-t border-riize-border/60 glass-panel mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div>
+                <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
+                <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+            </div>
+            <div class="text-xs text-gray-500">
+                Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript สำหรับ เปิด/ปิด Mobile Menu -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+
+    <!-- JavaScript สลับภาษา -->
+    <script src="../js/lang.js"></script>
+</body>
+</html>

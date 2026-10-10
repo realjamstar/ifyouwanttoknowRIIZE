@@ -1,0 +1,59 @@
+/* นำเข้า Font Kanit & Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Kanit:wght@300;400;500;600;700&display=swap');
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0A0B0E;
+}
+::-webkit-scrollbar-thumb {
+    background: #FF5500;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #FF7744;
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+    background: rgba(20, 22, 29, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 85, 0, 0.15);
+}
+
+.glass-panel-hover:hover {
+    border-color: rgba(255, 85, 0, 0.5);
+    box-shadow: 0 8px 32px 0 rgba(255, 85, 0, 0.2);
+}
+
+/* Gradient Text */
+.text-gradient {
+    background: linear-gradient(135deg, #FF5500 0%, #FF9900 50%, #0066FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* =======================================================
+   PAGE & LANGUAGE TRANSITION SMOOTH EFFECT
+   ======================================================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+body {
+    animation: fadeIn 0.4s ease-out forwards;
+}

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fanclub Site for RIIZE - หน้าหลัก</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Inter & Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        riize: {
+                            orange: '#FF5500',
+                            coral: '#FF7744',
+                            blue: '#0066FF',
+                            dark: '#0A0B0E',
+                            card: '#14161D',
+                            border: '#242834'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'Kanit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-riize-dark text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-riize-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center space-x-3">
+                    <a href="index.html" class="text-xl sm:text-2xl font-black tracking-tighter text-white">
+                        Fanclub Site for <span class="text-riize-orange">RIIZE</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-semibold">
+                    <a href="index.html" class="text-riize-orange font-bold" data-i18n="nav-home">หน้าหลัก</a>
+                    <a href="members/index.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-members">ประวัติสมาชิก</a>
+                    <a href="discography.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-discography">ผลงานเพลง</a>
+                    <a href="other-works.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-other-works">Live Stage & Works</a>
+                    <a href="stats-awards.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-awards">สถิติ/รางวัล</a>
+                    <a href="tv-shows.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+                    <a href="little-riize.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-little">Little RIIZE</a>
+
+                    <!-- ปุ่มสลับภาษา TH | EN -->
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-riize-dark border border-riize-orange/40 hover:border-riize-orange text-xs font-bold transition-all">
+                        <i class="fas fa-globe text-riize-orange mr-1"></i>
+                        <span id="lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center space-x-3 md:hidden">
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-riize-border focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-riize-border px-4 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block px-3 py-2 rounded-md font-medium text-riize-orange bg-riize-orange/10" data-i18n="nav-home">หน้าหลัก</a>
+            <a href="members/index.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-members">ประวัติสมาชิก</a>
+            <a href="discography.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-discography">ผลงานเพลง</a>
+            <a href="other-works.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-other-works">Live Stage & Works</a>
+            <a href="stats-awards.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="stats-awards">สถิติ/รางวัล</a>
+            <a href="tv-shows.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+            <a href="little-riize.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-little">Little RIIZE</a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner Section -->
+    <header class="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden flex items-center justify-center bg-riize-dark">
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden">
+            <img src="https://cdnimg.melon.co.kr/cm2/photo/images/000/803/45/269/80345269_20260615183056_org.jpg" 
+                 alt="RIIZE Official Banner" 
+                 class="w-full h-full object-cover object-center opacity-60 filter brightness-90">
+        </div>
+
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-riize-dark via-riize-dark/40 to-transparent"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-riize-orange/20 border border-riize-orange/50 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-riize-orange animate-ping"></span>
+                <span data-i18n="hero-tag" class="text-xs sm:text-sm font-semibold text-riize-orange uppercase tracking-wider">RISE & REALISE</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-none my-4">
+                <span class="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">R</span><span class="text-white">II</span><span class="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">ZE</span>
+            </h1>
+            
+            <!-- คำบรรยาย Hero -->
+            <p data-i18n="hero-desc" class="text-gray-300 text-base sm:text-xl max-w-2xl mx-auto font-light">ศูนย์รวมข้อมูลและคอนเทนต์วง RIIZE สำหรับ BRIIZE ทั่วโลก</p>
+            
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="members/index.html" data-i18n="hero-btn-member" class="px-6 py-3 rounded-full bg-riize-orange hover:bg-riize-coral text-white font-bold transition-all shadow-lg hover:shadow-riize-orange/50 hover:scale-105">
+                    ทำความรู้จักสมาชิก <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+                <a href="discography.html" data-i18n="hero-btn-discography" class="px-6 py-3 rounded-full glass-panel hover:bg-white/10 text-white font-semibold transition-all hover:border-riize-orange">
+                    <i class="fas fa-music mr-2 text-riize-orange"></i> ผลงานของ RIIZE
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+        
+        <!-- ข้อมูลหลักของวง (About RIIZE) -->
+        <section class="glass-panel p-8 rounded-2xl relative overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-60 h-60 bg-riize-orange/10 rounded-full blur-3xl pointer-events-none"></div>
+            <h2 data-i18n="about-title" class="text-3xl font-extrabold text-white mb-4">เกี่ยวกับวง RIIZE</h2>
+            <p data-i18n="about-desc" class="text-gray-300 leading-relaxed text-lg">
+                <strong>RIIZE (ไรซ์)</strong> บอยกรุ๊ปจากค่าย SM Entertainment เปิดตัวอย่างเป็นทางการด้วยแนวดนตรีสไตล์ <em>"Emotional Pop"</em> ซึ่งเป็นเอกลักษณ์เฉพาะตัว ชื่อวงเกิดจากการรวมกันของคำว่า <strong>"RISE"</strong> (การเติบโต) และ <strong>"REALISE"</strong> (การทำให้สำเร็จ) สื่อถึงการก้าวไปข้างหน้าและทำฝันให้เป็นจริงร่วมกัน
+            </p>
+        </section>
+
+        <!-- ช่องทางการติดตาม (Official Social Media) -->
+        <section>
+            <h2 data-i18n="social-title" class="text-2xl sm:text-3xl font-bold text-white mb-6 flex items-center">
+                <i class="fas fa-share-nodes text-riize-orange mr-3"></i> ช่องทางการติดตาม (Official Social Links)
+            </h2>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Instagram -->
+                <a href="https://instagram.com/riize_official" target="_blank" class="glass-panel glass-panel-hover p-6 rounded-xl flex items-center space-x-4 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-pink-600/20 text-pink-500 flex items-center justify-center text-2xl">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">Instagram</h3>
+                        <p class="text-xs text-gray-400">@riize_official</p>
+                    </div>
+                </a>
+
+                <!-- YouTube -->
+                <a href="https://youtube.com/@RIIZE_official" target="_blank" class="glass-panel glass-panel-hover p-6 rounded-xl flex items-center space-x-4 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-red-600/20 text-red-500 flex items-center justify-center text-2xl">
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">YouTube</h3>
+                        <p class="text-xs text-gray-400">RIIZE Official</p>
+                    </div>
+                </a>
+
+                <!-- X / Twitter -->
+                <a href="https://twitter.com/riize_official" target="_blank" class="glass-panel glass-panel-hover p-6 rounded-xl flex items-center space-x-4 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-blue-500/20 text-blue-400 flex items-center justify-center text-2xl">
+                        <i class="fab fa-x-twitter"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">X (Twitter)</h3>
+                        <p class="text-xs text-gray-400">@riize_official</p>
+                    </div>
+                </a>
+
+                <!-- TikTok -->
+                <a href="https://tiktok.com/@riize_official" target="_blank" class="glass-panel glass-panel-hover p-6 rounded-xl flex items-center space-x-4 transition-all">
+                    <div class="w-12 h-12 rounded-lg bg-gray-600/20 text-gray-200 flex items-center justify-center text-2xl">
+                        <i class="fab fa-tiktok"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-white">TikTok</h3>
+                        <p class="text-xs text-gray-400">@riize_official</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+<footer class="border-t border-riize-border/60 glass-panel mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div>
+                <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
+                <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+            </div>
+            <div class="text-xs text-gray-500">
+                Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript สำหรับ เปิด/ปิด Mobile Menu -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+
+    <!-- JavaScript สลับภาษา -->
+    <script src="js/lang.js"></script>
+</body>
+</html>

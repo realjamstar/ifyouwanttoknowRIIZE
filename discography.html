@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผลงานเพลง - RIIZE</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Inter & Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        riize: { orange: '#FF5500', coral: '#FF7744', blue: '#0066FF', dark: '#0A0B0E', card: '#14161D', border: '#242834' } 
+                    },
+                    fontFamily: { sans: ['Inter', 'Kanit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-riize-dark text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-riize-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center space-x-3">
+                    <a href="index.html" class="text-xl sm:text-2xl font-black tracking-tighter text-white">
+                        Fanclub Site for <span class="text-riize-orange">RIIZE</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-semibold">
+                    <a href="index.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-home">หน้าหลัก</a>
+                    <a href="members/index.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-members">ประวัติสมาชิก</a>
+                    <a href="discography.html" class="text-riize-orange font-bold" data-i18n="nav-discography">ผลงานเพลง</a>
+                    <a href="other-works.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-other-works">Live Stage & Works</a>
+                    <a href="stats-awards.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-awards">สถิติ/รางวัล</a>
+                    <a href="tv-shows.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+                    <a href="little-riize.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-little">Little RIIZE</a>
+
+                    <!-- ปุ่มสลับภาษา TH | EN -->
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-riize-dark border border-riize-orange/40 hover:border-riize-orange text-xs font-bold transition-all hover:scale-105">
+                        <i class="fas fa-globe text-riize-orange mr-1"></i>
+                        <span id="lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center space-x-3 md:hidden">
+                    <!-- ปุ่มสลับภาษา (Mobile) -->
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-2.5 py-1 rounded-full bg-riize-dark border border-riize-orange/40 text-xs font-bold">
+                        <i class="fas fa-globe text-riize-orange text-xs mr-0.5"></i>
+                        <span id="mobile-lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="mobile-lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-riize-border focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-riize-border px-4 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-home">หน้าหลัก</a>
+            <a href="members/index.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-members">ประวัติสมาชิก</a>
+            <a href="discography.html" class="block px-3 py-2 rounded-md font-medium text-riize-orange bg-riize-orange/10" data-i18n="nav-discography">ผลงานเพลง</a>
+            <a href="other-works.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-other-works">Live Stage & Works</a>
+            <a href="stats-awards.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-awards">สถิติ/รางวัล</a>
+            <a href="tv-shows.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+            <a href="little-riize.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-little">Little RIIZE</a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner Section -->
+    <header class="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden flex items-center justify-center bg-riize-dark">
+        <!-- Background Image Container -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden">
+            <img src="https://cdnimg.melon.co.kr/cm2/photo/images/000/803/45/269/80345269_20260615183056_org.jpg" 
+                 alt="RIIZE Official Banner" 
+                 class="w-full h-full object-cover object-center opacity-60 filter brightness-90">
+        </div>
+
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-riize-dark via-riize-dark/40 to-transparent"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-riize-orange/20 border border-riize-orange/50 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-riize-orange animate-ping"></span>
+                <span class="text-xs sm:text-sm font-semibold text-riize-orange uppercase tracking-wider" data-i18n="disco-tag">DISCOGRAPHY</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white my-2" data-i18n="disco-title">
+                ผลงานเพลง
+            </h1>
+            
+            <p class="text-lg sm:text-2xl text-gray-300 font-light max-w-2xl mx-auto" data-i18n="disco-subtitle">
+                รวบรวมอัลบั้มและผลงานเพลงทั้งหมดของวง RIIZE
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+        <h2 class="text-2xl sm:text-3xl font-bold text-white flex items-center">
+            <i class="fas fa-compact-disc text-riize-orange mr-3"></i> 
+            <span data-i18n="disco-section-title">อัลบั้มทั้งหมด (Albums & Singles)</span>
+        </h2>
+
+        <!-- Grid Container สำหรับรับการ์ดอัลบั้มจาก JavaScript -->
+        <div id="discography-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </main>
+
+    <!-- Footer -->
+<footer class="border-t border-riize-border/60 glass-panel mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div>
+                <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
+                <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+            </div>
+            <div class="text-xs text-gray-500">
+                Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript สำหรับ เปิด/ปิด Mobile Menu -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+
+    <!-- JavaScript สลับภาษา -->
+    <script src="js/lang.js"></script>
+
+    <!-- Discography Data & Dynamic Renderer Script -->
+    <script>
+        const albumsData = [
+            {
+                title: 'Siren',
+                type: { th: 'Prologue Single', en: 'Prologue Single' },
+                date: { th: '6 สิงหาคม 2023', en: 'August 6, 2023' },
+                tracks: [
+                    { name: 'Siren', spotifyId: '3K8OJiXeEYnQ0nUlLDwh4X' }
+                ],
+                mvId: 'tZYsvAoSNxQ',
+                cover: 'https://static.wikia.nocookie.net/riize/images/9/91/Siren_cover.png?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Memories',
+                type: { th: 'Prologue Single', en: 'Prologue Single' },
+                date: { th: '21 สิงหาคม 2023', en: 'August 21, 2023' },
+                tracks: [
+                    { name: 'Memories', spotifyId: '7egcmrxRDee6C5M3AtXZ7L' }
+                ],
+                mvId: '2H0duKgnYgE',
+                cover: 'https://static.wikia.nocookie.net/riize/images/f/fa/Memories_cover.png?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Get A Guitar',
+                type: { th: '1st Single Album (Debut)', en: '1st Single Album (Debut)' },
+                date: { th: '4 กันยายน 2023', en: 'September 4, 2023' },
+                tracks: [
+                    { name: 'Get A Guitar', spotifyId: '4H65EdACzwqV8sTt3dDyA0' },
+                    { name: 'Memories', spotifyId: '542DRppCDMWVWmjRgROlGM' }
+                ],
+                mvId: 'iUw3LPM7OBU',
+                cover: 'https://cdnimg.melon.co.kr/cm2/album/images/113/09/832/11309832_20230904111501_500.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Talk Saxy',
+                type: { th: '2nd Single', en: '2nd Single' },
+                date: { th: '27 ตุลาคม 2023', en: 'October 27, 2023' },
+                tracks: [
+                    { name: 'Talk Saxy', spotifyId: '51XEe7g3biT97KzhZjHRgv' }
+                ],
+                mvId: 'gJMheHHf4GQ',
+                cover: 'https://cdnimg.melon.co.kr/cm2/album/images/113/52/519/11352519_20231026160513_500.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'SEALOOK',
+                type: { th: 'Original Soundtrack', en: 'Original Soundtrack' },
+                date: { th: '4 พฤศจิกายน 2024', en: 'November 4, 2024' },
+                tracks: [
+                    { name: 'HAPPY! HAPPY! HAPPY! (KR Ver.)', spotifyId: '7zjaxI6TDiUmNXZiVXPHzJ' },
+                    { name: 'Look at me SEALOOK (KR Ver.)', spotifyId: '2FjOjoQxErb7pKys73rKu7' },
+                    { name: 'HAPPY! HAPPY! HAPPY! (EN Ver.)', spotifyId: '3NMclPHkPsrWaN8kiJOsJu' },
+                    { name: 'Look at me SEALOOK (EN Ver.)', spotifyId: '1gEUGSfE84nVO0welqLGTD' }
+                ],
+                mvId: 'dRqbyLGkj4Y',
+                cover: 'https://cdn.phototourl.com/member/2026-10-06-436c89bf-ca47-4669-b086-da8e5f39b6ac.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Get A Guitar English Ver.',
+                type: { th: 'Digital Single', en: 'Digital Single' },
+                date: { th: '9 พฤศจิกายน 2023', en: 'November 9, 2023' },
+                tracks: [
+                    { name: 'Get A Guitar EN Ver.', spotifyId: '1iC7ZOAtYIC2XgaUptgx95' }
+                ],
+                mvId: 'Fzlqi12oro4',
+                cover: 'https://cdn.phototourl.com/member/2026-10-06-974a0254-0941-461c-bcef-77ee5f9341e6.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Love 119 KR Ver.',
+                type: { th: '3rd Single', en: '3rd Single' },
+                date: { th: '5 มกราคม 2024', en: 'January 5, 2024' },
+                tracks: [
+                    { name: 'Love 119 KR Ver.', spotifyId: '4ndxCrtl74lgOdF6Lz7bIq' }
+                ],
+                mvId: '0TAAUWHo4Ec',
+                cover: 'https://cdnimg.melon.co.kr/cm2/album/images/113/94/065/11394065_20240104151541_500.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Love 119 JP Ver.',
+                type: { th: '3rd Single', en: '3rd Single' },
+                date: { th: '24 มกราคม 2024', en: 'January 24, 2024' },
+                tracks: [
+                    { name: 'Love 119 JP Ver.', spotifyId: '5Gw3SiNinRr4kY8FxKl7Dm' }
+                ],
+                mvId: '-Y47YS2jr7k',
+                cover: 'https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/084/730/150/84730150_1706063606264_1_600x600.JPG?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Impossible',
+                type: { th: 'Prologue Single', en: 'Prologue Single' },
+                date: { th: '18 เมษายน 2024', en: 'April 18, 2024' },
+                tracks: [
+                    { name: 'Impossible', spotifyId: '3gPI0DkzvSHc5s21lIU5yv' },
+                    { name: 'Siren', spotifyId: '48JMU0u4Yun7ZwrnByZSu9' }
+                ],
+                mvId: 'Ey53EQhkLY8',
+                cover: 'https://linkstorage.linkfire.com/medialinks/images/2ab5d30e-03f4-4862-a382-954aa8872ebe/artwork-440x440.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Boom Boom Bass',
+                type: { th: 'RIIZING - The 1st Mini Album', en: 'RIIZING - The 1st Mini Album' },
+                date: { th: '17 มิถุนายน 2024', en: 'June 17, 2024' },
+                tracks: [
+                    { name: 'Boom Boom Bass', spotifyId: '6Ixrp3yXfzv5brZXmZuXXN' },
+                    { name: 'Siren', spotifyId: '0ECkPMDQlTtL373y7BByup' },
+                    { name: 'Impossible', spotifyId: '2cN2qkaSnO5KKAMSa5ZfIm' },
+                    { name: '9 Days', spotifyId: '0HxW0py3PdhLEFGmxbKaF8' },
+                    { name: 'Honestly', spotifyId: '3CwhA9cmLK88kGd6VwNiuz' },
+                    { name: 'One Kiss', spotifyId: '4aShw2oGVO55cXxFGu7MM7' },
+                    { name: 'Talk Saxy', spotifyId: '5k3DYylnDDNUMY0EOhrb22' },
+                    { name: 'Love 119', spotifyId: '0lUtQTBt2ydznYzuAeYFrZ' }
+                ],
+                mvId: '78lNnCitcBM',
+                cover: 'https://linkstorage.linkfire.com/medialinks/images/a41b3b9f-b1ae-4aa5-9689-99af839491f5/artwork-440x440.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Lucky',
+                type: { th: '1st japan single (Debut)', en: '1st japan single (Debut)' },
+                date: { th: '28 กรกฎาคม 2024', en: 'July 28, 2024' },
+                tracks: [
+                    { name: 'Lucky', spotifyId: '6d8jZaJleeIpKmaSVO60tC' },
+                    { name: 'Be My Next', spotifyId: '6Xp1vthOday1YawafYlF23' },
+                    { name: 'Same Key', spotifyId: '53FvxbCYkf3d2O1iIo3182' }
+                ],
+                mvId: '3Q49g7M5MlU',
+                cover: 'https://cdnimg.melon.co.kr/cm2/album/images/115/51/663/11551663_20240726113858_500.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Combo',
+                type: { th: 'RIIZING : Epilogue - The 1st Mini Album', en: 'RIIZING : Epilogue - The 1st Mini Album' },
+                date: { th: '4 กันยายน 2024', en: 'September 4, 2024' },
+                tracks: [
+                    { name: 'Combo', spotifyId: '2ehtxaFn31gfhARCEn8QtA' },
+                    { name: 'Boom Boom Bass', spotifyId: '77nbtgrsJ3ZfqRyzjKIc9r' },
+                    { name: 'Siren', spotifyId: '4S1xNvYGZf7J4QMjZIe5p4' },
+                    { name: 'Impossible', spotifyId: '4OAQRfJoMH4t8J3kedYUwu' },
+                    { name: '9 Days', spotifyId: '0kNsGuJaLAPXxIGza8E9JI' },
+                    { name: 'Honestly', spotifyId: '1Ad5wvjRFxgtnXGgudg1sp' },
+                    { name: 'One Kiss', spotifyId: '1uoRQDMnSESWqt2zIttGZy' },
+                    { name: 'Talk Saxy', spotifyId: '51XEe7g3biT97KzhZjHRgv' },
+                    { name: 'Love 119', spotifyId: '4ndxCrtl74lgOdF6Lz7bIq' }
+                ],
+                mvId: 'QflsDwyl2O4',
+                cover: 'https://cdnimg.melon.co.kr/cm2/album/images/115/82/670/11582670_20240903103809_500.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'HUG',
+                type: { th: 'Special Single', en: 'Special Single' },
+                date: { th: '8 มกราคม 2025', en: 'January 5, 2025' },
+                tracks: [
+                    { name: 'HUG', spotifyId: '1Yy0eOzubrYK75bXH3rFbF' }
+                ],
+                mvId: '4zve1lFvVQA',
+                cover: 'https://f.ptcdn.info/720/086/000/spridk1rv72pqe829yM2i-o.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Fly Up',
+                type: { th: 'ODYSSEY-1st Full Album', en: 'ODYSSEY-1st Full Album' },
+                date: { th: '19 พฤษภาคม 2025', en: 'May 19, 2025' },
+                tracks: [
+                    { name: 'ODYSSEY', spotifyId: '5tZHqRzYiwHLlAubJt7VQr' },
+                    { name: 'Bag Bad Back', spotifyId: '5nIMaWairXgZsh8hjC1r26' },
+                    { name: 'Ember to Solar', spotifyId: '7KnQITHDqeTjKo4bsnFNgW' },
+                    { name: 'Fly Up', spotifyId: '61JHSyyzMfvBfcB2ZK0HLI' },
+                    { name: 'Show Me Love', spotifyId: '5CeLRBiMt8R6IC3Jtzym88' },
+                    { name: 'Passage', spotifyId: '1ehb8IkIdAIhBKZixvQhRM' },
+                    { name: 'Midnight Mirage', spotifyId: '4FlDdYU4AHFi0G4CtCNQA1' },
+                    { name: 'The End of the Day', spotifyId: '6KwLumGEUxeyU4kWhmYdI1' },
+                    { name: 'Inside My Love', spotifyId: '0ctTbnpZKsDjY7vG7jtPeM' },
+                    { name: 'Another Life', spotifyId: '6AbWRIO4f1dYakGZidYHnz' }
+                ],
+                mvId: 'vLUtHODdLzk',
+                cover: 'https://upload.wikimedia.org/wikipedia/en/2/2d/Riize_Odyssey.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Fame',
+                type: { th: 'Fame-2nd Single Album', en: 'Fame-2nd Single Album' },
+                date: { th: '24 พฤศจิกายน 2025', en: 'November 24, 2025' },
+                tracks: [
+                    { name: "Something's in the Water", spotifyId: '3gcJOW2tySk09ctCx4BBOH' },
+                    { name: 'Fame', spotifyId: '7pjjoNOZQW7H8pOSCFIvsX' },
+                    { name: 'Sticky Like', spotifyId: '1MgkL3WARnRnQqM0DauHk4' }
+                ],
+                mvId: 'TVqEwvbZP30',
+                cover: 'https://cdnimg.melon.co.kr/cm2/album/images/124/02/759/12402759_20251121172323_1000.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'All of You',
+                type: { th: '2nd Japan Single', en: '2nd Japan Single' },
+                date: { th: '18 กุมภาพันธ์ 2026', en: 'February 18, 2026' },
+                tracks: [
+                    { name: 'All of You', spotifyId: '1M4MWyhWTpFCvJJoCva3Ij' }
+                ],
+                mvId: 'yfKBI5l81-A',
+                cover: 'https://cdnimg.melon.co.kr/cm2/album/images/128/59/211/12859211_20260212171532_500.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Behind The Shine',
+                type: { th: 'Perfect Crown OST.', en: 'Perfect Crown OST.' },
+                date: { th: '18 เมษายน 2026', en: 'April 18, 2026' },
+                tracks: [
+                    { name: 'Behind The Shine', spotifyId: '2MoKB0yw4yerLvvfMQgeAe' }
+                ],
+                mvId: 'yfKBI5l81-A',
+                cover: 'https://cdnimg.melon.co.kr/cm2/album/images/133/35/676/13335676_20260417113121_500.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'KILL SHOT',
+                type: { th: 'KILL BLUE OST.', en: 'KILL BLUE OST.' },
+                date: { th: '19 เมษายน 2026', en: 'April 19, 2026' },
+                tracks: [
+                    { name: 'KILL SHOT', spotifyId: '1SsPQNFtjDze9XrLEoDkKF' }
+                ],
+                mvId: 'nP-aNevWpX8',
+                cover: 'https://cdnimg.melon.co.kr/cm2/album/images/133/36/041/13336041_20260417151852_500.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Do Your Dance',
+                type: { th: 'll-The 2nd Mini Album', en: 'll-The 2nd Mini Album' },
+                date: { th: '15 มิถุนายน 2026', en: 'June 15, 2026' },
+                tracks: [
+                    { name: 'SOAR', spotifyId: '1fgjvMrQqq1FwhFapIXC2O' },
+                    { name: 'Do your Dance', spotifyId: '5POcU3tBNEXuIDgfYo4TEa' },
+                    { name: 'D-D-Done', spotifyId: '0tOocKgyXjm1LiLo0uOkVn' },
+                    { name: 'Overdrive', spotifyId: '5UTcFlwMFcnTnN7IwYGf6l' },
+                    { name: 'Like a Bomb', spotifyId: '7i41rwqPaLJto3sMXs9BTs' },
+                    { name: 'In a Loop', spotifyId: '7lBkZa2B6poAKTI1yGdREd' }
+                ],
+                mvId: 'HDGCTtuW-Yo',
+                cover: 'https://cdnimg.melon.co.kr/cm2/album/images/137/31/669/13731669_20260612113905_500.jpg?auto=format&fit=crop&w=500&q=80'
+            },
+            {
+                title: 'Sunburst',
+                type: { th: '3rd Japan Single', en: '3rd Japan Single' },
+                date: { th: '26 สิงหาคม 2026', en: 'August 26, 2026' },
+                tracks: [
+                    { name: 'Sunburst', spotifyId: '7erjjY5wHoWFTmDoV3Mktq' },
+                    { name: 'Rise Over', spotifyId: '68OM4MnZrSR7JZQBGAYAnY' },
+                    { name: 'KILL SHOT', spotifyId: '3QJAOer1YkWOOPiiXVqhO1' }
+                ],
+                mvId: 'RsDXsGIst-s',
+                cover: 'https://cdnimg.melon.co.kr/cm2/album/images/144/78/755/14478755_20260825152353_500.jpg?auto=format&fit=crop&w=500&q=80'
+            }
+        ];
+
+        function playSpotifyTrack(elementId, trackId) {
+            const playerContainer = document.getElementById(elementId);
+            if (!playerContainer) return;
+
+            if (!trackId || trackId === 'undefined') {
+                alert('ไม่พบรหัส Spotify Track สำหรับเพลงนี้');
+                return;
+            }
+            
+            playerContainer.innerHTML = `
+                <div class="mt-3">
+                    <iframe 
+                        style="border-radius:12px" 
+                        src="https://open.spotify.com/embed/track/${trackId}?utm_source=generator&theme=0" 
+                        width="100%" 
+                        height="80" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            `;
+        }
+
+        function renderDiscography() {
+    const container = document.getElementById('discography-grid');
+    if (!container) return;
+
+    const lang = typeof currentLang !== 'undefined' ? currentLang : 'th';
+    
+    // ดึงคำแปลปุ่มรับชม MV และข้อความ Tracklist จาก i18nDict
+    const watchText = (typeof i18nDict !== 'undefined' && i18nDict[lang] && i18nDict[lang]['disco-watch-mv']) 
+                      ? i18nDict[lang]['disco-watch-mv'] 
+                      : (lang === 'en' ? 'Watch Music Video' : 'รับชม MV');
+
+    const tracklistLabel = (typeof i18nDict !== 'undefined' && i18nDict[lang] && i18nDict[lang]['disco-tracklist-label']) 
+                          ? i18nDict[lang]['disco-tracklist-label'] 
+                          : (lang === 'en' ? 'Tracklist (Click to play):' : 'Tracklist (คลิกเพื่อฟัง):');
+
+    container.innerHTML = albumsData.map((album, albumIdx) => {
+        const trackListHTML = album.tracks.map((t) => {
+            const trackName = typeof t === 'object' ? t.name : t;
+            const spotifyId = typeof t === 'object' ? t.spotifyId : '';
+
+            return `
+                <li>
+                    <button 
+                        type="button"
+                        onclick="playSpotifyTrack('player-${albumIdx}', '${spotifyId}')"
+                        class="w-full text-left px-2.5 py-1.5 rounded-lg text-gray-300 hover:bg-riize-orange/20 hover:text-riize-orange transition-all flex items-center justify-between group/track cursor-pointer">
+                        <span class="flex items-center space-x-2">
+                            <i class="fas fa-play text-[10px] text-riize-orange opacity-0 group-hover/track:opacity-100 transition-opacity"></i>
+                            <span>${trackName}</span>
+                        </span>
+                        <i class="fab fa-spotify text-green-500 text-xs opacity-75 group-hover/track:opacity-100"></i>
+                    </button>
+                </li>
+            `;
+        }).join('');
+
+        return `
+            <div class="glass-panel glass-panel-hover rounded-2xl overflow-hidden flex flex-col transition-all duration-300">
+                <div class="relative h-48 overflow-hidden group">
+                    <img src="${album.cover}" alt="${album.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <span class="absolute top-3 right-3 px-3 py-1 bg-riize-orange text-white text-xs font-bold rounded-full">${album.type[lang] || album.type.th}</span>
+                </div>
+
+                <div class="p-6 flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                        <p class="text-xs text-riize-orange font-semibold">${album.date[lang] || album.date.th}</p>
+                        <h4 class="text-2xl font-bold text-white mb-2">${album.title}</h4>
+                        
+                        <div class="space-y-1">
+                            <p class="text-xs font-bold text-gray-400 uppercase mb-2">${tracklistLabel}</p>
+                            <ul class="text-sm space-y-1">
+                                ${trackListHTML}
+                            </ul>
+                        </div>
+
+                        <div id="player-${albumIdx}"></div>
+                    </div>
+
+                    <div class="pt-2 border-t border-riize-border/50">
+                        <a href="https://www.youtube.com/watch?v=${album.mvId}" target="_blank" class="w-full py-2.5 rounded-xl bg-riize-dark hover:bg-riize-orange text-white font-semibold text-sm transition-all border border-riize-border flex items-center justify-center space-x-2">
+                            <i class="fab fa-youtube text-red-500"></i>
+                            <span>${watchText}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `;
+    }).join('');
+}
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderDiscography();
+        });
+    </script>
+</body>
+</html>

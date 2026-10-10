@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pref. Video & Works - RIIZE</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Inter & Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        riize: { orange: '#FF5500', coral: '#FF7744', blue: '#0066FF', dark: '#0A0B0E', card: '#14161D', border: '#242834' } 
+                    },
+                    fontFamily: { sans: ['Inter', 'Kanit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-riize-dark text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-riize-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center space-x-3">
+                    <a href="index.html" class="text-xl sm:text-2xl font-black tracking-tighter text-white">
+                        Fanclub Site for <span class="text-riize-orange">RIIZE</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-semibold">
+                    <a href="index.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-home">หน้าหลัก</a>
+                    <a href="members/index.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-members">ประวัติสมาชิก</a>
+                    <a href="discography.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-discography">ผลงานเพลง</a>
+                    <a href="other-works.html" class="text-riize-orange font-bold" data-i18n="nav-other-works">Pref. Video & Works</a>
+                    <a href="stats-awards.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-awards">สถิติ/รางวัล</a>
+                    <a href="tv-shows.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+                    <a href="little-riize.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-little">Little RIIZE</a>
+
+                    <!-- ปุ่มสลับภาษา TH | EN -->
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-riize-dark border border-riize-orange/40 hover:border-riize-orange text-xs font-bold transition-all hover:scale-105">
+                        <i class="fas fa-globe text-riize-orange mr-1"></i>
+                        <span id="lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center space-x-3 md:hidden">
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-2.5 py-1 rounded-full bg-riize-dark border border-riize-orange/40 text-xs font-bold">
+                        <i class="fas fa-globe text-riize-orange text-xs mr-0.5"></i>
+                        <span id="mobile-lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="mobile-lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-riize-border focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-riize-border px-4 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-home">หน้าหลัก</a>
+            <a href="members/index.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-members">ประวัติสมาชิก</a>
+            <a href="discography.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-discography">ผลงานเพลง</a>
+            <a href="other-works.html" class="block px-3 py-2 rounded-md font-medium text-riize-orange bg-riize-orange/10" data-i18n="nav-other-works">Pref. Video & Works</a>
+            <a href="stats-awards.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-awards">สถิติ/รางวัล</a>
+            <a href="tv-shows.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+            <a href="little-riize.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-little">Little RIIZE</a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner Section -->
+    <header class="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden flex items-center justify-center bg-riize-dark">
+        <div class="absolute inset-0 w-full h-full overflow-hidden">
+            <img src="https://cdnimg.melon.co.kr/cm2/photo/images/000/803/45/269/80345269_20260615183056_org.jpg" 
+                 alt="RIIZE Official Banner" 
+                 class="w-full h-full object-cover object-center opacity-60 filter brightness-90">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-riize-dark via-riize-dark/40 to-transparent"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-riize-orange/20 border border-riize-orange/50 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-riize-orange animate-ping"></span>
+                <span class="text-xs sm:text-sm font-semibold text-riize-orange uppercase tracking-wider" data-i18n="works-tag">PREF. VIDEO & WORKS</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white my-2" data-i18n="works-title">
+                Pref. Video & Works
+            </h1>
+            
+            <p class="text-lg sm:text-2xl text-gray-300 font-light max-w-2xl mx-auto" data-i18n="works-subtitle">
+                รวบรวมเพอร์ฟอร์แมนซ์วิดีโอ คลิปเต้น งานประกาศรางวัล เฟสติวัล และผลงานโฆษณา
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+        
+        <!-- Category Filter Tabs -->
+        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+            <button onclick="filterCategory('all')" id="btn-cat-all" class="px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all bg-riize-orange text-white shadow-lg shadow-riize-orange/30" data-i18n="tab-all">
+                ทั้งหมด (All)
+            </button>
+            <button onclick="filterCategory('performance')" id="btn-cat-performance" class="px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange" data-i18n="tab-perf">
+                Performance Video (วิดีโอเต้น)
+            </button>
+            <button onclick="filterCategory('festival')" id="btn-cat-festival" class="px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange" data-i18n="tab-festival">
+                Festival & Awards (งานปลายปี)
+            </button>
+            <button onclick="filterCategory('ads')" id="btn-cat-ads" class="px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange" data-i18n="tab-ads">
+                Ads & Brand Ambassador (โฆษณา)
+            </button>
+        </div>
+
+        <section class="space-y-6 pt-4">
+            <h2 class="text-2xl sm:text-3xl font-extrabold text-white flex items-center">
+                <i class="fas fa-star text-riize-orange mr-3"></i> 
+                <span id="section-heading-text" data-i18n="works-section-title">ผลงานการแสดงและโฆษณาทั้งหมด</span>
+            </h2>
+
+            <!-- Works Container -->
+            <div id="works-container" class="space-y-12"></div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-riize-border/60 glass-panel mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+                <div>
+                    <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
+                    <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+                </div>
+                <div class="text-xs text-gray-500">
+                    Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript สำหรับ เปิด/ปิด Mobile Menu -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+
+    <!-- JavaScript สลับภาษา -->
+    <script src="js/lang.js"></script>
+
+    <!-- Works Data & Grouping Script -->
+    <script>
+        const worksData = [
+            {
+                id: 'p1',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE - Impossible (Performance Video)', en: 'RIIZE - Impossible (Performance Video)' },
+                youtubeId: '09AAn93-R_8'
+            },
+            {
+                id: 'p2',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2023',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE - Siren (Performance Video)', en: 'RIIZE - Siren (Performance Video)' },
+                youtubeId: 'tZYsvAoSNxQ'
+            },
+            {
+                id: 'f1',
+                category: 'festival',
+                categoryLabel: { th: 'Awards & Festival', en: 'Awards & Festival' },
+                year: '2024',
+                channel: 'KBS WORLD TV',
+                title: { th: 'RIIZE - Special Stage @ KBS Music Bank Global Festival', en: 'RIIZE - Special Stage @ KBS Music Bank Global Festival' },
+                youtubeId: '4YI9H0HnFpQ'
+            },
+            {
+                id: 'f2',
+                category: 'festival',
+                categoryLabel: { th: 'Awards & Festival', en: 'Awards & Festival' },
+                year: '2023',
+                channel: 'Mnet K-POP',
+                title: { th: 'RIIZE - Siren + Get A Guitar @ MAMA 2023', en: 'RIIZE - Siren + Get A Guitar @ MAMA 2023' },
+                youtubeId: '4R8V613E8k4'
+            },
+            {
+                id: 'a1',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2024',
+                channel: 'Louis Vuitton Official',
+                title: { th: 'Louis Vuitton House Ambassador Campaign', en: 'Louis Vuitton House Ambassador Campaign' },
+                youtubeId: 'K3S95o88uBw'
+            },
+            {
+                id: 'a2',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2023',
+                channel: 'UIQ Official',
+                title: { th: 'UIQ Skincare TV Commercial Film', en: 'UIQ Skincare TV Commercial Film' },
+                youtubeId: 'P_K2M7U7i2g'
+            }
+        ];
+
+        let selectedCategory = 'all';
+
+        function filterCategory(cat) {
+            selectedCategory = cat;
+            
+            const categories = ['all', 'performance', 'festival', 'ads'];
+            categories.forEach(c => {
+                const btn = document.getElementById(`btn-cat-${c}`);
+                if (!btn) return;
+                if (c === cat) {
+                    btn.className = "px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all bg-riize-orange text-white shadow-lg shadow-riize-orange/30";
+                } else {
+                    btn.className = "px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange";
+                }
+            });
+
+            renderWorks();
+        }
+
+        function renderWorks() {
+            const container = document.getElementById('works-container');
+            if (!container) return;
+
+            // ป้องกัน Error หากตัวแปร currentLang จาก lang.js ยังไม่ถูกประกาศ
+            const lang = (typeof currentLang !== 'undefined' && currentLang) ? currentLang : 'th';
+
+            const filteredData = selectedCategory === 'all' 
+                ? worksData 
+                : worksData.filter(item => item.category === selectedCategory);
+
+            const groupedByYear = {};
+            filteredData.forEach(item => {
+                const yr = item.year || 'Other';
+                if (!groupedByYear[yr]) groupedByYear[yr] = [];
+                groupedByYear[yr].push(item);
+            });
+
+            const sortedYears = Object.keys(groupedByYear).sort().reverse();
+
+            if (sortedYears.length === 0) {
+                container.innerHTML = `<p class="text-center text-gray-400 py-8">ไม่พบข้อมูลในหมวดหมู่นี้</p>`;
+                return;
+            }
+
+            container.innerHTML = sortedYears.map(year => `
+                <div class="space-y-4">
+                    <div class="flex items-center space-x-3 border-b border-riize-border/60 pb-2">
+                        <span class="px-3 py-1 rounded-full bg-riize-orange text-black font-extrabold text-sm shadow-md">📅 ปี ${year}</span>
+                        <h3 class="text-xl font-bold text-white">ผลงานประจำปี ${year}</h3>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        ${groupedByYear[year].map(item => renderCard(item, lang)).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderCard(item, lang) {
+            const titleText = (item.title && item.title[lang]) ? item.title[lang] : (item.title ? item.title['th'] : '');
+            const catLabel = (item.categoryLabel && item.categoryLabel[lang]) ? item.categoryLabel[lang] : '';
+
+            return `
+                <div class="glass-panel p-5 rounded-2xl flex flex-col justify-between border border-riize-border/60 hover:border-riize-orange transition-all space-y-4">
+                    <div>
+                        <!-- Header Bar -->
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="text-xs px-2.5 py-1 rounded bg-riize-orange/20 text-riize-orange font-bold uppercase tracking-wider">${catLabel}</span>
+                            <span class="text-xs text-gray-400 font-semibold"><i class="fas fa-tv text-riize-orange mr-1.5"></i>${item.channel}</span>
+                        </div>
+
+                        <!-- YouTube Thumbnail & Play Button -->
+                        <div id="player-container-${item.id}" class="relative w-full aspect-video rounded-xl overflow-hidden border border-white/10 bg-black shadow-lg mb-3 group/thumb cursor-pointer" onclick="playVideo('${item.id}', '${item.youtubeId}')">
+                            <img src="https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg" 
+                                 alt="${titleText}" 
+                                 class="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300">
+                            
+                            <div class="absolute inset-0 bg-black/30 group-hover/thumb:bg-black/10 transition-colors"></div>
+
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-12 h-12 rounded-full bg-riize-orange/90 text-white flex items-center justify-center text-lg shadow-xl group-hover/thumb:scale-110 group-hover/thumb:bg-riize-orange transition-all">
+                                    <i class="fas fa-play ml-1"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Title -->
+                        <h3 class="text-base sm:text-lg font-extrabold text-white mb-2 flex items-center">
+                            <i class="fas fa-play-circle text-riize-orange mr-2 text-sm"></i> ${titleText}
+                        </h3>
+                    </div>
+                </div>
+            `;
+        }
+
+        function playVideo(containerId, youtubeId) {
+            const container = document.getElementById(`player-container-${containerId}`);
+            if (container) {
+                container.innerHTML = `
+                    <iframe class="w-full h-full" 
+                            src="https://www.youtube.com/embed/${youtubeId}?autoplay=1" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            allowfullscreen>
+                    </iframe>
+                `;
+            }
+        }
+
+        // โหลดข้อมูลเมื่อเปิดหน้าเว็บเสร็จ
+        document.addEventListener('DOMContentLoaded', () => {
+            renderWorks();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สถิติและรางวัล (Stats & Awards) - RIIZE</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Inter & Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        riize: { orange: '#FF5500', coral: '#FF7744', blue: '#0066FF', dark: '#0A0B0E', card: '#14161D', border: '#242834' } 
+                    },
+                    fontFamily: { sans: ['Inter', 'Kanit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-riize-dark text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-riize-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center space-x-3">
+                    <a href="index.html" class="text-xl sm:text-2xl font-black tracking-tighter text-white">
+                        Fanclub Site for <span class="text-riize-orange">RIIZE</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-semibold">
+                    <a href="index.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-home">หน้าหลัก</a>
+                    <a href="members/index.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-members">ประวัติสมาชิก</a>
+                    <a href="discography.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-discography">ผลงานเพลง</a>
+                    <a href="other-works.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-other-works">Live Stage & Works</a>
+                    <a href="stats-awards.html" class="text-riize-orange font-bold" data-i18n="nav-awards">สถิติ/รางวัล</a>
+                    <a href="tv-shows.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+                    <a href="little-riize.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-little">Little RIIZE</a>
+
+                    <!-- ปุ่มสลับภาษา TH | EN -->
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-riize-dark border border-riize-orange/40 hover:border-riize-orange text-xs font-bold transition-all hover:scale-105">
+                        <i class="fas fa-globe text-riize-orange mr-1"></i>
+                        <span id="lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center space-x-3 md:hidden">
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-2.5 py-1 rounded-full bg-riize-dark border border-riize-orange/40 text-xs font-bold">
+                        <i class="fas fa-globe text-riize-orange text-xs mr-0.5"></i>
+                        <span id="mobile-lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="mobile-lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-riize-border focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-riize-border px-4 pt-2 pb-4 space-y-2">
+            <a href="index.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-home">หน้าหลัก</a>
+            <a href="members/index.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-members">ประวัติสมาชิก</a>
+            <a href="discography.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-discography">ผลงานเพลง</a>
+            <a href="other-works.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-other-works">Live Stage & Works</a>
+            <a href="stats-awards.html" class="block px-3 py-2 rounded-md font-medium text-riize-orange bg-riize-orange/10" data-i18n="nav-awards">สถิติ/รางวัล</a>
+            <a href="tv-shows.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+            <a href="little-riize.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-little">Little RIIZE</a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner Section -->
+    <header class="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden flex items-center justify-center bg-riize-dark">
+        <div class="absolute inset-0 w-full h-full overflow-hidden">
+            <img src="https://cdnimg.melon.co.kr/cm2/photo/images/000/803/45/269/80345269_20260615183056_org.jpg" 
+                 alt="RIIZE Official Banner" 
+                 class="w-full h-full object-cover object-center opacity-60 filter brightness-90">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-riize-dark via-riize-dark/40 to-transparent"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-riize-orange/20 border border-riize-orange/50 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-riize-orange animate-ping"></span>
+                <span class="text-xs sm:text-sm font-semibold text-riize-orange uppercase tracking-wider" data-i18n="awards-tag">AWARDS & ACHIEVEMENTS</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white my-2" data-i18n="awards-title">
+                HONOR & GLORY
+            </h1>
+            
+            <p class="text-lg sm:text-2xl text-gray-300 font-light max-w-2xl mx-auto" data-i18n="awards-subtitle">
+                บันทึกความสำเร็จ สถิติยอดขายอัลบั้ม และรางวัลเกียรติยศแห่งความภาคภูมิใจของ RIIZE
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+        
+        <!-- Stat Counters (Glow Capsules Style) -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="relative group p-6 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-white/10 backdrop-blur-md hover:border-riize-orange/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="absolute -top-3 left-6 bg-riize-orange text-black p-1.5 rounded-lg text-xs font-black shadow-md"><i class="fas fa-compact-disc"></i></div>
+                <p class="text-4xl sm:text-5xl font-black text-white mt-2 mb-1 group-hover:text-riize-orange transition-colors">1M+</p>
+                <p data-i18n="stat-sales" class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider font-semibold">ยอดขายอัลบั้มล้านชุด</p>
+            </div>
+            
+            <div class="relative group p-6 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-white/10 backdrop-blur-md hover:border-riize-orange/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="absolute -top-3 left-6 bg-riize-orange text-black p-1.5 rounded-lg text-xs font-black shadow-md"><i class="fas fa-trophy"></i></div>
+                <p class="text-4xl sm:text-5xl font-black text-riize-orange mt-2 mb-1">10+</p>
+                <p data-i18n="stat-awards" class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider font-semibold">รางวัลรุกกี้และรางวัลใหญ่</p>
+            </div>
+
+            <div class="relative group p-6 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-white/10 backdrop-blur-md hover:border-riize-orange/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="absolute -top-3 left-6 bg-riize-orange text-black p-1.5 rounded-lg text-xs font-black shadow-md"><i class="fas fa-award"></i></div>
+                <p class="text-4xl sm:text-5xl font-black text-white mt-2 mb-1 group-hover:text-riize-orange transition-colors">5+</p>
+                <p data-i18n="stat-wins" class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider font-semibold">ถ้วยรางวัลรายการเพลง</p>
+            </div>
+
+            <div class="relative group p-6 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-white/10 backdrop-blur-md hover:border-riize-orange/50 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+                <div class="absolute -top-3 left-6 bg-riize-orange text-black p-1.5 rounded-lg text-xs font-black shadow-md"><i class="fas fa-chart-line"></i></div>
+                <p class="text-4xl sm:text-5xl font-black text-riize-orange mt-2 mb-1">#1</p>
+                <p data-i18n="stat-charts" class="text-xs sm:text-sm text-gray-400 uppercase tracking-wider font-semibold">อันดับ 1 ชาร์ตเพลงชั้นนำ</p>
+            </div>
+        </div>
+
+        <!-- =================================================================== -->
+        <!-- SECTION 1: สถิติและยอดขายอัลบั้ม (Album Sales & Certifications) -->
+        <!-- =================================================================== -->
+        <section class="space-y-6">
+            <div class="flex items-center space-x-3 text-riize-orange">
+                <div class="w-10 h-10 rounded-xl bg-riize-orange/20 flex items-center justify-center border border-riize-orange/40">
+                    <i class="fas fa-compact-disc text-xl"></i>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-wide" data-i18n="sec-album-sales">
+                    1. สถิติและยอดขายอัลบั้ม (Album Sales & Certifications)
+                </h3>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                <!-- Album Card 1 -->
+                <div class="relative group rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-riize-orange transition-all duration-300 shadow-xl cursor-pointer">
+                    <div class="aspect-square overflow-hidden bg-black/50">
+                        <img src="https://picsum.photos/300/300?random=10" alt="Get A Guitar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-3 text-center bg-black/40 border-t border-white/5">
+                        <h5 class="text-sm font-bold text-white truncate">Get A Guitar</h5>
+                        <p class="text-xs text-riize-orange font-medium mt-0.5">1st Single Album</p>
+                    </div>
+
+                    <div class="absolute inset-0 bg-black/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-center items-center text-center space-y-3 pointer-events-none group-hover:pointer-events-auto">
+                        <h5 class="text-base font-extrabold text-riize-orange border-b border-riize-orange/30 pb-1 w-full">Get A Guitar</h5>
+                        <div class="space-y-0.5">
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest block font-semibold">ยอดขายรวม (Total Sales)</span>
+                            <p class="text-lg font-black text-white">1,039,870+ <span class="text-xs text-gray-400 font-normal">แผ่น</span></p>
+                        </div>
+                        <div class="space-y-1 w-full pt-1 border-t border-white/10">
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest block font-semibold">Certifications</span>
+                            <div class="flex flex-col gap-1 text-xs">
+                                <span class="px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 border border-amber-400/30 font-bold text-[11px]">Circle: MILLION</span>
+                                <span class="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold text-[11px]">Hanteo: Million Seller</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Album Card 2 -->
+                <div class="relative group rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-riize-orange transition-all duration-300 shadow-xl cursor-pointer">
+                    <div class="aspect-square overflow-hidden bg-black/50">
+                        <img src="https://picsum.photos/300/300?random=11" alt="RIIZING" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-3 text-center bg-black/40 border-t border-white/5">
+                        <h5 class="text-sm font-bold text-white truncate">RIIZING</h5>
+                        <p class="text-xs text-riize-orange font-medium mt-0.5">1st Mini Album</p>
+                    </div>
+
+                    <div class="absolute inset-0 bg-black/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-center items-center text-center space-y-3 pointer-events-none group-hover:pointer-events-auto">
+                        <h5 class="text-base font-extrabold text-riize-orange border-b border-riize-orange/30 pb-1 w-full">RIIZING</h5>
+                        <div class="space-y-0.5">
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest block font-semibold">ยอดขายรวม (Total Sales)</span>
+                            <p class="text-lg font-black text-white">1,250,000+ <span class="text-xs text-gray-400 font-normal">แผ่น</span></p>
+                        </div>
+                        <div class="space-y-1 w-full pt-1 border-t border-white/10">
+                            <span class="text-[10px] text-gray-400 uppercase tracking-widest block font-semibold">Certifications</span>
+                            <div class="flex flex-col gap-1 text-xs">
+                                <span class="px-2 py-0.5 rounded bg-amber-400/20 text-amber-300 border border-amber-400/30 font-bold text-[11px]">Circle: MILLION</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SECTION 2: รางวัลที่ได้รับ (Awards & Honors Timeline) -->
+        <!-- =================================================================== -->
+        <section class="space-y-8 pt-4">
+            <div class="flex items-center space-x-3 text-riize-orange">
+                <div class="w-10 h-10 rounded-xl bg-riize-orange/20 flex items-center justify-center border border-riize-orange/40">
+                    <i class="fas fa-trophy text-xl"></i>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-wide" data-i18n="sec-awards-main">
+                    2. รางวัลที่ได้รับ (Awards & Honors Timeline)
+                </h3>
+            </div>
+
+            <!-- Grid Layout แยกส่วนรางวัลปลายปี และ รายการเพลง/อื่นๆ -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- LEFT: 2.2 รางวัลจากงานปลายปี (Major Awards Timeline) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="flex items-center space-x-2 text-riize-orange">
+                        <i class="fas fa-crown"></i>
+                        <h4 class="text-xl font-bold text-white" data-i18n="award-sub-festival">2.2 รางวัลจากงานปลายปีและงานประกาศรางวัล</h4>
+                    </div>
+
+                    <div class="relative pl-6 sm:pl-8 border-l-2 border-riize-orange/30 space-y-6 ml-2">
+                        <!-- Year 2024 -->
+                        <div class="relative group">
+                            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-riize-orange border-4 border-black group-hover:scale-125 transition-transform shadow-[0_0_10px_#f97316]"></div>
+                            <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-riize-orange/40 backdrop-blur-md transition-all duration-300 space-y-3">
+                                <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                                    <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-riize-orange/20 text-riize-orange border border-riize-orange/30">2024</span>
+                                    <i class="fas fa-trophy text-amber-400"></i>
+                                </div>
+                                <div class="space-y-3">
+                                    <div>
+                                        <h5 class="font-bold text-white text-base group-hover:text-riize-orange transition-colors">Seoul Music Awards 2024</h5>
+                                        <p class="text-xs text-gray-300">Rookie of the Year & Bonsang</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-base group-hover:text-riize-orange transition-colors">Golden Disc Awards 2024</h5>
+                                        <p class="text-xs text-gray-300">Rookie Artist of the Year</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-base group-hover:text-riize-orange transition-colors">Circle Chart Music Awards</h5>
+                                        <p class="text-xs text-gray-300">Rookie of the Year (Unique Streaming)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Year 2023 -->
+                        <div class="relative group">
+                            <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-white border-4 border-black group-hover:bg-riize-orange group-hover:scale-125 transition-all"></div>
+                            <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-riize-orange/40 backdrop-blur-md transition-all duration-300 space-y-3">
+                                <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                                    <span class="text-xs font-bold px-2.5 py-0.5 rounded-full bg-white/10 text-gray-300">2023</span>
+                                    <i class="fas fa-trophy text-amber-400"></i>
+                                </div>
+                                <div class="space-y-3">
+                                    <div>
+                                        <h5 class="font-bold text-white text-base group-hover:text-riize-orange transition-colors">MAMA Awards 2023</h5>
+                                        <p class="text-xs text-gray-300">Favorite New Artist</p>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-bold text-white text-base group-hover:text-riize-orange transition-colors">Melon Music Awards (MMA 2023)</h5>
+                                        <p class="text-xs text-gray-300">New Artist of the Year (Rookie)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RIGHT: 2.1 & 2.3 (Music Show Trophies & Other Honors) -->
+                <div class="lg:col-span-5 space-y-10">
+
+                    <!-- 2.1 ถ้วยรางวัลรายการเพลง (Music Show Trophies) -->
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-2 text-riize-orange">
+                            <i class="fas fa-music"></i>
+                            <h4 class="text-xl font-bold text-white" data-i18n="award-sub-music">2.1 ถ้วยรางวัลจากรายการเพลง</h4>
+                        </div>
+
+                        <div class="space-y-4">
+                            <!-- Trophy Item 1 -->
+                            <div class="p-5 rounded-2xl bg-gradient-to-br from-riize-orange/20 via-white/5 to-transparent border border-riize-orange/30 backdrop-blur-xl relative overflow-hidden group hover:border-riize-orange transition-all">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div>
+                                        <span class="inline-block text-[10px] uppercase font-black tracking-widest px-2.5 py-0.5 rounded bg-amber-400 text-black mb-1 shadow-md">5 WINS 🏆</span>
+                                        <h5 class="text-xl font-black text-white">Boom Boom Bass</h5>
+                                    </div>
+                                    <span class="text-xs text-gray-400 bg-black/40 px-2.5 py-1 rounded-full border border-white/10">มิ.ย. 2024</span>
+                                </div>
+                                <div class="space-y-1.5 text-xs text-gray-300 border-t border-white/10 pt-2.5">
+                                    <div class="flex justify-between items-center">
+                                        <span><i class="fas fa-check-circle text-riize-orange mr-1.5"></i>KBS Music Bank</span>
+                                        <span class="font-bold text-white bg-white/10 px-2 py-0.5 rounded">2 ถ้วย</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span><i class="fas fa-check-circle text-riize-orange mr-1.5"></i>MBC Show! Music Core</span>
+                                        <span class="font-bold text-white bg-white/10 px-2 py-0.5 rounded">1 ถ้วย</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span><i class="fas fa-check-circle text-riize-orange mr-1.5"></i>SBS M THE SHOW</span>
+                                        <span class="font-bold text-white bg-white/10 px-2 py-0.5 rounded">1 ถ้วย</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span><i class="fas fa-check-circle text-riize-orange mr-1.5"></i>Show Champion</span>
+                                        <span class="font-bold text-white bg-white/10 px-2 py-0.5 rounded">1 ถ้วย</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Trophy Item 2 -->
+                            <div class="p-5 rounded-2xl bg-gradient-to-br from-white/10 via-white/5 to-transparent border border-white/10 backdrop-blur-xl relative overflow-hidden group hover:border-riize-orange transition-all">
+                                <div class="flex justify-between items-start mb-3">
+                                    <div>
+                                        <span class="inline-block text-[10px] uppercase font-black tracking-widest px-2.5 py-0.5 rounded bg-riize-orange/20 text-riize-orange border border-riize-orange/30 mb-1">2 WINS 🏆</span>
+                                        <h5 class="text-xl font-black text-white">Love 119</h5>
+                                    </div>
+                                    <span class="text-xs text-gray-400 bg-black/40 px-2.5 py-1 rounded-full border border-white/10">ม.ค. 2024</span>
+                                </div>
+                                <div class="space-y-1.5 text-xs text-gray-300 border-t border-white/10 pt-2.5">
+                                    <div class="flex justify-between items-center">
+                                        <span><i class="fas fa-check-circle text-riize-orange mr-1.5"></i>Mnet M COUNTDOWN</span>
+                                        <span class="font-bold text-white bg-white/10 px-2 py-0.5 rounded">1 ถ้วย</span>
+                                    </div>
+                                    <div class="flex justify-between items-center">
+                                        <span><i class="fas fa-check-circle text-riize-orange mr-1.5"></i>SBS Inkigayo</span>
+                                        <span class="font-bold text-white bg-white/10 px-2 py-0.5 rounded">1 ถ้วย</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2.3 รางวัลอื่นๆ และตำแหน่งเกียรติยศ (Other Honors & Ambassadorships) -->
+                    <div class="space-y-6 pt-4 border-t border-white/10">
+                        <div class="flex items-center space-x-2 text-riize-orange">
+                            <i class="fas fa-award"></i>
+                            <h4 class="text-xl font-bold text-white" data-i18n="award-sub-other">2.3 รางวัลอื่นๆ และตำแหน่งเกียรติยศ</h4>
+                        </div>
+
+                        <div class="relative pl-6 border-l-2 border-white/20 space-y-4 ml-2">
+                            <div class="relative group">
+                                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-riize-orange border-2 border-black group-hover:scale-125 transition-transform"></div>
+                                <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-riize-orange/40 transition-all">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-riize-orange/20 text-riize-orange">2023</span>
+                                    <h5 class="text-sm font-bold text-white mt-1">Louis Vuitton House Ambassador</h5>
+                                    <p class="text-xs text-gray-400 mt-0.5">ได้รับแต่งตั้งเป็น House Ambassador แบบยกวง</p>
+                                </div>
+                            </div>
+
+                            <div class="relative group">
+                                <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full bg-white border-2 border-black group-hover:bg-riize-orange group-hover:scale-125 transition-transform"></div>
+                                <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-riize-orange/40 transition-all">
+                                    <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-white/10 text-gray-300">2024</span>
+                                    <h5 class="text-sm font-bold text-white mt-1">Seoul Tourism Ambassador</h5>
+                                    <p class="text-xs text-gray-400 mt-0.5">ทูตประชาสัมพันธ์การท่องเที่ยวกรุงโซล</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+<footer class="border-t border-riize-border/60 glass-panel mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div>
+                <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
+                <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+            </div>
+            <div class="text-xs text-gray-500">
+                Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript สำหรับ เปิด/ปิด Mobile Menu -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+
+    <!-- JavaScript สลับภาษา -->
+    <script src="js/lang.js"></script>
+</body>
+</html>

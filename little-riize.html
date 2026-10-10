@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Little RIIZE - RIIZE</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Inter & Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External Custom Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Tailwind Custom Config (Sky Blue & Playful Theme) -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        riize: { orange: '#FF5500', coral: '#FF7744', blue: '#0066FF', dark: '#0A0B0E', card: '#14161D', border: '#242834' },
+                        skytheme: { bg: '#F0F8FF', card: '#FFFFFF', blue: '#38BDF8', darkblue: '#0284C7', text: '#334155' }
+                    },
+                    fontFamily: { sans: ['Inter', 'Kanit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gradient-to-b from-sky-100 via-white to-sky-50 text-skytheme-text font-sans antialiased selection:bg-sky-400 selection:text-white flex flex-col min-h-screen">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-sky-200 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center space-x-3">
+                    <a href="index.html" class="text-xl sm:text-2xl font-black tracking-tighter text-sky-900">
+                        Fanclub Site for <span class="text-sky-500">RIIZE</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-semibold">
+                    <a href="index.html" class="hover:text-sky-500 transition-colors" data-i18n="nav-home">หน้าหลัก</a>
+                    <a href="members/index.html" class="hover:text-sky-500 transition-colors" data-i18n="nav-members">ประวัติสมาชิก</a>
+                    <a href="discography.html" class="hover:text-sky-500 transition-colors" data-i18n="nav-discography">ผลงานเพลง</a>
+                    <a href="other-works.html" class="hover:text-sky-500 transition-colors" data-i18n="nav-other-works">Live Stage & Works</a>
+                    <a href="stats-awards.html" class="hover:text-sky-500 transition-colors" data-i18n="nav-awards">สถิติ/รางวัล</a>
+                    <a href="tv-shows.html" class="hover:text-sky-500 transition-colors" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+                    <a href="little-riize.html" class="text-sky-600 font-extrabold underline decoration-sky-400 decoration-2 underline-offset-4" data-i18n="nav-little">Little RIIZE</a>
+
+                    <!-- ปุ่มสลับภาษา TH | EN -->
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-white border border-sky-300 hover:border-sky-500 text-xs font-bold text-sky-700 transition-all hover:scale-105 shadow-sm">
+                        <i class="fas fa-globe text-sky-500 mr-1"></i>
+                        <span id="lang-btn-th" class="text-sky-600 font-bold">TH</span>
+                        <span class="text-gray-400">|</span>
+                        <span id="lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center space-x-3 md:hidden">
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-2.5 py-1 rounded-full bg-white border border-sky-300 text-xs font-bold text-sky-700">
+                        <i class="fas fa-globe text-sky-500 text-xs mr-0.5"></i>
+                        <span id="mobile-lang-btn-th" class="text-sky-600 font-bold">TH</span>
+                        <span class="text-gray-400">|</span>
+                        <span id="mobile-lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-sky-800 hover:bg-sky-100 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-sky-200 px-4 pt-2 pb-4 space-y-2 shadow-lg">
+            <a href="index.html" class="block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-sky-600 hover:bg-sky-50" data-i18n="nav-home">หน้าหลัก</a>
+            <a href="members/index.html" class="block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-sky-600 hover:bg-sky-50" data-i18n="nav-members">ประวัติสมาชิก</a>
+            <a href="discography.html" class="block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-sky-600 hover:bg-sky-50" data-i18n="nav-discography">ผลงานเพลง</a>
+            <a href="other-works.html" class="block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-sky-600 hover:bg-sky-50" data-i18n="nav-other-works">Live Stage & Works</a>
+            <a href="stats-awards.html" class="block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-sky-600 hover:bg-sky-50" data-i18n="nav-awards">สถิติ/รางวัล</a>
+            <a href="tv-shows.html" class="block px-3 py-2 rounded-md font-medium text-gray-700 hover:text-sky-600 hover:bg-sky-50" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+            <a href="little-riize.html" class="block px-3 py-2 rounded-md font-extrabold text-sky-600 bg-sky-50" data-i18n="nav-little">Little RIIZE</a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner Section (Playful Sky Theme) -->
+    <header class="relative w-full h-[55vh] sm:h-[70vh] overflow-hidden flex items-center justify-center bg-gradient-to-b from-sky-400 to-sky-200">
+        <!-- Floating Cloud Elements Decoration -->
+        <div class="absolute inset-0 opacity-30 pointer-events-none bg-[radial-gradient(#fff_2px,transparent_2px)] [background-size:24px_24px]"></div>
+
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-white/80 border border-white backdrop-blur-md shadow-md">
+                <span class="w-2.5 h-2.5 rounded-full bg-sky-500 animate-bounce"></span>
+                <span class="text-xs sm:text-sm font-extrabold text-sky-600 uppercase tracking-wider" data-i18n="little-tag">PLAYGROUND & FRIENDS</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white drop-shadow-md my-2" data-i18n="little-title">
+                Little RIIZE World
+            </h1>
+            
+            <p class="text-lg sm:text-2xl text-sky-50 font-medium max-w-2xl mx-auto drop-shadow" data-i18n="little-subtitle">
+                ทำความรู้จักกับคาแรคเตอร์สุดน่ารัก สวนสนุกฉบับจิ๋วของเหล่าสมาชิก RIIZE
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Area: Playground Grid -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+        
+        <div class="text-center space-y-2">
+            <h2 class="text-3xl sm:text-4xl font-black text-sky-900" data-i18n="little-grid-title">
+                ✨ เหล่าผองเพื่อน Little RIIZE ทั้ง 6 ตัวตน ✨
+            </h2>
+            <p class="text-sm text-sky-700/80" data-i18n="little-grid-subtitle">คลิกหรือเลื่อนดูความน่ารักของคาแรคเตอร์แต่ละตัวกันได้เลย!</p>
+        </div>
+
+        <!-- Little RIIZE Characters Grid Container -->
+        <div id="little-riize-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 pt-6"></div>
+
+    </main>
+
+    <!-- Footer -->
+<footer class="border-t border-riize-border/60 glass-panel mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div>
+                <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
+                <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+            </div>
+            <div class="text-xs text-gray-500">
+                Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript สำหรับ เปิด/ปิด Mobile Menu -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+
+    <!-- JavaScript สลับภาษา -->
+    <script src="js/lang.js"></script>
+
+    <!-- Little RIIZE Data & Dynamic Render Script -->
+    <script>
+        const littleRiizeData = [
+            {
+                name: { th: 'ทารี (TARI)', en: 'TARI' },
+                memberName: { th: 'ชотAR / SHOTARO', en: 'SHOTARO' },
+                mascotImg: 'https://picsum.photos/300/300?random=20', // ภาพมาสคอตไดคัท
+                memberImg: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/513/3478513_20260612155050_500.jpg', // ภาพสมาชิกวงกลม
+                desc: {
+                    th: 'คาแรคเตอร์สุดดุ๊กดิ๊ก ร่าเริงสดใส เต้นเก่งเหมือนเจ้าของและชอบสร้างรอยยิ้มให้ทุกคน',
+                    en: 'Super cute and energetic mascot who loves dancing and spreading happiness everywhere.'
+                }
+            },
+            {
+                name: { th: 'อึน토리 (EUNTORI)', en: 'EUNTORI' },
+                memberName: { th: 'อึนซอก / EUNSEOK', en: 'EUNSEOK' },
+                mascotImg: 'https://picsum.photos/300/300?random=21',
+                memberImg: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/515/3478515_20260612155110_500.jpg',
+                desc: {
+                    th: 'มาสคอตหน้านิ่งสุดเท่ แต่ข้างในอบอุ่นและมีมุมตลกธรรมชาติที่คาดไม่ถึง',
+                    en: 'Cool expression mascot with a warm heart and unexpected natural humor.'
+                }
+            },
+            {
+                name: { th: 'ซอง토리 (SUNGTORI)', en: 'SUNGTORI' },
+                memberName: { th: 'ซองชาน / SUNGCHAN', en: 'SUNGCHAN' },
+                mascotImg: 'https://picsum.photos/300/300?random=22',
+                memberImg: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/028/92/718/2892718_20260612155125_500.jpg',
+                desc: {
+                    th: 'กวางน้อยตัวสูงใจดี พลังงานล้นเหลือ รักกีฬาสายลุยและมีความเป็นพี่ใหญ่ใจดี',
+                    en: 'Kind tall deer mascot full of energy, loves outdoor sports and friendly vibes.'
+                }
+            },
+            {
+                name: { th: 'วอน토리 (WONTORI)', en: 'WONTORI' },
+                memberName: { th: 'วอนบิน / WONBIN', en: 'WONBIN' },
+                mascotImg: 'https://picsum.photos/300/300?random=23',
+                memberImg: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/517/3478517_20260612155139_500.jpg',
+                desc: {
+                    th: 'เจ้าก้อนน่ารักน่าเอ็นดู ฝีมือฉกาจด้านดนตรีและเสน่ห์แพรวพราวสะกดใจ',
+                    en: 'Adorable fluffy mascot with exceptional musical talent and charming looks.'
+                }
+            },
+            {
+                name: { th: 'โซ토리 (SOHETORI)', en: 'SOHETORI' },
+                memberName: { th: 'โซฮี / SOHEE', en: 'SOHEE' },
+                mascotImg: 'https://picsum.photos/300/300?random=24',
+                memberImg: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/523/3478523_20260612155158_500.jpg',
+                desc: {
+                    th: 'เสียงร้องใสปิ๊งดั่งแก้วเจียระไน มาสคอตผู้สร้างเสียงหัวเราะและโวคอลนุ่มฟู',
+                    en: 'Crystal clear vocals mascot who brings bright laughter and sweet melodies.'
+                }
+            },
+            {
+                name: { th: 'แอน토리 (ANTORI)', en: 'ANTORI' },
+                memberName: { th: 'แอนตัน / ANTON', en: 'ANTON' },
+                mascotImg: 'https://picsum.photos/300/300?random=25',
+                memberImg: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/525/3478525_20260612155202_500.jpg',
+                desc: {
+                    th: 'น้องเล็กสุดอาร์ต โปรดิวเซอร์ตัวจิ๋วผู้รักเสียงเพลงและรอยยิ้มแสนหวาน',
+                    en: 'Artistic youngest mascot and tiny producer with a sweet smile and musical soul.'
+                }
+            }
+        ];
+
+        function renderLittleRiize() {
+            const container = document.getElementById('little-riize-grid');
+            if (!container) return;
+
+            const lang = typeof currentLang !== 'undefined' ? currentLang : 'th';
+
+            container.innerHTML = littleRiizeData.map(item => `
+                <div class="relative bg-white/90 backdrop-blur-md rounded-3xl p-6 pt-12 border-2 border-sky-200 shadow-xl hover:shadow-2xl hover:border-sky-400 transition-all duration-300 flex flex-col items-center text-center group">
+                    
+                    <!-- 2. ภาพสมาชิกวงกลมเล็กๆ (ลอยอยู่มุมขวาบนของการ์ด) -->
+                    <div class="absolute -top-6 right-6 w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg bg-sky-100 group-hover:scale-110 transition-transform">
+                        <img src="${item.memberImg}" alt="${item.memberName[lang]}" class="w-full h-full object-cover">
+                    </div>
+
+                    <!-- 1. ภาพมาสคอตไดคัท (ลอยเด่น ไม่มีกรอบสี่เหลี่ยมทึบ) -->
+                    <div class="w-44 h-44 sm:w-48 sm:h-48 mb-4 relative flex items-center justify-center">
+                        <!-- แสงเรืองรองเบื้องหลังมาสคอต -->
+                        <div class="absolute inset-0 bg-sky-200/50 rounded-full blur-xl group-hover:bg-sky-300/60 transition-colors"></div>
+                        <img src="${item.mascotImg}" alt="${item.name[lang]}" class="relative z-10 w-full h-full object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-300">
+                    </div>
+
+                    <!-- ชื่อคาแรคเตอร์ และ เจ้าของ -->
+                    <div class="space-y-1 mb-3">
+                        <h3 class="text-2xl font-black text-sky-900 group-hover:text-sky-500 transition-colors">${item.name[lang]}</h3>
+                        <span class="inline-block px-3 py-0.5 rounded-full bg-sky-100 text-sky-600 text-xs font-bold tracking-wide">
+                            Owner: ${item.memberName[lang]}
+                        </span>
+                    </div>
+
+                    <!-- 3. ข้อมูลคร่าวๆ ของคาแรคเตอร์ -->
+                    <p class="text-sm text-sky-900/80 leading-relaxed px-2">
+                        ${item.desc[lang]}
+                    </p>
+                </div>
+            `).join('');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderLittleRiize();
+        });
+    </script>
+</body>
+</html>

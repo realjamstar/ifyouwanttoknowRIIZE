@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANTON (แอนตัน) - RIIZE</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts - Inter & Kanit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- External Custom Style -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- Tailwind Custom Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 
+                        riize: { orange: '#FF5500', coral: '#FF7744', blue: '#0066FF', dark: '#0A0B0E', card: '#14161D', border: '#242834' } 
+                    },
+                    fontFamily: { sans: ['Inter', 'Kanit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-riize-dark text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen">
+
+    <!-- Sticky Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass-panel border-b border-riize-border/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16 sm:h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center space-x-3">
+                    <a href="../index.html" class="text-xl sm:text-2xl font-black tracking-tighter text-white">
+                        Fanclub Site for <span class="text-riize-orange">RIIZE</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6 lg:space-x-8 text-sm font-semibold">
+                    <a href="../index.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-home">หน้าหลัก</a>
+                    <a href="index.html" class="text-riize-orange font-bold" data-i18n="nav-members">ประวัติสมาชิก</a>
+                    <a href="../discography.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-discography">ผลงานเพลง</a>
+                    <a href="../other-works.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-other-works">Live Stage & Works</a>
+                    <a href="../stats-awards.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-awards">สถิติ/รางวัล</a>
+                    <a href="../tv-shows.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+                    <a href="../little-riize.html" class="hover:text-riize-orange transition-colors" data-i18n="nav-little">Little RIIZE</a>
+
+                    <!-- ปุ่มสลับภาษา TH | EN -->
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-3 py-1.5 rounded-full bg-riize-dark border border-riize-orange/40 hover:border-riize-orange text-xs font-bold transition-all hover:scale-105">
+                        <i class="fas fa-globe text-riize-orange mr-1"></i>
+                        <span id="lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center space-x-3 md:hidden">
+                    <button onclick="toggleLanguage()" class="flex items-center space-x-1 px-2.5 py-1 rounded-full bg-riize-dark border border-riize-orange/40 text-xs font-bold">
+                        <i class="fas fa-globe text-riize-orange text-xs mr-0.5"></i>
+                        <span id="mobile-lang-btn-th" class="text-riize-orange">TH</span>
+                        <span class="text-gray-500">|</span>
+                        <span id="mobile-lang-btn-en" class="text-gray-400">EN</span>
+                    </button>
+
+                    <button id="mobile-menu-btn" class="p-2 rounded-lg text-gray-400 hover:text-white hover:bg-riize-border focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-riize-border px-4 pt-2 pb-4 space-y-2">
+            <a href="../index.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-home">หน้าหลัก</a>
+            <a href="index.html" class="block px-3 py-2 rounded-md font-medium text-riize-orange bg-riize-orange/10" data-i18n="nav-members">ประวัติสมาชิก</a>
+            <a href="../discography.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-discography">ผลงานเพลง</a>
+            <a href="../other-works.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-other-works">Live Stage & Works</a>
+            <a href="../stats-awards.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-awards">สถิติ/รางวัล</a>
+            <a href="../tv-shows.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-shows">คอนเทนท์รายการ</a>
+            <a href="../little-riize.html" class="block px-3 py-2 rounded-md font-medium text-gray-200 hover:text-white hover:bg-riize-orange/20" data-i18n="nav-little">Little RIIZE</a>
+        </div>
+    </nav>
+
+    <!-- Hero Banner Section -->
+    <header class="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden flex items-center justify-center bg-riize-dark">
+        <!-- Background Image Container -->
+        <div class="absolute inset-0 w-full h-full overflow-hidden">
+            <img src="https://i.postimg.cc/X7FwcSKL/optimize.jpg" 
+                 alt="RIIZE Official Banner" 
+                 class="w-full h-full object-cover object-center opacity-60 filter brightness-90">
+        </div>
+
+        <!-- Dark Gradient Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-t from-riize-dark via-riize-dark/40 to-transparent"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-riize-orange/20 border border-riize-orange/50 backdrop-blur-md">
+                <span class="w-2 h-2 rounded-full bg-riize-orange animate-ping"></span>
+                <span class="text-xs sm:text-sm font-semibold text-riize-orange uppercase tracking-wider">MEMBER PROFILE</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white my-2">
+                ANTON (แอนตัน)
+            </h1>
+            
+            <p class="text-lg sm:text-2xl text-gray-300 font-light max-w-2xl mx-auto">
+                Vocalist, Producer, Maknae of RIIZE
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+        
+        <!-- ปุ่มย้อนกลับไปหน้ารวมสมาชิก -->
+        <div>
+            <a href="index.html" class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-panel hover:bg-riize-orange/20 hover:border-riize-orange text-sm font-bold text-white transition-all">
+                <i class="fas fa-arrow-left text-riize-orange"></i>
+                <span data-i18n="back-to-members">ย้อนกลับไปหน้ารวมสมาชิก</span>
+            </a>
+        </div>
+
+        <!-- กล่องแสดงรายละเอียดของสมาชิก -->
+        <div id="member-detail-box"></div>
+
+    </main>
+
+    <!-- Footer -->
+<footer class="border-t border-riize-border/60 glass-panel mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div>
+                <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
+                <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+            </div>
+            <div class="text-xs text-gray-500">
+                Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <!-- JavaScript เปิด/ปิด Mobile Menu -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+
+    <!-- JavaScript สลับภาษา -->
+    <script src="../js/lang.js"></script>
+
+    <!-- Anton Data & Render Script -->
+    <script>
+        const memberData = {
+            id: 'anton',
+            name: 'ANTON (แอนตัน)',
+            nativeName: '이찬영 / Lee Chanyoung / Anton Lee',
+            role: { th: 'Vocalist, Producer, Maknae', en: 'Vocalist, Producer, Maknae' },
+            dob: { th: '21 มีนาคม 2004', en: 'March 21, 2004' },
+            nationality: { th: 'อเมริกัน (American)', en: 'American' },
+            image: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/525/3478525_20260612155202_500.jpg',
+            timeline: {
+                th: [{ era: '2023 - ปัจจุบัน', detail: 'เปิดตัวในฐานะน้องเล็ก (Maknae) ของ RIIZE' }],
+                en: [{ era: '2023 - Present', detail: 'Debuted in RIIZE as Maknae.' }]
+            },
+            soloWorks: {
+                songs: [
+                    {
+                        title: { th: 'เพลง 1', en: 'OST 1' },
+                        spotifyId: '4H65EdACzwqV8sTt3dDyA0'
+                    },
+                    {
+                        title: { th: 'เพลง 2', en: 'OST 2' },
+                        spotifyId: '4H65EdACzwqV8sTt3dDyA0'
+                    }
+                ],          
+                brands: [
+                    {
+                        title: { th: 'Louis Vuitton Ambassador', en: 'Louis Vuitton Ambassador' },
+                        images: [
+                            'https://picsum.photos/400/300?random=1',
+                            'https://picsum.photos/400/300?random=2'
+                        ]
+                    },
+                    {
+                        title: { th: 'Louis Vuitton Ambassador', en: 'Louis Vuitton Ambassador' },
+                        images: [
+                            'https://picsum.photos/400/300?random=1',
+                            'https://picsum.photos/400/300?random=2'
+                        ]
+                    }
+                ],
+                shows: [
+                    {
+                        title: { th: 'รายการเดี่ยว / คลิปไฮไลต์', en: 'Solo Show / Video Highlight' },
+                        youtubeId: 'iUw3LPM7OBU'
+                    },
+                    {
+                        title: { th: 'รายการเดี่ยว / คลิปไฮไลต์', en: 'Solo Show / Video Highlight' },
+                        youtubeId: 'iUw3LPM7OBU'
+                    }
+                ]
+            }
+        };
+
+        function renderMemberProfile() {
+            const detailBox = document.getElementById('member-detail-box');
+            if (!detailBox) return;
+
+            const lang = typeof currentLang !== 'undefined' ? currentLang : 'th';
+            const dict = (typeof i18nDict !== 'undefined' && i18nDict[lang]) ? i18nDict[lang] : {};
+
+            const solo = memberData.soloWorks || {};
+            const brands = solo.brands || [];
+            const songs = solo.songs || [];
+            const shows = solo.shows || [];
+
+            const soloLabels = {
+                th: {
+                    mainTitle: 'ผลงานเดี่ยว (Solo Activities)',
+                    brands: 'งานพรีเซนเตอร์ / แบรนด์แอมบาสเดอร์',
+                    songs: 'เพลงเดี่ยว / OST (ฟังเพลงจาก Spotify)',
+                    shows: 'คลิปรายการเดี่ยว / MC (รับชมผ่าน YouTube)'
+                },
+                en: {
+                    mainTitle: 'Solo Activities',
+                    brands: 'Brand Ambassador & Endorsements',
+                    songs: 'Solo Songs & OST (Listen on Spotify)',
+                    shows: 'Solo Shows & MC (Watch on YouTube)'
+                }
+            };
+
+            const currentSoloText = soloLabels[lang] || soloLabels['th'];
+
+            detailBox.innerHTML = `
+                <div class="glass-panel p-6 sm:p-8 rounded-2xl border border-riize-border/60 bg-riize-dark/40">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+                        <!-- Left Column: Member Photo & Name -->
+                        <div class="space-y-4 text-center lg:text-left bg-black/20 p-6 rounded-xl border border-white/5">
+                            <img src="${memberData.image}" alt="${memberData.name}" class="w-56 h-56 sm:w-64 sm:h-64 rounded-2xl object-cover mx-auto lg:mx-0 border-2 border-riize-orange shadow-2xl">
+                            <div>
+                                <h2 class="text-3xl font-extrabold text-white">${memberData.name}</h2>
+                                <p class="text-riize-orange font-medium text-sm mt-1">${memberData.nativeName || ''}</p>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Info Grid & Timeline -->
+                        <div class="lg:col-span-2 space-y-6">
+                            <!-- Basic Info Grid -->
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-riize-dark/60 p-5 rounded-xl border border-riize-border">
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase font-bold">${dict['member-label-pos'] || 'POSITION'}</p>
+                                    <p class="font-semibold text-white mt-1">${memberData.role?.[lang] || '-'}</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase font-bold">${dict['member-label-dob'] || 'DATE OF BIRTH'}</p>
+                                    <p class="font-semibold text-white mt-1">${memberData.dob?.[lang] || '-'}</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase font-bold">${dict['member-label-nat'] || 'NATIONALITY'}</p>
+                                    <p class="font-semibold text-white mt-1">${memberData.nationality?.[lang] || '-'}</p>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-gray-400 uppercase font-bold">${dict['member-label-agency'] || 'AGENCY'}</p>
+                                    <p class="font-semibold text-white mt-1">SM Entertainment</p>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Section -->
+                            <div>
+                                <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                                    <i class="fas fa-history text-riize-orange mr-2"></i> ${dict['member-timeline-title'] || 'Timeline'}
+                                </h3>
+                                <div class="space-y-4 relative border-l-2 border-riize-orange/30 ml-3 pl-4">
+                                    ${(memberData.timeline?.[lang] || []).map(item => `
+                                        <div class="relative">
+                                            <div class="absolute -left-[21px] top-1.5 w-2.5 h-2.5 rounded-full bg-riize-orange"></div>
+                                            <span class="text-xs font-bold text-riize-orange uppercase tracking-wider">${item.era}</span>
+                                            <p class="text-sm text-gray-300 mt-0.5">${item.detail}</p>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+
+                            <!-- Interactive Solo Works Section -->
+                            <div class="pt-6 border-t border-riize-border/60 space-y-6">
+                                <h3 class="text-xl font-bold text-white flex items-center">
+                                    <i class="fas fa-star text-riize-orange mr-2"></i> ${currentSoloText.mainTitle}
+                                </h3>
+                                
+                                <div class="space-y-5">
+                                    <!-- 1. Brand Ambassador -->
+                                    ${brands.length > 0 ? `
+                                    <div class="p-4 bg-black/30 rounded-xl border border-white/5 space-y-3">
+                                        <h4 class="text-xs font-bold text-riize-orange uppercase tracking-wide flex items-center">
+                                            <i class="fas fa-bullhorn text-xs mr-2"></i> ${currentSoloText.brands}
+                                        </h4>
+                                        <div class="space-y-4 pt-1">
+                                            ${brands.map(b => `
+                                                <div class="p-3 bg-white/5 border border-white/10 rounded-xl space-y-2">
+                                                    <p class="text-xs sm:text-sm text-gray-200 font-semibold flex items-center">
+                                                        <i class="fas fa-tag text-riize-orange text-xs mr-2"></i> ${b.title?.[lang] || b.title}
+                                                    </p>
+                                                    ${b.images && b.images.length > 0 ? `
+                                                        <div class="grid grid-cols-2 gap-2 pt-1">
+                                                            ${b.images.map((img, imgIdx) => `
+                                                                <div class="overflow-hidden rounded-lg border border-white/10 bg-black/40">
+                                                                    <img src="${img}" alt="Preview ${imgIdx + 1}" class="w-full h-28 sm:h-36 object-cover hover:scale-105 transition-transform duration-300">
+                                                                </div>
+                                                            `).join('')}
+                                                        </div>
+                                                    ` : ''}
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                    ` : ''}
+
+                                    <!-- 2. Solo Songs & OST (Spotify Embed) -->
+                                    ${songs.length > 0 ? `
+                                    <div class="p-4 bg-black/30 rounded-xl border border-white/5 space-y-3">
+                                        <h4 class="text-xs font-bold text-riize-orange uppercase tracking-wide flex items-center">
+                                            <i class="fab fa-spotify text-green-500 text-sm mr-2"></i> ${currentSoloText.songs}
+                                        </h4>
+                                        <div class="space-y-3 pt-1">
+                                            ${songs.map(s => `
+                                                <div class="p-3 bg-white/5 border border-white/10 rounded-xl space-y-2">
+                                                    <p class="text-xs sm:text-sm text-gray-200 font-semibold flex items-center">
+                                                        <i class="fas fa-music text-green-400 text-xs mr-2"></i> ${s.title?.[lang] || s.title}
+                                                    </p>
+                                                    ${s.spotifyId ? `
+                                                        <div class="rounded-lg overflow-hidden">
+                                                            <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/${s.spotifyId}?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                                                        </div>
+                                                    ` : ''}
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                    ` : ''}
+
+                                    <!-- 3. Shows / MC (YouTube Video Embed) -->
+                                    ${shows.length > 0 ? `
+                                    <div class="p-4 bg-black/30 rounded-xl border border-white/5 space-y-3">
+                                        <h4 class="text-xs font-bold text-riize-orange uppercase tracking-wide flex items-center">
+                                            <i class="fab fa-youtube text-red-500 text-sm mr-2"></i> ${currentSoloText.shows}
+                                        </h4>
+                                        <div class="space-y-4 pt-1">
+                                            ${shows.map(v => `
+                                                <div class="p-3 bg-white/5 border border-white/10 rounded-xl space-y-2">
+                                                    <p class="text-xs sm:text-sm text-gray-200 font-semibold flex items-center">
+                                                        <i class="fas fa-play-circle text-red-400 text-xs mr-2"></i> ${v.title?.[lang] || v.title}
+                                                    </p>
+                                                    ${v.youtubeId ? `
+                                                        <div class="relative w-full aspect-video rounded-lg overflow-hidden border border-white/10 bg-black">
+                                                            <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/${v.youtubeId}" title="${v.title?.[lang] || v.title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                                        </div>
+                                                    ` : ''}
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        // โหลดข้อมูลเมื่อหน้าเปิดเสร็จ
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMemberProfile();
+        });
+    </script>
+</body>
+</html>
