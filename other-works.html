@@ -183,19 +183,55 @@
                 id: 'p1',
                 category: 'performance',
                 categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
-                year: '2024',
+                year: '2023',
                 channel: 'RIIZE Official',
-                title: { th: 'RIIZE - Impossible (Performance Video)', en: 'RIIZE - Impossible (Performance Video)' },
-                youtubeId: '09AAn93-R_8'
+                title: { th: 'RIIZE - Siren (Performance Video)', en: 'RIIZE - Siren (Performance Video)' },
+                youtubeId: 'tZYsvAoSNxQ'
             },
             {
                 id: 'p2',
                 category: 'performance',
                 categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
                 year: '2023',
+                channel: 'KCON official',
+                title: { th: '⭐ PRESHOW | RIIZE | KCON LA 2023', en: '⭐ PRESHOW | RIIZE | KCON LA 2023' },
+                youtubeId: 'FgtZIaRDocM'
+            },
+            {
+                id: 'p3',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2023',
                 channel: 'RIIZE Official',
-                title: { th: 'RIIZE - Siren (Performance Video)', en: 'RIIZE - Siren (Performance Video)' },
-                youtubeId: 'tZYsvAoSNxQ'
+                title: { th: "RIIZE 라이즈 'Memories' Performance Video", en: "RIIZE 라이즈 'Memories' Performance Video" },
+                youtubeId: 'tyQ8uvG9NHU'
+            },
+            {
+                id: 'p4',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2023',
+                channel: 'RIIZE Official',
+                title: { th: "RIIZE 라이즈 'Get A Guitar' Performance Video", en: "RIIZE 라이즈 'Get A Guitar' Performance Video" },
+                youtubeId: 'y6K7ZT_tAxc'
+            },
+            {
+                id: 'p5',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'RIIZE Official',
+                title: { th: '[Performance37] RIIZE(라이즈) Boom Boom Bass', en: '[Performance37] RIIZE(라이즈) Boom Boom Bass' },
+                youtubeId: '0GTyDijQEUQ'
+            },
+            {
+                id: 'p6',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'RIIZE Official',
+                title: { th: '[BE ORIGINAL] RIIZE(라이즈) Impossible', en: '[BE ORIGINAL] RIIZE(라이즈) Impossible' },
+                youtubeId: '_UPynjzuOlw'
             },
             {
                 id: 'f1',
@@ -258,7 +294,6 @@
             const container = document.getElementById('works-container');
             if (!container) return;
 
-            // ป้องกัน Error หากตัวแปร currentLang จาก lang.js ยังไม่ถูกประกาศ
             const lang = (typeof currentLang !== 'undefined' && currentLang) ? currentLang : 'th';
 
             const filteredData = selectedCategory === 'all' 

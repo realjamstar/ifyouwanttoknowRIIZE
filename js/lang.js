@@ -22,7 +22,7 @@ const i18nDict = {
         "members-title": "ประวัติสมาชิก",
         "members-subtitle": "คลิกเพื่อดูข้อมูลเพิ่มเติมของเมมเบอร์ที่ต้องการ",
         "members-bio-title": "ประวัติวง RIIZE",
-        "members-bio-desc": "<strong>RIIZE (ไรซ์)</strong> เป็นวงบอยกรุ๊ปจากค่าย SM Entertainment ที่รวมความสามารถอันโดดเด่นของสมาชิก นำเสนอแนวดนตรีสไตล์ <em>Emotional Pop</em> ชื่อวงเกิดจากการรวมคำว่า <strong>\"RISE\"</strong> (การเติบโต) และ <strong>\"REALISE\"</strong> (การทำให้สำเร็จ)",
+        "members-bio-desc": "<strong>RIIZE (ไรซ์)</strong> เป็นวงบอยกรุ๊ปจากค่าย SM Entertainment ที่รวมความสามารถอันโดดเด่นของสมาชิก นำเสนอแนวดนตรีสไตล์ <em>Emotional Pop</em> ชื่อวงเกิดจากการรวมคำว่า <strong>\"RISE\"</strong> (การเติบโต) และ <strong>\"REALISE\"</strong> (การทำให้เป็นจริง) เมื่อรวมกันจึงมีความหมายว่า \"ทีมที่เติบโตไปด้วยกันและทำให้ความฝันเป็นจริง โดยดำเนินตามคอนเซปของวงคือ <strong> 𝗥𝗲𝗮𝗹-𝘁𝗶𝗺𝗲 𝗢𝗱𝘆𝘀𝘀𝗲𝘆 </strong> หรือการเติบโตไปพร้อมกับแฟนๆ โดยจะถ่ายทอดช่วงเวลาและชีวิตประจำวันให้เห็น เสมือนเป็นคนที่ร่วมเติบโตและทำความฝันไปพร้อมๆกัน โดยวง RIIZE ไม่มีลีดเดอร์ แต่จะช่วยกันทำหน้าที่ ผลัดเปลี่ยนตามความเหมาะสมในแต่ละงาน เปิดตัวครั้งแรกในวันที่ 1 สิงหาคม 2023 และเดบิวต์อย่างเป็นทางการเมื่อวันที่ 4 กันยายน 2023",
         "members-list-title": "สมาชิกทั้งหมด (6 Members)",
         "member-view-btn": "ดูประวัติและผลงานเดี่ยว <i class=\"fas fa-arrow-right ml-1\"></i>",
         "back-to-members": "ย้อนกลับไปหน้ารวมสมาชิก",
@@ -46,46 +46,43 @@ const i18nDict = {
         "shows-subtitle": "รวบรวมรายการวาไรตี้และคลิปไฮไลต์ความสนุกของ RIIZE รับชมได้ทันที",
         "shows-section-title": "รายการทั้งหมด (Variety Shows & Web Content)",
 
-                // TV Shows / Live stage Translations (เพิ่มใหม่)
-                "works-tag": "PREF. VIDEO & WORKS",
-                "works-title": "Pref. Video & Works",
-                "works-subtitle": "รวบรวมเพอร์ฟอร์แมนซ์วิดีโอ งานประกาศรางวัล เฟสติวัล และผลงานโฆษณา",
-                "works-section-title": "ผลงานการแสดงและโฆษณาทั้งหมด",
-                "tab-all": "ทั้งหมด (All)",
-                "tab-music": "Live Stage",
-                "tab-festival": "Festival & Awards",
-                "tab-ads": "Ads & Brand",
-                                "tab-perf": "Performance Video",
+        // TV Shows / Live stage Translations (เพิ่มใหม่)
+        "works-tag": "PREF. VIDEO & WORKS",
+        "works-title": "Pref. Video & Works",
+        "works-subtitle": "รวบรวมเพอร์ฟอร์แมนซ์วิดีโอ งานประกาศรางวัล เฟสติวัล และผลงานโฆษณา",
+        "works-section-title": "ผลงานการแสดงและโฆษณาทั้งหมด",
+        "tab-all": "ทั้งหมด (All)",
+        "tab-music": "Live Stage",
+        "tab-festival": "Festival & Awards",
+        "tab-ads": "Ads & Brand",
+        "tab-perf": "Performance Video",
 
-                // รางวัล
-               "awards-tag": "AWARDS & ACHIEVEMENTS",
-               "awards-title": "HONOR & GLORY",
-               "awards-subtitle": "บันทึกความสำเร็จ สถิติยอดขายอัลบั้ม และรางวัลเกียรติยศแห่งความภาคภูมิใจของ RIIZE",
-               "stat-sales": "ยอดขายอัลบั้มล้านชุด",
-               "stat-awards": "รางวัลรุกกี้และรางวัลใหญ่",
-               "stat-wins": "ถ้วยรางวัลรายการเพลง",
-               "stat-charts": "อันดับ 1 ชาร์ตเพลงชั้นนำ",
-               "sec-album-sales": "1. สถิติและยอดขายอัลบั้ม (Album Sales & Certifications)",
-               "sec-awards-main": "2. รางวัลที่ได้รับ (Awards & Honors Timeline)",
-               "award-sub-festival": "2.2 รางวัลจากงานปลายปีและงานประกาศรางวัล",
-               "award-sub-music": "2.1 ถ้วยรางวัลจากรายการเพลง",
-               "award-sub-other": "2.3 รางวัลอื่นๆ และตำแหน่งเกียรติยศ",
+        // รางวัล
+        "awards-tag": "AWARDS & ACHIEVEMENTS",
+        "awards-title": "HONOR & GLORY",
+        "awards-subtitle": "บันทึกความสำเร็จ สถิติยอดขายอัลบั้ม และรางวัลเกียรติยศแห่งความภาคภูมิใจของ RIIZE",
+        "stat-sales": "ยอดขายอัลบั้มล้านชุด",
+        "stat-awards": "รางวัลรุกกี้และรางวัลใหญ่",
+        "stat-wins": "ถ้วยรางวัลรายการเพลง",
+        "stat-charts": "อันดับ 1 ชาร์ตเพลงชั้นนำ",
+        "sec-album-sales": "1. สถิติและยอดขายอัลบั้ม (Album Sales & Certifications)",
+        "sec-awards-main": "2. รางวัลที่ได้รับ (Awards & Honors Timeline)",
+        "award-sub-festival": "2.2 รางวัลจากงานปลายปีและงานประกาศรางวัล",
+        "award-sub-music": "2.1 ถ้วยรางวัลจากรายการเพลง",
+        "award-sub-other": "2.3 รางวัลอื่นๆ และตำแหน่งเกียรติยศ",
 
-// Little RIIZE
-"little-tag": "PLAYGROUND & FRIENDS",
-"little-title": "Little RIIZE World",
-"little-subtitle": "ทำความรู้จักกับคาแรคเตอร์สุดน่ารัก สวนสนุกฉบับจิ๋วของเหล่าสมาชิก RIIZE",
-"little-grid-title": "✨ เหล่าผองเพื่อน Little RIIZE ทั้ง 6 ตัวตน ✨",
-"little-grid-subtitle": "คลิกหรือเลื่อนดูความน่ารักของคาแรคเตอร์แต่ละตัวกันได้เลย!",
+        // Little RIIZE
+        "little-tag": "PLAYGROUND & FRIENDS",
+        "little-title": "Little RIIZE World",
+        "little-subtitle": "ทำความรู้จักกับคาแรคเตอร์สุดน่ารัก สวนสนุกฉบับจิ๋วของเหล่าสมาชิก RIIZE",
+        "little-grid-title": "✨ เหล่าผองเพื่อน Little RIIZE ทั้ง 6 ตัวตน ✨",
+        "little-grid-subtitle": "คลิกหรือเลื่อนดูความน่ารักของคาแรคเตอร์แต่ละตัวกันได้เลย!",
 
-"about-title": "เกี่ยวกับวง RIIZE",
-"about-desc": "<strong>RIIZE (ไรซ์)</strong> บอยกรุ๊ปจากค่าย SM Entertainment เปิดตัวอย่างเป็นทางการด้วยแนวดนตรีสไตล์ <em>\"Emotional Pop\"</em> ซึ่งเป็นเอกลักษณ์เฉพาะตัว ชื่อวงเกิดจากการรวมกันของคำว่า <strong>\"RISE\"</strong> (การเติบโต) และ <strong>\"REALISE\"</strong> (การทำให้สำเร็จ) สื่อถึงการก้าวไปข้างหน้าและทำฝันให้เป็นจริงร่วมกัน",
-"social-title": "ช่องทางการติดตาม (Official Social Links)",
-
-
+        "about-title": "เกี่ยวกับวง RIIZE",
+        "about-desc": "<strong>RIIZE (ไรซ์)</strong> บอยกรุ๊ปจากค่าย SM Entertainment เปิดตัวอย่างเป็นทางการด้วยแนวดนตรีสไตล์ <em>\"Emotional Pop\"</em> ซึ่งเป็นเอกลักษณ์เฉพาะตัว ชื่อวงเกิดจากการรวมกันของคำว่า <strong>\"RISE\"</strong> (การเติบโต) และ <strong>\"REALISE\"</strong> (การทำให้สำเร็จ) สื่อถึงการก้าวไปข้างหน้าและทำฝันให้เป็นจริงร่วมกัน",
+        "social-title": "ช่องทางการติดตาม (Official Social Links)",
 
         "footer-desc": "เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)",
-
     },
     en: {
         "nav-home": "Home",
@@ -105,7 +102,7 @@ const i18nDict = {
         "members-title": "Member Profiles",
         "members-subtitle": "Click on any member card to view full profile and solo activities.",
         "members-bio-title": "About RIIZE",
-        "members-bio-desc": "<strong>RIIZE</strong> is a boy group under SM Entertainment featuring versatile members with their signature <em>Emotional Pop</em> style. The group name combines <strong>\"RISE\"</strong> (growth) and <strong>\"REALISE\"</strong> (achievement).",
+        "members-bio-desc": "<strong>RIIZE</strong> is a boy group under SM Entertainment featuring versatile members with their signature <em>Emotional Pop</em> style. The group name combines <strong>\"RISE\"</strong> (growth) and <strong>\"REALISE\"</strong> (to make something a reality), symbolizing “a team that grows together and makes their dreams come true.” The group follows the concept of <strong>𝗥𝗲𝗮𝗹-𝘁𝗶𝗺𝗲 𝗢𝗱𝘆𝘀𝘀𝗲𝘆</strong>, which represents growing alongside their fans. Through sharing their moments and everyday lives, RIIZE invites fans to join them on their journey, growing together and making their dreams come true. RIIZE does not have a designated leader. Instead, the members share leadership responsibilities, taking turns depending on the needs and circumstances of each activity. The group was first introduced on August 1, 2023, and officially debuted on September 4, 2023.",
         "members-list-title": "All Members (6 Members)",
         "member-view-btn": "View Profile & Solo Works <i class=\"fas fa-arrow-right ml-1\"></i>",
         "back-to-members": "Back to All Members",
@@ -138,34 +135,34 @@ const i18nDict = {
         "tab-music": "Music Show Live",
         "tab-festival": "Festival & Awards",
         "tab-ads": "Ads & Brand",
-                "tab-perf": "Performance Video",
+        "tab-perf": "Performance Video",
 
-               // รางวัล
-               "awards-tag": "AWARDS & ACHIEVEMENTS",
-"awards-title": "HONOR & GLORY",
-"awards-subtitle": "Explore RIIZE milestones, album sales records, and prestigious awards.",
-"stat-sales": "Million-Seller Albums",
-"stat-awards": "Rookie & Major Awards",
-"stat-wins": "Music Show Wins",
-"stat-charts": "Top Chart #1s",
-"sec-album-sales": "1. Album Sales & Certifications",
-"sec-awards-main": "2. Awards & Honors Timeline",
-"award-sub-festival": "2.2 Year-End & Major Awards",
-"award-sub-music": "2.1 Music Show Trophies",
-"award-sub-other": "2.3 Other Honors & Ambassadorships",
+        // รางวัล
+        "awards-tag": "AWARDS & ACHIEVEMENTS",
+        "awards-title": "HONOR & GLORY",
+        "awards-subtitle": "Explore RIIZE milestones, album sales records, and prestigious awards.",
+        "stat-sales": "Million-Seller Albums",
+        "stat-awards": "Rookie & Major Awards",
+        "stat-wins": "Music Show Wins",
+        "stat-charts": "Top Chart #1s",
+        "sec-album-sales": "1. Album Sales & Certifications",
+        "sec-awards-main": "2. Awards & Honors Timeline",
+        "award-sub-festival": "2.2 Year-End & Major Awards",
+        "award-sub-music": "2.1 Music Show Trophies",
+        "award-sub-other": "2.3 Other Honors & Ambassadorships",
 
-// Little RIIZE
-"little-tag": "PLAYGROUND & FRIENDS",
-"little-title": "Little RIIZE World",
-"little-subtitle": "Meet the adorable Little RIIZE characters in their joyful wonderland.",
-"little-grid-title": "✨ All 6 Little RIIZE Friends ✨",
-"little-grid-subtitle": "Explore and discover the cuteness of each character!",
+        // Little RIIZE
+        "little-tag": "PLAYGROUND & FRIENDS",
+        "little-title": "Little RIIZE World",
+        "little-subtitle": "Meet the adorable Little RIIZE characters in their joyful wonderland.",
+        "little-grid-title": "✨ All 6 Little RIIZE Friends ✨",
+        "little-grid-subtitle": "Explore and discover the cuteness of each character!",
 
-"about-title": "About RIIZE",
-"about-desc": "<strong>RIIZE</strong> is a boy group under SM Entertainment featuring versatile members with their signature <em>\"Emotional Pop\"</em> style. The group name combines <strong>\"RISE\"</strong> (growth) and <strong>\"REALISE\"</strong> (achievement), representing their journey forward to make dreams come true together.",
-"social-title": "Official Social Links",
+        "about-title": "About RIIZE",
+        "about-desc": "<strong>RIIZE</strong> is a boy group under SM Entertainment featuring versatile members with their signature <em>\"Emotional Pop\"</em> style. The group name combines <strong>\"RISE\"</strong> (growth) and <strong>\"REALISE\"</strong> (achievement), representing their journey forward to make dreams come true together.",
+        "social-title": "Official Social Links",
 
-"footer-desc": "An unofficial fanclub website created to support and gather information on the artist RIIZE (SM Entertainment).",
+        "footer-desc": "An unofficial fanclub website created to support and gather information on the artist RIIZE (SM Entertainment).",
     }
 };
 
@@ -194,7 +191,7 @@ function updatePageLanguage() {
         mBtnEn.className = isTh ? 'text-gray-400' : 'text-riize-orange';
     }
 
-       // เพิ่มเอฟเฟกต์ Fade ให้ Main Content เวลาเปลี่ยนภาษา
+    // เพิ่มเอฟเฟกต์ Fade ให้ Main Content เวลาเปลี่ยนภาษา
     const mainContainer = document.querySelector('main');
     if (mainContainer) {
         mainContainer.classList.remove('fade-in');
