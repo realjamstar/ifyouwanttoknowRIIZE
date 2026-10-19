@@ -116,42 +116,38 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
-        
-        <!-- Year Filter Buttons -->
-        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
-            <button onclick="filterYear('all')" id="btn-year-all" class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all bg-riize-orange text-white shadow-lg shadow-riize-orange/30">
-                All (ทั้งหมด)
-            </button>
-            <button onclick="filterYear('2026')" id="btn-year-2026" class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange">
-                2026
-            </button>
-            <button onclick="filterYear('2025')" id="btn-year-2025" class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange">
-                2025
-            </button>
-            <button onclick="filterYear('2024')" id="btn-year-2024" class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange">
-                2024
-            </button>
-            <button onclick="filterYear('2023')" id="btn-year-2023" class="px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange">
-                2023
-            </button>
+    <!-- UNDER DEVELOPMENT BANNER (Main Dark / Orange Theme) -->
+<section class="min-h-[45vh] flex items-center justify-center py-12 px-4 relative overflow-hidden">
+    <!-- Glow Effect Background -->
+    <div class="absolute w-80 h-80 bg-riize-orange/10 blur-[120px] rounded-full pointer-events-none"></div>
+
+    <div class="relative z-10 max-w-lg w-full text-center p-8 rounded-3xl bg-gradient-to-b from-white/10 to-white/5 border border-white/10 backdrop-blur-xl shadow-2xl space-y-5">
+        <!-- Icon Badge -->
+        <div class="w-16 h-16 mx-auto rounded-2xl bg-riize-orange/20 border border-riize-orange/40 flex items-center justify-center text-riize-orange text-3xl shadow-[0_0_20px_rgba(249,115,22,0.3)] animate-bounce">
+            <i class="fas fa-tools"></i>
         </div>
 
-        <section class="space-y-6 pt-4">
-            <h2 class="text-2xl sm:text-3xl font-extrabold text-white flex items-center">
-                <i class="fas fa-video text-riize-orange mr-3"></i> 
-                <span id="section-heading-text" data-i18n="shows-section-title">รายการทั้งหมด (Variety Shows & Web Content)</span>
-            </h2>
+        <!-- Heading & Message -->
+        <div class="space-y-2">
+            <h3 data-i18n="dev-title" class="text-2xl font-extrabold text-white">ขออภัยในความไม่สะดวก</h3>
+            <p data-i18n="dev-desc" class="text-sm text-gray-300 leading-relaxed font-medium">
+                ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์จากผู้พัฒนา สามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว
+            </p>
+        </div>
 
-            <!-- Variety Grid Container -->
-            <div id="variety-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-        </section>
-    </main>
+        <!-- Status Tag -->
+        <div class="pt-2">
+            <span class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-riize-orange/10 text-riize-orange border border-riize-orange/30 shadow-md">
+                <span class="w-2.5 h-2.5 rounded-full bg-riize-orange animate-pulse"></span>
+                <span data-i18n="dev-status">UNDER DEVELOPMENT</span>
+            </span>
+        </div>
+    </div>
+</section>
 
-    <!-- Footer -->
+    <!-- Footer (Main Dark Theme) -->
 <footer class="border-t border-riize-border/60 glass-panel mt-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
         <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
             <div>
                 <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
@@ -159,6 +155,18 @@
             </div>
             <div class="text-xs text-gray-500">
                 Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
+            </div>
+        </div>
+
+        <!-- หมายเหตุเพิ่มเติมสำหรับช่วงพัฒนาเว็บไซต์ -->
+        <div class="pt-6 border-t border-white/5 text-center">
+            <div class="inline-block p-4 rounded-xl bg-riize-orange/10 border border-riize-orange/20 max-w-2xl mx-auto">
+                <p class="text-xs text-gray-300 leading-relaxed font-medium">
+                    <i class="fas fa-info-circle text-riize-orange mr-1.5"></i>
+                    <span data-i18n="footer-notice-prefix">ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์ หากมีข้อมูลใดตกหล่น สามารถแจ้งเพิ่มเติมได้ที่</span> 
+                    <span class="text-riize-orange font-bold">@jamstarnkmt</span> 
+                    <span data-i18n="footer-notice-suffix">และสามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว</span>
+                </p>
             </div>
         </div>
     </div>

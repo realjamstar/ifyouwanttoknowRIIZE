@@ -1,5 +1,5 @@
 /* =======================================================
-   DUAL LANGUAGE (TH/EN) TRANSLATION SYSTEM
+    DUAL LANGUAGE (TH/EN) TRANSLATION SYSTEM
    ======================================================= */
 let currentLang = localStorage.getItem('riize_site_lang') || 'th';
 
@@ -13,7 +13,7 @@ const i18nDict = {
         "nav-shows": "คอนเทนท์รายการ",
         "nav-little": "Little RIIZE",
         "hero-tag": "RISE & REALISE",
-        "hero-desc": "ศูนย์รวมข้อมูลและคอนเทนต์วง RIIZE สำหรับ BRIIZE ทั่วโลก",
+        "hero-desc": "ศูนย์รวมข้อมูลและคอนเทนต์วง RIIZE สำหรับ BRIIZE",
         "hero-btn-member": "ทำความรู้จักสมาชิก <i class=\"fas fa-arrow-right ml-2\"></i>",
         "hero-btn-discography": "<i class=\"fas fa-music mr-2 text-riize-orange\"></i> ผลงานของ RIIZE",
         
@@ -40,19 +40,19 @@ const i18nDict = {
         "disco-tracklist-label": "Tracklist (คลิกเพื่อฟัง):",
         "disco-watch-mv": "รับชม Music Video (Title Song)",
 
-        // TV Shows / Clip & Content Page Translations (เพิ่มใหม่)
+        // TV Shows / Clip & Content Page Translations
         "shows-tag": "CLIP & CONTENT",
         "shows-title": "คอนเทนท์รายการ",
         "shows-subtitle": "รวบรวมรายการวาไรตี้และคลิปไฮไลต์ความสนุกของ RIIZE รับชมได้ทันที",
         "shows-section-title": "รายการทั้งหมด (Variety Shows & Web Content)",
 
-        // TV Shows / Live stage Translations (เพิ่มใหม่)
+        // TV Shows / Live stage Translations
         "works-tag": "PREF. VIDEO & WORKS",
         "works-title": "Pref. Video & Works",
         "works-subtitle": "รวบรวมเพอร์ฟอร์แมนซ์วิดีโอ งานประกาศรางวัล เฟสติวัล และผลงานโฆษณา",
         "works-section-title": "ผลงานการแสดงและโฆษณาทั้งหมด",
         "tab-all": "ทั้งหมด (All)",
-        "tab-music": "Live Stage",
+        "tab-track": "Track Video",
         "tab-festival": "Festival & Awards",
         "tab-ads": "Ads & Brand",
         "tab-perf": "Performance Video",
@@ -79,10 +79,17 @@ const i18nDict = {
         "little-grid-subtitle": "คลิกหรือเลื่อนดูความน่ารักของคาแรคเตอร์แต่ละตัวกันได้เลย!",
 
         "about-title": "เกี่ยวกับวง RIIZE",
-        "about-desc": "<strong>RIIZE (ไรซ์)</strong> บอยกรุ๊ปจากค่าย SM Entertainment เปิดตัวอย่างเป็นทางการด้วยแนวดนตรีสไตล์ <em>\"Emotional Pop\"</em> ซึ่งเป็นเอกลักษณ์เฉพาะตัว ชื่อวงเกิดจากการรวมกันของคำว่า <strong>\"RISE\"</strong> (การเติบโต) และ <strong>\"REALISE\"</strong> (การทำให้สำเร็จ) สื่อถึงการก้าวไปข้างหน้าและทำฝันให้เป็นจริงร่วมกัน",
+        "about-desc": "<strong>RIIZE (ไรซ์)</strong> เป็นวงบอยกรุ๊ปจากค่าย SM Entertainment ที่รวมความสามารถอันโดดเด่นของสมาชิกทั้ง 6 คน ได้แก่ โชทาโร่, อึนซอก, ซองชาน, วอนบิน, โซฮี, แอนตัน นำเสนอแนวดนตรีสไตล์ <em>Emotional Pop</em> โดยชื่อวงเกิดจากการรวมคำว่า <strong>\"RISE\"</strong> (การเติบโต) และ <strong>\"REALISE\"</strong> (การทำให้เป็นจริง) เมื่อรวมกันจึงมีความหมายว่า \"ทีมที่เติบโตไปด้วยกันและทำให้ความฝันเป็นจริง โดยดำเนินตามคอนเซปของวงคือ <strong> 𝗥𝗲𝗮𝗹-𝘁𝗶𝗺𝗲 𝗢𝗱𝘆𝘀𝘀𝗲𝘆 </strong> หรือการเติบโตไปพร้อมกับแฟนๆ โดยจะถ่ายทอดช่วงเวลาและชีวิตประจำวันให้เห็น เสมือนเป็นคนที่ร่วมเติบโตและทำความฝันไปพร้อมๆกัน เปิดตัวครั้งแรกในวันที่ 1 สิงหาคม 2023 และเดบิวต์อย่างเป็นทางการเมื่อวันที่ 4 กันยายน 2023 มีชื่อแฟนคลับว่า <strong> BRIIZE </strong> (บรีซ/บรีจึ) มาจากคำว่า Breeze (สายลม) + RIIZE เปรียบแฟนคลับเป็นสายลมที่อยู่รอบๆตัว และจะคอยโอบอุ้มและพัดพาเอาความฝันของทั้งเมมเบอร์และแฟนคลับให้ลอยสูงขึ้นไป เติบโตไปด้วยกัน",
         "social-title": "ช่องทางการติดตาม (Official Social Links)",
 
+        "dev-title": "ขออภัยในความไม่สะดวก",
+        "dev-desc": "ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์จากผู้พัฒนา สามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว",
+        "dev-status": "อยู่ระหว่างการพัฒนา",
+
         "footer-desc": "เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)",
+        "footer-notice-prefix": "ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์ หากมีข้อมูลใดตกหล่น สามารถแจ้งเพิ่มเติมได้ที่",
+        "footer-notice-suffix": "และสามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว",
+
     },
     en: {
         "nav-home": "Home",
@@ -93,7 +100,7 @@ const i18nDict = {
         "nav-shows": "Clip & Content",
         "nav-little": "Little RIIZE",
         "hero-tag": "RISE & REALISE",
-        "hero-desc": "The ultimate hub for RIIZE news, profiles, and media for BRIIZE worldwide.",
+        "hero-desc": "The ultimate hub for RIIZE news, profiles, and media for BRIIZE.",
         "hero-btn-member": "Explore Members <i class=\"fas fa-arrow-right ml-2\"></i>",
         "hero-btn-discography": "<i class=\"fas fa-music mr-2 text-riize-orange\"></i> View Discography",
         
@@ -102,7 +109,8 @@ const i18nDict = {
         "members-title": "Member Profiles",
         "members-subtitle": "Click on any member card to view full profile and solo activities.",
         "members-bio-title": "About RIIZE",
-        "members-bio-desc": "<strong>RIIZE</strong> is a boy group under SM Entertainment featuring versatile members with their signature <em>Emotional Pop</em> style. The group name combines <strong>\"RISE\"</strong> (growth) and <strong>\"REALISE\"</strong> (to make something a reality), symbolizing “a team that grows together and makes their dreams come true.” The group follows the concept of <strong>𝗥𝗲𝗮𝗹-𝘁𝗶𝗺𝗲 𝗢𝗱𝘆𝘀𝘀𝗲𝘆</strong>, which represents growing alongside their fans. Through sharing their moments and everyday lives, RIIZE invites fans to join them on their journey, growing together and making their dreams come true. RIIZE does not have a designated leader. Instead, the members share leadership responsibilities, taking turns depending on the needs and circumstances of each activity. The group was first introduced on August 1, 2023, and officially debuted on September 4, 2023.",
+        "members-bio-desc": "<strong>RIIZE</strong> is a boy group under SM Entertainment, bringing together the outstanding talents of its six members: Shotaro, Eunseok, Sungchan, Wonbin, Sohee, and Anton. The group showcases its signature <em>Emotional Pop</em> style. The name RIIZE combines the words <strong>\"RISE\"</strong> (growth) and <strong>\"REALISE\"</strong> (to make something a reality), symbolizing “a team that grows together and makes their dreams come true.” The group follows the concept of <strong>𝗥𝗲𝗮𝗹-𝘁𝗶𝗺𝗲 𝗢𝗱𝘆𝘀𝘀𝗲𝘆</strong>, which represents growing alongside their fans. By sharing their moments and everyday lives, RIIZE invites fans to be part of their journey, growing together and making their dreams come true. The group was first introduced on August 1, 2023, and officially debuted on September 4, 2023. Their official fandom name is <strong>BRIIZE</strong> (pronounced “Breeze”), a combination of the word “Breeze” and “RIIZE.” The name symbolizes fans as the gentle breeze that surrounds the members, embracing them and carrying both the members’ and fans’ dreams higher into the sky as they continue to grow together.",
+
         "members-list-title": "All Members (6 Members)",
         "member-view-btn": "View Profile & Solo Works <i class=\"fas fa-arrow-right ml-1\"></i>",
         "back-to-members": "Back to All Members",
@@ -120,19 +128,19 @@ const i18nDict = {
         "disco-tracklist-label": "Tracklist (Click to play):",
         "disco-watch-mv": "Watch Music Video (Title Song)",
 
-        // TV Shows / Clip & Content Page Translations (เพิ่มใหม่)
+        // TV Shows / Clip & Content Page Translations
         "shows-tag": "CLIP & CONTENT",
         "shows-title": "Clip & Content",
         "shows-subtitle": "Explore RIIZE variety shows, reality highlights, and web content instantly.",
         "shows-section-title": "All Variety Shows & Web Content",
 
-        // TV Shows / Live stage Translations (เพิ่มใหม่)
+        // TV Shows / Live stage Translations
         "works-tag": "PREF. VIDEO & WORKS",
         "works-title": "Pref. Video & Works",
         "works-subtitle": "Explore live stage performances from music shows, festivals, awards, and brand campaigns.",
         "works-section-title": "All Live Performances & Commercial Works",
         "tab-all": "All",
-        "tab-music": "Music Show Live",
+        "tab-track": "Track Video",
         "tab-festival": "Festival & Awards",
         "tab-ads": "Ads & Brand",
         "tab-perf": "Performance Video",
@@ -159,10 +167,17 @@ const i18nDict = {
         "little-grid-subtitle": "Explore and discover the cuteness of each character!",
 
         "about-title": "About RIIZE",
-        "about-desc": "<strong>RIIZE</strong> is a boy group under SM Entertainment featuring versatile members with their signature <em>\"Emotional Pop\"</em> style. The group name combines <strong>\"RISE\"</strong> (growth) and <strong>\"REALISE\"</strong> (achievement), representing their journey forward to make dreams come true together.",
+        "about-desc": "<strong>RIIZE</strong> is a boy group under SM Entertainment, bringing together the outstanding talents of its six members: Shotaro, Eunseok, Sungchan, Wonbin, Sohee, and Anton. The group showcases its signature <em>Emotional Pop</em> style. The name RIIZE combines the words <strong>\"RISE\"</strong> (growth) and <strong>\"REALISE\"</strong> (to make something a reality), symbolizing “a team that grows together and makes their dreams come true.” The group follows the concept of <strong>𝗥𝗲𝗮𝗹-𝘁𝗶𝗺𝗲 𝗢𝗱𝘆𝘀𝘀𝗲𝘆</strong>, which represents growing alongside their fans. By sharing their moments and everyday lives, RIIZE invites fans to be part of their journey, growing together and making their dreams come true. The group was first introduced on August 1, 2023, and officially debuted on September 4, 2023. Their official fandom name is <strong>BRIIZE</strong> (pronounced “Breeze”), a combination of the word “Breeze” and “RIIZE.” The name symbolizes fans as the gentle breeze that surrounds the members, embracing them and carrying both the members’ and fans’ dreams higher into the sky as they continue to grow together.",
         "social-title": "Official Social Links",
 
-        "footer-desc": "An unofficial fanclub website created to support and gather information on the artist RIIZE (SM Entertainment).",
+   "dev-title": "We Apologize for the Inconvenience",
+        "dev-desc": "This page is currently under development. Please check back again after the update is complete.",
+        "dev-status": "UNDER DEVELOPMENT",
+
+        "footer-desc": "Unofficial fanclub website created to support and aggregate information for RIIZE (SM Entertainment).",
+        "footer-notice-prefix": "This website is currently under development. If you notice any missing information, feel free to report at",
+        "footer-notice-suffix": "and check back again after future updates.",
+
     }
 };
 
@@ -207,16 +222,7 @@ function updatePageLanguage() {
         }
     });
 
-    // 2. Re-render โซนสมาชิก
-    try {
-        if (typeof renderMemberGrid === 'function') renderMemberGrid();
-        if (typeof renderMemberDetail === 'function') renderMemberDetail();
-        if (typeof renderMemberProfile === 'function') renderMemberProfile();
-    } catch (e) {
-        console.log('Member render not needed on this page.');
-    }
-    
-    // Re-render ฟังก์ชันต่างๆ ตามหน้า
+    // 2. Re-render คอมโพเนนต์ต่างๆ ตามหน้าที่ใช้งาน (เคลียร์ให้เหลือบล็อกเดียวไม่ให้เรียกซ้ำซ้อน)
     try {
         if (typeof renderMemberGrid === 'function') renderMemberGrid();
         if (typeof renderMemberDetail === 'function') renderMemberDetail();
@@ -226,7 +232,7 @@ function updatePageLanguage() {
         if (typeof renderWorks === 'function') renderWorks();
         if (typeof renderLittleRiize === 'function') renderLittleRiize();
     } catch (e) {
-        console.log('Component render error or not needed.');
+        console.log('Component render error or not needed on this page.');
     }
 }
 

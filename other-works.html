@@ -124,14 +124,17 @@
             <button onclick="filterCategory('all')" id="btn-cat-all" class="px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all bg-riize-orange text-white shadow-lg shadow-riize-orange/30" data-i18n="tab-all">
                 ทั้งหมด (All)
             </button>
+            <button onclick="filterCategory('trackvideo')" id="btn-cat-trackvideo" class="px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange">
+                Track Video
+            </button>
             <button onclick="filterCategory('performance')" id="btn-cat-performance" class="px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange" data-i18n="tab-perf">
-                Performance Video (วิดีโอเต้น)
+                Performance Video
             </button>
             <button onclick="filterCategory('festival')" id="btn-cat-festival" class="px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange" data-i18n="tab-festival">
-                Festival & Awards (งานปลายปี)
+                Festival & Awards
             </button>
             <button onclick="filterCategory('ads')" id="btn-cat-ads" class="px-4 sm:px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all glass-panel text-gray-300 hover:text-white hover:border-riize-orange" data-i18n="tab-ads">
-                Ads & Brand Ambassador (โฆษณา)
+                Ads & Brand
             </button>
         </div>
 
@@ -146,20 +149,32 @@
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="border-t border-riize-border/60 glass-panel mt-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-                <div>
-                    <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
-                    <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
-                </div>
-                <div class="text-xs text-gray-500">
-                    Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
-                </div>
+    <!-- Footer (Main Dark Theme) -->
+<footer class="border-t border-riize-border/60 glass-panel mt-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+            <div>
+                <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
+                <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+            </div>
+            <div class="text-xs text-gray-500">
+                Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
             </div>
         </div>
-    </footer>
+
+        <!-- หมายเหตุเพิ่มเติมสำหรับช่วงพัฒนาเว็บไซต์ -->
+        <div class="pt-6 border-t border-white/5 text-center">
+            <div class="inline-block p-4 rounded-xl bg-riize-orange/10 border border-riize-orange/20 max-w-2xl mx-auto">
+                <p class="text-xs text-gray-300 leading-relaxed font-medium">
+                    <i class="fas fa-info-circle text-riize-orange mr-1.5"></i>
+                    <span data-i18n="footer-notice-prefix">ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์ หากมีข้อมูลใดตกหล่น สามารถแจ้งเพิ่มเติมได้ที่</span> 
+                    <span class="text-riize-orange font-bold">@jamstarnkmt</span> 
+                    <span data-i18n="footer-notice-suffix">และสามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <!-- JavaScript สำหรับ เปิด/ปิด Mobile Menu -->
     <script>
@@ -179,6 +194,186 @@
     <!-- Works Data & Grouping Script -->
     <script>
         const worksData = [
+            {
+                id: 't1',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2024',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 9 Days MV', en: 'RIIZE 라이즈 9 Days MV' },
+                youtubeId: 'YVwNxYhgCdg'
+            },
+            {
+                id: 't2',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2024',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 One Kiss MV', en: 'RIIZE 라이즈 One Kiss MV' },
+                youtubeId: '46dquyaoe_c'
+            },
+            {
+                id: 't3',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2024',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 Be My Next Special Video for BRIIZE', en: 'RIIZE 라이즈 Be My Next Special Video for BRIIZE' },
+                youtubeId: 'eb1KhLB1R8s'
+            },
+            {
+                id: 't4',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2025',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 Odyssey Intro Film', en: 'RIIZE 라이즈 Odyssey Intro Film' },
+                youtubeId: 'XO8Wb0sh6sU'
+            },
+            {
+                id: 't5',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2025',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 Bag Bad Back MV', en: 'RIIZE 라이즈 Bag Bad Back MV' },
+                youtubeId: 'vmL-XgxwQZU'
+            },
+            {
+                id: 't6',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2025',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 잉걸 (Ember to Solar) Track Video', en: 'RIIZE 라이즈 잉걸 (Ember to Solar) Track Video' },
+                youtubeId: 'YtaJn17nHgU'
+            },
+            {
+                id: 't7',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2025',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 Show Me Love MV', en: 'RIIZE 라이즈 Show Me Love MV' },
+                youtubeId: 'b5vM6MfXhVA'
+            },
+            {
+                id: 't8',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2025',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 Passage Visualizer', en: 'RIIZE 라이즈 Passage Visualizer' },
+                youtubeId: 'eJJONXRZxaI'
+            },
+            {
+                id: 't9',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2025',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 Midnight Mirage MV', en: 'RIIZE 라이즈 Midnight Mirage MV' },
+                youtubeId: 'lNmBNXR5mKk'
+            },
+            {
+                id: 't10',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2025',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 모든 하루의 끝 (The End of the Day) MV', en: 'RIIZE 라이즈 모든 하루의 끝 (The End of the Day) MV' },
+                youtubeId: 'XBL44lrLvT8'
+            },
+            {
+                id: 't11',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2025',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 Inside My Love MV', en: 'RIIZE 라이즈 Inside My Love MV' },
+                youtubeId: 'ztoPhcfnj3Q'
+            },
+            {
+                id: 't12',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2025',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 Another Life Outro Film', en: 'RIIZE 라이즈 Another Life Outro Film' },
+                youtubeId: 'nGYD63hdNTE'
+            },
+            {
+                id: 't13',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2025',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 Fame Trailer(Somethings in the Water)', en: 'RIIZE 라이즈 Fame Trailer(Somethings in the Water)' },
+                youtubeId: 'dxUim1YNAFU'
+            },
+            {
+                id: 't14',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 II Trailer (SOAR)', en: 'RIIZE 라이즈 II Trailer (SOAR)' },
+                youtubeId: 'put0r-wWzSU'
+            },
+            {
+                id: 't15',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 II Trailer - No Fear', en: 'RIIZE 라이즈 II Trailer - No Fear' },
+                youtubeId: 'wfzxzslZ7pE'
+            },
+            {
+                id: 't16',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 II Trailer - Silent Walker', en: 'RIIZE 라이즈 II Trailer - Silent Walker' },
+                youtubeId: 'fHrPPuU_7QQ'
+            },
+            {
+                id: 't17',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 II Trailer - Still Dreaming', en: 'RIIZE 라이즈 II Trailer - Still Dreaming' },
+                youtubeId: '3NhlxWS77bI'
+            },
+            {
+                id: 't18',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 II Trailer - Deep Dive', en: 'RIIZE 라이즈 II Trailer - Deep Dive' },
+                youtubeId: 'NrM9m7qc98w'
+            },
+            {
+                id: 't19',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 II Trailer - Born Free', en: 'RIIZE 라이즈 II Trailer - Born Free' },
+                youtubeId: 'Qi4nfaPhBcY'
+            },
+            {
+                id: 't20',
+                category: 'trackvideo',
+                categoryLabel: { th: 'Track Video', en: 'Track Video' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 II Trailer - New Horizon', en: 'RIIZE 라이즈 II Trailer - New Horizon' },
+                youtubeId: 'IeJcin9-biU'
+            },
             {
                 id: 'p1',
                 category: 'performance',
@@ -203,7 +398,7 @@
                 categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
                 year: '2023',
                 channel: 'RIIZE Official',
-                title: { th: "RIIZE 라이즈 'Memories' Performance Video", en: "RIIZE 라이즈 'Memories' Performance Video" },
+                title: { th: "RIIZE 라이즈 Memories Performance Video", en: "RIIZE 라이즈 Memories Performance Video" },
                 youtubeId: 'tyQ8uvG9NHU'
             },
             {
@@ -212,20 +407,83 @@
                 categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
                 year: '2023',
                 channel: 'RIIZE Official',
-                title: { th: "RIIZE 라이즈 'Get A Guitar' Performance Video", en: "RIIZE 라이즈 'Get A Guitar' Performance Video" },
+                title: { th: "RIIZE 라이즈 Get A Guitar Performance Video", en: "RIIZE 라이즈 Get A Guitar Performance Video" },
                 youtubeId: 'y6K7ZT_tAxc'
             },
             {
                 id: 'p5',
                 category: 'performance',
                 categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
-                year: '2024',
-                channel: 'RIIZE Official',
-                title: { th: '[Performance37] RIIZE(라이즈) Boom Boom Bass', en: '[Performance37] RIIZE(라이즈) Boom Boom Bass' },
-                youtubeId: '0GTyDijQEUQ'
+                year: '2023',
+                channel: 'SMTOWN',
+                title: { th: "RIIZE 라이즈 Get A Guitar MV (Performance Ver.)", en: "RIIZE 라이즈 Get A Guitar MV (Performance Ver.)" },
+                youtubeId: 'bmqaZMc1jnc'
             },
             {
                 id: 'p6',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2023',
+                channel: 'STUDIO CHOOM',
+                title: { th: "[BE ORIGINAL] RIIZE(라이즈) Get A Guitar", en: "[BE ORIGINAL] RIIZE(라이즈) Get A Guitar" },
+                youtubeId: 'jIG4AaIy-5k'
+            },
+            {
+                id: 'p7',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2023',
+                channel: 'M2',
+                title: { th: "[Performance37] RIIZE(라이즈) Memories", en: "[Performance37] RIIZE(라이즈) Memories" },
+                youtubeId: 'XYKBf6iDZ_Q'
+            },
+            {
+                id: 'p8',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2023',
+                channel: 'Its Live',
+                title: { th: "RIIZE - Memories & Get A Guitar Band LIVE Concert [its Live]", en: "RIIZE - Memories & Get A Guitar Band LIVE Concert [its Live]" },
+                youtubeId: 'NsXHHxpnYrA'
+            },
+            {
+                id: 'p9',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2023',
+                channel: 'M2',
+                title: { th: "[Performance37] RIIZE (라이즈) Talk Saxy", en: "[Performance37] RIIZE (라이즈) Talk Saxy" },
+                youtubeId: 'rovUWJh_JnA'
+            },
+            {
+                id: 'p10',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'RIIZE Official',
+                title: { th: "RIIZE 라이즈 Love 119 Performance Video", en: "RIIZE 라이즈 Love 119 Performance Video" },
+                youtubeId: 'kmD6JcAV_Rc'
+            },
+            {
+                id: 'p11',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'THE FIRST TAKE',
+                title: { th: "RIIZE - Get A Guitar in THE FIRST TAKE", en: "RIIZE - Get A Guitar in THE FIRST TAKE" },
+                youtubeId: 'oj1wtfORnxY'
+            },
+            {
+                id: 'p12',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'THE FIRST TAKE',
+                title: { th: "RIIZE - Love 119 (Japanese Ver.) in THE FIRST TAKE", en: "RIIZE - Love 119 (Japanese Ver.) in THE FIRST TAKE" },
+                youtubeId: 'j3jla2gY9d8'
+            },
+            {
+                id: 'p13',
                 category: 'performance',
                 categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
                 year: '2024',
@@ -234,41 +492,374 @@
                 youtubeId: '_UPynjzuOlw'
             },
             {
+                id: 'p14',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'RIIZE Official',
+                title: { th: '[Performance37] RIIZE(라이즈) Boom Boom Bass', en: '[Performance37] RIIZE(라이즈) Boom Boom Bass' },
+                youtubeId: '0GTyDijQEUQ'
+            },
+            {
+                id: 'p15',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 Combo Live Stage -2024 RIIZE FAN - CON RIIZING DAY FINALE in SEOUL', en: 'RIIZE 라이즈 Combo Live Stage -2024 RIIZE FAN - CON RIIZING DAY FINALE in SEOUL' },
+                youtubeId: 'kIL0v7Spw3k'
+            },
+            {
+                id: 'p16',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 Honestly Live Clip', en: 'RIIZE 라이즈 Honestly Live Clip' },
+                youtubeId: 'mH7xjaEA-94'
+            },
+            {
+                id: 'p17',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 One Kiss Live Clip -2024 RIIZE FAN - CON RIIZING DAY in SEOUL', en: 'RIIZE 라이즈 One Kiss Live Clip -2024 RIIZE FAN - CON RIIZING DAY in SEOUL' },
+                youtubeId: 'urPUmt24oeE'
+            },
+            {
+                id: 'p18',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'UNIVERSAL MUSIC JAPAN',
+                title: { th: 'Lucky Live Performance (PACIFICO YOKOHAMA)', en: 'Lucky Live Performance (PACIFICO YOKOHAMA)' },
+                youtubeId: 'ptZ37NLmZCU'
+            },
+            {
+                id: 'p19',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'UNIVERSAL MUSIC JAPAN',
+                title: { th: 'Same Key Live Performance (PACIFICO YOKOHAMA)', en: 'Same Key Live Performance (PACIFICO YOKOHAMA)' },
+                youtubeId: 'DmY_6Rd9a64'
+            },
+            {
+                id: 'p20',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2024',
+                channel: 'SMTOWN',
+                title: { th: 'RIIZE 라이즈 Hug (포옹) Stage Clip', en: 'RIIZE 라이즈 Hug (포옹) Stage Clip' },
+                youtubeId: 'NA9RpslcCjs'
+            },
+            {
+                id: 'p21',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2025',
+                channel: 'STUDIO CHOOM',
+                title: { th: 'RIIZE(라이즈) Bag Bad Back | STUDIO CHOOM ORIGINAL', en: 'RIIZE(라이즈) Bag Bad Back | STUDIO CHOOM ORIGINAL' },
+                youtubeId: '5FgwmDY8MK8'
+            },
+            {
+                id: 'p22',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2025',
+                channel: 'M2',
+                title: { th: '[MOVE TO PERFORMANCE] RIIZE(라이즈) - Fly Up', en: '[MOVE TO PERFORMANCE] RIIZE(라이즈) - Fly Up' },
+                youtubeId: 'nwvZr4QyQgM'
+            },
+            {
+                id: 'p23',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2025',
+                channel: '1theK Originals',
+                title: { th: 'RIIZE(라이즈) _ Fame | 1theKILLPO', en: 'RIIZE(라이즈) _ Fame | 1theKILLPO' },
+                youtubeId: 'F3C87lOmZBM'
+            },
+            {
+                id: 'p24',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'All of You Live Stage -2026 RIIZE CONCERT TOUR [RIIZING LOUD] Special Edition in TOKYO DOME', en: 'All of You Live Stage -2026 RIIZE CONCERT TOUR [RIIZING LOUD] Special Edition in TOKYO DOME' },
+                youtubeId: '4zn9p1dfxwY'
+            },
+            {
+                id: 'p25',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'Flashlight Live Stage -2026 RIIZE CONCERT TOUR [RIIZING LOUD] Special Edition in TOKYO DOME', en: 'Flashlight Live Stage -2026 RIIZE CONCERT TOUR [RIIZING LOUD] Special Edition in TOKYO DOME' },
+                youtubeId: 'hE2bPb0wPGk'
+            },
+            {
+                id: 'p26',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2026',
+                channel: 'STUDIO CHOOM',
+                title: { th: 'RIIZE(라이즈) Do your dance (4K) | STUDIO CHOOM ORIGINAL', en: 'RIIZE(라이즈) Do your dance (4K) | STUDIO CHOOM ORIGINAL' },
+                youtubeId: 'vdbg5qS0CEw'
+            },
+            {
+                id: 'p27',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2026',
+                channel: 'Spotify Korea',
+                title: { th: 'RIIZE(라이즈) Do your dance Shuffle Live | 스포티파이 K-Pop ON! RECORD', en: 'RIIZE(라이즈) Do your dance Shuffle Live | 스포티파이 K-Pop ON! RECORD' },
+                youtubeId: 'AsaIg5Ovu_g'
+            },
+            {
+                id: 'p28',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 D-D-Done Performance Video', en: 'RIIZE 라이즈 D-D-Done Performance Video' },
+                youtubeId: 'ph5xazcAyqw'
+            },
+            {
+                id: 'p29',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2026',
+                channel: 'Genius / RIIZE',
+                title: { th: 'RIIZE SOAR (Live Performance) | Open Mic', en: 'RIIZE SOAR (Live Performance) | Open Mic' },
+                youtubeId: 'uIOuV7n-L6o'
+            },
+            {
+                id: 'p30',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE 라이즈 SOAR -RIIZE 3RD ANNIVERSARY FANMEETING', en: 'RIIZE 라이즈 SOAR -RIIZE 3RD ANNIVERSARY FANMEETING' },
+                youtubeId: 'eVYa1xs91FU'
+            },
+            {
+                id: 'p31',
+                category: 'performance',
+                categoryLabel: { th: 'Performance Video', en: 'Performance Video' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE Sunburst Live Stage -RIIZE JAPAN FANMEETING 2026 RPG in YOYOGI NATIONAL STADIUM', en: 'RIIZE Sunburst Live Stage -RIIZE JAPAN FANMEETING 2026 RPG in YOYOGI NATIONAL STADIUM' },
+                youtubeId: '1ccDZDpPzEI'
+            },
+            {
                 id: 'f1',
                 category: 'festival',
                 categoryLabel: { th: 'Awards & Festival', en: 'Awards & Festival' },
-                year: '2024',
-                channel: 'KBS WORLD TV',
-                title: { th: 'RIIZE - Special Stage @ KBS Music Bank Global Festival', en: 'RIIZE - Special Stage @ KBS Music Bank Global Festival' },
-                youtubeId: '4YI9H0HnFpQ'
+                year: '2023',
+                channel: '멜론 Melon',
+                title: { th: '[MMA2023] RIIZE - FULL Performance', en: '[MMA2023] RIIZE - FULL Performance' },
+                youtubeId: 'ekAhIpQvUoc'
             },
             {
                 id: 'f2',
                 category: 'festival',
                 categoryLabel: { th: 'Awards & Festival', en: 'Awards & Festival' },
-                year: '2023',
+                year: '2024',
                 channel: 'Mnet K-POP',
-                title: { th: 'RIIZE - Siren + Get A Guitar @ MAMA 2023', en: 'RIIZE - Siren + Get A Guitar @ MAMA 2023' },
-                youtubeId: '4R8V613E8k4'
+                title: { th: '[2024MAMA] RIIZE (라이즈) - Get A Guitar + Boom Boom Bass', en: '[2024MAMA] RIIZE (라이즈) - Get A Guitar + Boom Boom Bass' },
+                youtubeId: 's2A-_rhynAY'
+            },
+            {
+                id: 'f3',
+                category: 'festival',
+                categoryLabel: { th: 'Awards & Festival', en: 'Awards & Festival' },
+                year: '2025',
+                channel: 'Mnet K-POP',
+                title: { th: '[2025MAMA] RIIZE - Bag Bad Back (2025 MAMA ver.) + Fame', en: '[2025MAMA] RIIZE - Bag Bad Back (2025 MAMA ver.) + Fame' },
+                youtubeId: '589t8-cM0M0'
+            },
+            {
+                id: 'f4',
+                category: 'festival',
+                categoryLabel: { th: 'Awards & Festival', en: 'Awards & Festival' },
+                year: '2025',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE Live Stage 2025 Austin City Limits Music Festival', en: 'RIIZE Live Stage 2025 Austin City Limits Music Festival' },
+                youtubeId: '8lS4Kis2MGw'
+            },
+            {
+                id: 'f5',
+                category: 'festival',
+                categoryLabel: { th: 'Awards & Festival', en: 'Awards & Festival' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE Live Stage Lollapalooza Argentina 2026', en: 'RIIZE Live Stage Lollapalooza Argentina 2026' },
+                youtubeId: 'i7rGrJjFPOw'
+            },
+            {
+                id: 'f6',
+                category: 'festival',
+                categoryLabel: { th: 'Awards & Festival', en: 'Awards & Festival' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE Live Stage Lollapalooza Chile 2026', en: 'RIIZE Live Stage Lollapalooza Chile 2026' },
+                youtubeId: 'cirgy6iLLqU'
+            },
+            {
+                id: 'f7',
+                category: 'festival',
+                categoryLabel: { th: 'Awards & Festival', en: 'Awards & Festival' },
+                year: '2026',
+                channel: 'RIIZE Official',
+                title: { th: 'RIIZE Live Stage Lollapalooza Brazil 2026', en: 'RIIZE Live Stage Lollapalooza Brazil 2026' },
+                youtubeId: 'bJxQjfBe6hI'
+            },
+            {
+                id: 'f8',
+                category: 'festival',
+                categoryLabel: { th: 'Awards & Festival', en: 'Awards & Festival' },
+                year: '2026',
+                channel: 'K2O Songkran Music Festival',
+                title: { th: 'RIIZE LIVE SET | K2O SONGKRAN MUSIC FESTIVAL 2026', en: 'RIIZE LIVE SET | K2O SONGKRAN MUSIC FESTIVAL 2026' },
+                youtubeId: 'Udsxgriyrpo'
+            },
+            {
+                id: 'f9',
+                category: 'festival',
+                categoryLabel: { th: 'Awards & Festival', en: 'Awards & Festival' },
+                year: '2026',
+                channel: 'Dispatch / 디스패치',
+                title: { th: 'RIIZE-WATERBOMB2026🎵Get A Guitar➡️Bag Bad Back', en: 'RIIZE-WATERBOMB2026🎵Get A Guitar➡️Bag Bad Back' },
+                youtubeId: 'Km6UAK7kgzE'
             },
             {
                 id: 'a1',
                 category: 'ads',
                 categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
-                year: '2024',
-                channel: 'Louis Vuitton Official',
-                title: { th: 'Louis Vuitton House Ambassador Campaign', en: 'Louis Vuitton House Ambassador Campaign' },
-                youtubeId: 'K3S95o88uBw'
+                year: '2023',
+                channel: 'MUSINSA TV',
+                title: { th: 'RIIZE와 함께한 2023 무신사 아우터 프레젠테이션 비하인드 [REAL RIIZE]', en: 'RIIZE와 함께한 2023 무신사 아우터 프레젠테이션 비하인드 [REAL RIIZE]' },
+                youtubeId: 'lg3qrKtJ4H0'
             },
             {
                 id: 'a2',
                 category: 'ads',
                 categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
                 year: '2023',
-                channel: 'UIQ Official',
-                title: { th: 'UIQ Skincare TV Commercial Film', en: 'UIQ Skincare TV Commercial Film' },
-                youtubeId: 'P_K2M7U7i2g'
-            }
+                channel: 'UIQ 유이크',
+                title: { th: '[UIQ] 유이크X라이즈 Good Microbiome', en: '[UIQ] 유이크X라이즈 Good Microbiome' },
+                youtubeId: 'LX7tkCAlibM'
+            },
+            {
+                id: 'a3',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2023',
+                channel: 'UIQ 유이크',
+                title: { th: '[UIQ] 유이크는 지금 블랙프라이데이 진행 중 🎊', en: '[UIQ] 유이크는 지금 블랙프라이데이 진행 중 🎊' },
+                youtubeId: 'hfOzq4jayA4'
+            },
+            {
+                id: 'a4',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2023',
+                channel: 'UIQ 유이크',
+                title: { th: '[UIQ] 유이크와 라이즈가 함께하는 첫 번째 겨울 이야기 _ RIIZE OF WINTER', en: '[UIQ] 유이크와 라이즈가 함께하는 첫 번째 겨울 이야기 _ RIIZE OF WINTER' },
+                youtubeId: 'zWZ9_BFv2vk'
+            },
+            {
+                id: 'a5',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2024',
+                channel: 'UIQ 유이크',
+                title: { th: '[UIQ] 유이크X라이즈 𝕌𝕀ℚ 𝕌ℕ𝕀𝕍𝔼ℝ𝕊𝔼', en: '[UIQ] 유이크X라이즈 𝕌𝕀ℚ 𝕌ℕ𝕀𝕍𝔼ℝ𝕊𝔼' },
+                youtubeId: 'YVA2Z4Wsmi4'
+            },
+            {
+                id: 'a6',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2024',
+                channel: 'UIQ 유이크',
+                title: { th: '[UIQ] 선물처럼 찾아온🎁 유이크X라이즈 화보 메이킹✨', en: '[UIQ] 선물처럼 찾아온🎁 유이크X라이즈 화보 메이킹✨' },
+                youtubeId: 'e3esJr0zGnM'
+            },
+            {
+                id: 'a7',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2025',
+                channel: 'UIQ 유이크',
+                title: { th: '[UIQ] 유이크X라이즈 SUN LOVER, UIQ', en: '[UIQ] 유이크X라이즈 SUN LOVER, UIQ' },
+                youtubeId: 'PHAna7u4sj0'
+            },
+            {
+                id: 'a8',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2026',
+                channel: 'UIQ 유이크',
+                title: { th: '[UIQ X RIIZE] 열감 잡는 3초 쿨링패드', en: '[UIQ X RIIZE] 열감 잡는 3초 쿨링패드' },
+                youtubeId: '4VN2jnu9Vc4'
+            },
+            {
+                id: 'a9',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2024',
+                channel: 'ESQUIRE Korea',
+                title: { th: 'LV SCENE1 앤톤 | Louis Vuitton, Riize', en: 'LV SCENE5 쇼타로 | Louis Vuitton, Riize' },
+                youtubeId: 'URjpChHAFm4'
+            },
+            {
+                id: 'a10',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2024',
+                channel: 'ESQUIRE Korea',
+                title: { th: 'LV SCENE2 원빈 | Louis Vuitton, Riize', en: 'LV SCENE5 쇼타로 | Louis Vuitton, Riize' },
+                youtubeId: '1ncsL7723PQ'
+            },
+            {
+                id: 'a11',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2024',
+                channel: 'ESQUIRE Korea',
+                title: { th: 'LV SCENE3 은석 | Louis Vuitton, Riize', en: 'LV SCENE5 쇼타로 | Louis Vuitton, Riize' },
+                youtubeId: 'fQYbryEZvts'
+            },
+            {
+                id: 'a12',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2024',
+                channel: 'ESQUIRE Korea',
+                title: { th: 'LV SCENE4 성찬 | Louis Vuitton, Riize', en: 'LV SCENE5 쇼타로 | Louis Vuitton, Riize' },
+                youtubeId: 'eTJxfZhEBtA'
+            },
+            {
+                id: 'a13',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2024',
+                channel: 'ESQUIRE Korea',
+                title: { th: 'LV SCENE5 쇼타로 | Louis Vuitton, Riize', en: 'LV SCENE5 쇼타로 | Louis Vuitton, Riize' },
+                youtubeId: '_5rkukeE-xY'
+            },
+            {
+                id: 'a14',
+                category: 'ads',
+                categoryLabel: { th: 'Brand Ambassador & Ads', en: 'Brand Ambassador & Ads' },
+                year: '2024',
+                channel: 'ESQUIRE Korea',
+                title: { th: 'LV SCENE6 소희 | Louis Vuitton, Riize', en: 'LV SCENE5 쇼타로 | Louis Vuitton, Riize' },
+                youtubeId: 'YudzKr98rHQ'
+            },
         ];
 
         let selectedCategory = 'all';
@@ -276,7 +867,7 @@
         function filterCategory(cat) {
             selectedCategory = cat;
             
-            const categories = ['all', 'performance', 'festival', 'ads'];
+            const categories = ['all', 'trackvideo', 'performance', 'festival', 'ads'];
             categories.forEach(c => {
                 const btn = document.getElementById(`btn-cat-${c}`);
                 if (!btn) return;
