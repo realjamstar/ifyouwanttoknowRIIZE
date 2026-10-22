@@ -59,17 +59,17 @@ const i18nDict = {
 
         // รางวัล
         "awards-tag": "AWARDS & ACHIEVEMENTS",
-        "awards-title": "HONOR & GLORY",
-        "awards-subtitle": "บันทึกความสำเร็จ สถิติยอดขายอัลบั้ม และรางวัลเกียรติยศแห่งความภาคภูมิใจของ RIIZE",
+        "awards-title": "RIIZE, Rising Higher",
+        "awards-subtitle": "บันทึกความสำเร็จ สถิติ และรางวัลของ RIIZE",
         "stat-sales": "ยอดขายอัลบั้มล้านชุด",
         "stat-awards": "รางวัลรุกกี้และรางวัลใหญ่",
         "stat-wins": "ถ้วยรางวัลรายการเพลง",
         "stat-charts": "อันดับ 1 ชาร์ตเพลงชั้นนำ",
-        "sec-album-sales": "1. สถิติและยอดขายอัลบั้ม (Album Sales & Certifications)",
-        "sec-awards-main": "2. รางวัลที่ได้รับ (Awards & Honors Timeline)",
-        "award-sub-festival": "2.2 รางวัลจากงานปลายปีและงานประกาศรางวัล",
-        "award-sub-music": "2.1 ถ้วยรางวัลจากรายการเพลง",
-        "award-sub-other": "2.3 รางวัลอื่นๆ และตำแหน่งเกียรติยศ",
+        "sec-album-sales": "สถิติและยอดขายอัลบั้ม (Album Sales & Certifications)",
+        "sec-awards-main": "รางวัลที่ได้รับ (Awards & Honors Timeline)",
+        "award-sub-festival": "รางวัลจากงานปลายปีและงานประกาศรางวัล",
+        "award-sub-music": "ถ้วยรางวัลจากรายการเพลง",
+        "award-sub-other": "รางวัลอื่นๆ และตำแหน่งเกียรติยศ",
 
         // Little RIIZE
         "little-tag": "PLAYGROUND & FRIENDS",
@@ -147,17 +147,17 @@ const i18nDict = {
 
         // รางวัล
         "awards-tag": "AWARDS & ACHIEVEMENTS",
-        "awards-title": "HONOR & GLORY",
+        "awards-title": "RIIZE, Rising Higher",
         "awards-subtitle": "Explore RIIZE milestones, album sales records, and prestigious awards.",
         "stat-sales": "Million-Seller Albums",
         "stat-awards": "Rookie & Major Awards",
         "stat-wins": "Music Show Wins",
         "stat-charts": "Top Chart #1s",
-        "sec-album-sales": "1. Album Sales & Certifications",
-        "sec-awards-main": "2. Awards & Honors Timeline",
-        "award-sub-festival": "2.2 Year-End & Major Awards",
-        "award-sub-music": "2.1 Music Show Trophies",
-        "award-sub-other": "2.3 Other Honors & Ambassadorships",
+        "sec-album-sales": "Album Sales & Certifications",
+        "sec-awards-main": "Awards & Honors Timeline",
+        "award-sub-festival": "Year-End & Major Awards",
+        "award-sub-music": "Music Show Trophies",
+        "award-sub-other": "Other Honors & Ambassadorships",
 
         // Little RIIZE
         "little-tag": "PLAYGROUND & FRIENDS",

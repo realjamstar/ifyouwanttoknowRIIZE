@@ -34,7 +34,7 @@
 <body class="bg-riize-dark text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen">
 
     <!-- Sticky Navigation Bar -->
-    <nav class="sticky top-0 z-50 glass-panel border-b border-riize-border/50">
+    <nav class="sticky top-0 z-50 bg-[#0A0B0E]/95 backdrop-blur-xl border-b border-riize-border shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 sm:h-20">
                 <!-- Logo -->
@@ -107,72 +107,123 @@
             </div>
             
             <h1 class="text-4xl md:text-6xl font-black tracking-tight text-white my-2" data-i18n="awards-title">
-                HONOR & GLORY
+                RIIZE, Rising Higher
             </h1>
             
             <p class="text-lg sm:text-2xl text-gray-300 font-light max-w-2xl mx-auto" data-i18n="awards-subtitle">
-                บันทึกความสำเร็จ สถิติยอดขายอัลบั้ม และรางวัลเกียรติยศแห่งความภาคภูมิใจของ RIIZE
+                บันทึกความสำเร็จ สถิติ และรางวัลของ RIIZE
             </p>
         </div>
     </header>
 
-    <!-- UNDER DEVELOPMENT BANNER (Main Dark / Orange Theme) -->
-<section class="min-h-[45vh] flex items-center justify-center py-12 px-4 relative overflow-hidden">
-    <!-- Glow Effect Background -->
-    <div class="absolute w-80 h-80 bg-riize-orange/10 blur-[120px] rounded-full pointer-events-none"></div>
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
+        
 
-    <div class="relative z-10 max-w-lg w-full text-center p-8 rounded-3xl bg-gradient-to-b from-white/10 to-white/5 border border-white/10 backdrop-blur-xl shadow-2xl space-y-5">
-        <!-- Icon Badge -->
-        <div class="w-16 h-16 mx-auto rounded-2xl bg-riize-orange/20 border border-riize-orange/40 flex items-center justify-center text-riize-orange text-3xl shadow-[0_0_20px_rgba(249,115,22,0.3)] animate-bounce">
-            <i class="fas fa-tools"></i>
-        </div>
-
-        <!-- Heading & Message -->
-        <div class="space-y-2">
-            <h3 data-i18n="dev-title" class="text-2xl font-extrabold text-white">ขออภัยในความไม่สะดวก</h3>
-            <p data-i18n="dev-desc" class="text-sm text-gray-300 leading-relaxed font-medium">
-                ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์จากผู้พัฒนา สามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว
-            </p>
-        </div>
-
-        <!-- Status Tag -->
-        <div class="pt-2">
-            <span class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-riize-orange/10 text-riize-orange border border-riize-orange/30 shadow-md">
-                <span class="w-2.5 h-2.5 rounded-full bg-riize-orange animate-pulse"></span>
-                <span data-i18n="dev-status">UNDER DEVELOPMENT</span>
-            </span>
-        </div>
-    </div>
-</section>
-
-    <!-- Footer (Main Dark Theme) -->
-<footer class="border-t border-riize-border/60 glass-panel mt-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-            <div>
-                <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
-                <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+        <!-- =================================================================== -->
+        <!-- SECTION 1: สถิติและยอดขายอัลบั้ม (Album Sales & Certifications) -->
+        <!-- =================================================================== -->
+        <section class="space-y-6">
+            <div class="flex items-center space-x-3 text-riize-orange">
+                <div class="w-10 h-10 rounded-xl bg-riize-orange/20 flex items-center justify-center border border-riize-orange/40">
+                    <i class="fas fa-compact-disc text-xl"></i>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-wide" data-i18n="sec-album-sales">
+                    สถิติและยอดขายอัลบั้ม (Album Sales & Certifications)
+                </h3>
             </div>
-            <div class="text-xs text-gray-500">
-                Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
+
+            <!-- Dynamic Container: Album Sales -->
+            <div id="album-sales-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"></div>
+        </section>
+
+        <!-- =================================================================== -->
+        <!-- SECTION 2: รางวัลที่ได้รับ (Awards & Honors Timeline) -->
+        <!-- =================================================================== -->
+        <section class="space-y-8 pt-4">
+            <div class="flex items-center space-x-3 text-riize-orange">
+                <div class="w-10 h-10 rounded-xl bg-riize-orange/20 flex items-center justify-center border border-riize-orange/40">
+                    <i class="fas fa-trophy text-xl"></i>
+                </div>
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white tracking-wide" data-i18n="sec-awards-main">
+                    รางวัลที่ได้รับ (Awards & Honors Timeline)
+                </h3>
+            </div>
+
+            <!-- Grid Layout 12 Columns -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- LEFT (7 cols): 2.2 รางวัลจากงานปลายปี (Major Awards Timeline) -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="flex items-center space-x-2 text-riize-orange">
+                        <i class="fas fa-crown"></i>
+                        <h4 class="text-xl font-bold text-white" data-i18n="award-sub-festival">รางวัลจากงานปลายปีและงานประกาศรางวัล</h4>
+                    </div>
+
+                    <!-- Dynamic Container: Major Awards Timeline -->
+                    <div id="major-awards-timeline" class="relative pl-6 sm:pl-8 border-l-2 border-riize-orange/30 space-y-6 ml-2"></div>
+                </div>
+
+                <!-- RIGHT (5 cols): 2.1 & 2.3 (Music Show Trophies & Other Honors) -->
+                <div class="lg:col-span-5 space-y-10">
+
+                    <!-- ถ้วยรางวัลรายการเพลง (Music Show Trophies) -->
+                    <div class="space-y-6">
+                        <div class="flex items-center space-x-2 text-riize-orange">
+                            <i class="fas fa-music"></i>
+                            <h4 class="text-xl font-bold text-white" data-i18n="award-sub-music">2.1 ถ้วยรางวัลจากรายการเพลง</h4>
+                        </div>
+
+                        <!-- Dynamic Container: Music Show Wins -->
+                        <div id="music-show-wins-list" class="space-y-4"></div>
+                    </div>
+
+                    <!-- 2.3 รางวัลอื่นๆ และตำแหน่งเกียรติยศ (Other Honors & Ambassadorships) -->
+                    <div class="space-y-6 pt-4 border-t border-white/10">
+                        <div class="flex items-center space-x-2 text-riize-orange">
+                            <i class="fas fa-award"></i>
+                            <h4 class="text-xl font-bold text-white" data-i18n="award-sub-other">2.3 รางวัลอื่นๆ และตำแหน่งเกียรติยศ</h4>
+                        </div>
+
+                        <!-- Dynamic Container: Other Honors -->
+                        <div id="other-honors-timeline" class="relative pl-6 border-l-2 border-white/20 space-y-4 ml-2"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-riize-border/60 glass-panel mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+                <div>
+                    <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
+                    <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+                </div>
+                <div class="text-xs text-gray-500">
+                    Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
+                </div>
+            </div>
+
+            <!-- หมายเหตุเพิ่มเติมสำหรับช่วงพัฒนาเว็บไซต์ -->
+            <div class="pt-6 border-t border-white/5 text-center">
+                <div class="inline-block p-4 rounded-xl bg-riize-orange/10 border border-riize-orange/20 max-w-2xl mx-auto">
+                    <p class="text-xs text-gray-300 leading-relaxed font-medium">
+                        <i class="fas fa-info-circle text-riize-orange mr-1.5"></i>
+                        <span data-i18n="footer-notice-prefix">ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์ หากมีข้อมูลใดตกหล่น สามารถแจ้งเพิ่มเติมได้ที่</span> 
+                        <span class="text-riize-orange font-bold">@jamstarnkmt</span> 
+                        <span data-i18n="footer-notice-suffix">และสามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว</span>
+                    </p>
+                </div>
             </div>
         </div>
+    </footer>
 
-        <!-- หมายเหตุเพิ่มเติมสำหรับช่วงพัฒนาเว็บไซต์ -->
-        <div class="pt-6 border-t border-white/5 text-center">
-            <div class="inline-block p-4 rounded-xl bg-riize-orange/10 border border-riize-orange/20 max-w-2xl mx-auto">
-                <p class="text-xs text-gray-300 leading-relaxed font-medium">
-                    <i class="fas fa-info-circle text-riize-orange mr-1.5"></i>
-                    <span data-i18n="footer-notice-prefix">ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์ หากมีข้อมูลใดตกหล่น สามารถแจ้งเพิ่มเติมได้ที่</span> 
-                    <span class="text-riize-orange font-bold">@jamstarnkmt</span> 
-                    <span data-i18n="footer-notice-suffix">และสามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว</span>
-                </p>
-            </div>
-        </div>
-    </div>
-</footer>
-
-    <!-- JavaScript สำหรับ เปิด/ปิด Mobile Menu -->
+    <!-- JavaScript เปิด/ปิด Mobile Menu -->
     <script>
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -184,7 +235,451 @@
         }
     </script>
 
-    <!-- JavaScript สลับภาษา -->
+    <!-- JavaScript ระบบภาษา -->
     <script src="js/lang.js"></script>
+
+    <!-- =================================================================== -->
+    <!-- DYNAMIC DATA & RENDER SCRIPT (สำหรับแก้ไข/เพิ่มข้อมูลอย่างง่าย) -->
+    <!-- =================================================================== -->
+    <script>
+        /* -------------------------------------------------------------
+           1. ข้อมูลยอดขายอัลบั้ม (Album Sales & Certifications)
+        ------------------------------------------------------------- */
+        const albumSalesData = [
+            {
+                title: 'Get A Guitar',
+                type: '1st Single Album',
+                coverImg: 'https://cdnimg.melon.co.kr/cm2/album/images/113/09/832/11309832_20230904111501_500.jpg',
+                totalSales: '1,073,131+',
+                certs: [
+                    { name: 'KMCA: Million', color: 'amber' },
+                    { name: 'Hanteo: Million', color: 'blue' }
+                ]
+            },
+            {
+                title: 'RIIZING',
+                type: '1st Mini Album',
+                coverImg: 'https://cdnimg.melon.co.kr/cm2/album/images/114/56/179/11456179_20240617152303_500.jpg',
+                totalSales: '1,344,254+',
+                certs: [
+                    { name: 'KMCA: Million', color: 'amber' },
+                    { name: 'Hanteo: Million', color: 'blue' }
+                ]
+            },
+            {
+                title: 'RIIZING : Epilogue',
+                type: '1st Mini Album',
+                coverImg: 'https://cdnimg.melon.co.kr/cm2/album/images/115/82/670/11582670_20240903103809_500.jpg',
+                totalSales: '421,871+',
+                certs: [
+                    { name: 'KMCA: Platinum', color: 'amber' },
+                    { name: 'Hanteo: Platinum', color: 'blue' }
+                ]
+            },
+            {
+                title: 'ODYSSEY',
+                type: '1st Album',
+                coverImg: 'https://cdnimg.melon.co.kr/cm2/album/images/117/96/054/11796054_20250519154637_500.jpg',
+                totalSales: '1,931,504+',
+                certs: [
+                    { name: 'KMCA: Million', color: 'amber' },
+                    { name: 'Hanteo: Million', color: 'blue' }
+                ]
+            },
+            {
+                title: 'ODYSSEY SMC Ver.',
+                type: '1st Album',
+                coverImg: 'https://cdnimg.melon.co.kr/cm2/album/images/117/96/054/11796054_20250519154637_500.jpg',
+                totalSales: '250,000+',
+                certs: [
+                    { name: 'KMCA: Platinum', color: 'amber' }
+                ]
+            },
+            {
+                title: 'FAME',
+                type: '2nd Single Album',
+                coverImg: 'https://cdnimg.melon.co.kr/cm2/album/images/124/02/759/12402759_20251121172323_500.jpg',
+                totalSales: '720,969+',
+                certs: [
+                    { name: 'KMCA: Platinum', color: 'amber' },
+                    { name: 'Hanteo: Blue Platinum', color: 'blue' }
+                ]
+            },
+            {
+                title: 'll',
+                type: '2nd Mini Album',
+                coverImg: 'https://cdnimg.melon.co.kr/cm2/album/images/137/31/669/13731669_20260612113905_500.jpg',
+                totalSales: '1,415,614+',
+                certs: [
+                    { name: 'KMCA: Million', color: 'amber' },
+                    { name: 'Hanteo: Million', color: 'blue' }
+                ]
+            },
+            {
+                title: 'll SMC Ver.',
+                type: '2nd Mini Album',
+                coverImg: 'https://cdnimg.melon.co.kr/cm2/album/images/137/31/669/13731669_20260612113905_500.jpg',
+                totalSales: '250,000+',
+                certs: [
+                    { name: 'KMCA: Platinum', color: 'amber' }
+                ]
+            },
+            {
+                title: 'Lucky',
+                type: '1st japan single',
+                coverImg: 'https://cdnimg.melon.co.kr/cm2/album/images/115/51/663/11551663_20240726113858_500.jpg',
+                totalSales: '341,034+',
+                certs: [
+                    { name: 'RIAJ: Platinum', color: 'amber' }
+                ]
+            },
+            {
+                title: 'All of You',
+                type: '2nd japan single',
+                coverImg: 'https://cdnimg.melon.co.kr/cm2/album/images/128/59/211/12859211_20260212171532_500.jpg',
+                totalSales: '354,147+',
+                certs: [
+                    { name: 'RIAJ: 2xPlatinum', color: 'amber' }
+                ]
+            },
+            {
+                title: 'Sunburst',
+                type: 'Japan single',
+                coverImg: 'https://cdnimg.melon.co.kr/cm2/album/images/144/78/755/14478755_20260825152353_500.jpg',
+                totalSales: '251,099+',
+                certs: [
+                    { name: 'RIAJ: Platinum', color: 'amber' }
+                ]
+            }  
+        ];
+
+        /* -------------------------------------------------------------
+           2. ข้อมูลรางวัลงานประกาศรางวัลปลายปี (Major Awards)
+        ------------------------------------------------------------- */
+        const majorAwardsData = [
+            {
+                year: '2026',
+                isHighlight: true,
+                awards: [
+                    { title: 'Korea First Brand Awards (KFBA) 2026', category: 'Male Idol – Indonesia' },
+                    { title: 'Seoul Music Awards (SMA) 2026', category: 'Bonsang Main Award' },
+                    { title: 'Melon Music Awards (MMA) 2026', category: 'Top 10 Bonsang' },
+                    { title: '2026 Korea Grand Music Awards (KGMA)', category: 'Best Song' },
+                    { title: 'Hanteo Music Awards (HMA) 2026', category: 'Artist of the Year (Bonsang)' },
+                    { title: 'The D Awards 2026', category: 'Delight Blue Label Award' },
+                    { title: 'The D Awards 2026', category: 'Record of the Year (Daesang) 👑 ' },
+                    { title: 'The D Awards 2026', category: 'Song of the Year-ODYSSEY' },
+                    { title: '2026 Korea Grand Music Awards (KGMA)', category: 'Best Artist 10 - Bonsang' },
+                    { title: '2026 Korea Grand Music Awards (KGMA)', category: 'Fans Choice (Bonsang)' },
+                    { title: '2026 Asia Artist Awards (AAA)', category: 'Best Artist (Bonsang)' },
+                    { title: 'Melon Music Awards (MMA) 2026', category: 'Top 10 (Bonsang)' },
+                    { title: 'The Fact Music Awards (TMA) 2026', category: 'Muse of the Year (Daesang) 👑 ' },
+                ]
+            },           
+          {
+                year: '2025',
+                isHighlight: true,
+                awards: [
+                    { title: 'The 1st D Awards 2025', category: 'Performance of the Year (Daesang) 👑 ' },
+                    { title: 'The 1st D Awards 2025', category: 'Best Group' },
+                    { title: 'The 1st D Awards 2025', category: 'Delight Blue Label Award' },
+                    { title: 'The 1st D Awards 2025', category: 'Delight Blue Label Award' },
+                    { title: 'The 1st D Awards 2025', category: 'Best Video' },
+                    { title: '2025 TMElive International Music Awards (TIMA)', category: 'Breakthrough International Group of the Year' },
+                    { title: '2nd Jupiter Music Awards (JMA 2025)', category: 'Hottest Trending Rookie - Male' },
+                    { title: '2025 Korea Grand Music Awards (KGMA)', category: 'Best Artist 10 (Top 10 Artists)' },
+                    { title: 'MAMA 2025', category: 'Fans Choice - Bonsang' },
+                    { title: '2025 Asia Artist Awards (AAA)', category: 'AAA Emotive (Singer)' },
+                    { title: '2025 Asia Artist Awards (AAA)', category: 'Best Artist (Bonsang)' },
+                    { title: '2025 Asia Artist Awards (AAA)', category: 'Performance of the Year (Daesang) 👑 ' },
+                    { title: 'Tencent Music Year End Awards 2025', category: 'Top 10 Korean Albums Of The Year-ODYSSEY' },
+                    { title: 'Tencent Music Year End Awards 2025', category: 'Top 10 Korean EPs/Singles of the Year-Fame' },
+                    { title: 'Asian Pop Music Awards (APMA) 2025', category: 'Top 20 Albums of the Year' },
+                    { title: 'Melon Music Awards (MMA) 2025', category: 'Millions TOP10' },
+                    { title: 'Melon Music Awards (MMA) 2025', category: 'TOP 10 Artists (Bonsang)' },
+                    { title: 'Melon Music Awards (MMA) 2025', category: 'Best Performance – Male' }
+                ]
+            },          
+            {
+                year: '2024',
+                isHighlight: true,
+                awards: [
+                    { title: '2024 Korea First Brand Awards', category: 'Rookie Male Idol' },
+                    { title: '38th Japan Gold Disc Awards', category: 'Best New Artist (Asia Division)' },
+                    { title: 'Brand of the Year Awards 2024', category: 'Rising Star (Male Idol)' },
+                    { title: '2024 Korea Grand Music Awards (KGMA)', category: 'Best Group' },
+                    { title: '2024 Korea Grand Music Awards (KGMA)', category: 'Best Song' },
+                    { title: '2024 Korea Grand Music Awards (KGMA)', category: 'Fan Vote Rookie award' },
+                    { title: 'MAMA 2024', category: 'Favorite Global Performer Male' },
+                    { title: 'Melon Music Awards (MMA) 2024', category: 'Best Male Group' },
+                    { title: 'Melon Music Awards (MMA) 2024', category: 'Top 10 Bonsang' },
+                    { title: 'Melon Music Awards (MMA) 2024', category: 'KaKao Bank Everyones Star' },
+                    { title: 'Melon Music Awards (MMA) 2024', category: 'Million Top 10' },
+                    { title: 'Melon Music Awards (MMA) 2024', category: 'Global Rising Artist' },
+                    { title: 'Asian Pop Music Awards (APMA) 2024', category: 'Best Composer (Overseas)' },
+                    { title: 'Asian Pop Music Awards (APMA) 2024', category: 'Top 20 Songs of the Year (SOTY)' },
+                    { title: 'Hanteo Music Awards (HMA) 2024', category: 'Artist of the Year (Bonsang)' },
+                    { title: 'Hanteo Music Awards (HMA) 2024', category: 'Best Trend Leader' },
+                    { title: 'Hanteo Music Awards (HMA) 2024', category: 'The Most Prime Group' },
+                ]
+            },
+            {
+                year: '2023',
+                isHighlight: true,
+                awards: [
+                    { title: 'The Fact Music Awards (TMA) 2023', category: 'Next Leader award (Rookie of the Year)' },
+                    { title: 'Seoul Music Awards (SMA) 2023', category: 'Bonsang Main Award' },
+                    { title: 'Seoul Music Awards (SMA) 2023', category: 'Rookie of the Year' },
+                    { title: 'Melon Music Awards (MMA) 2023', category: 'Rookie of the Year' },
+                    { title: 'The 13th Circle Chart Music Awards (CCMA 2023)', category: 'Rookie of the Year - Unique Listeners' },
+                    { title: 'MAMA 2023', category: 'Favorite New Artist' },
+                    { title: 'Hanteo Music Awards (HMA) 2023', category: 'Next Worldwide Artist' },
+                    { title: "Dong-A Dotcom's PICK 2023", category: 'Rising Award' }
+                ]
+            }
+        ];
+
+        /* -------------------------------------------------------------
+           3. ข้อมูลถ้วยรางวัลจากรายการเพลง (Music Show Wins)
+        ------------------------------------------------------------- */
+        const musicShowWinsData = [
+            {
+                songTitle: 'Love119',
+                totalWinsBadge: '2 WINS 🏆🏆',
+                winDate: 'ม.ค. 2024',
+                isHighlight: true,
+                shows: [
+                    { showName: 'M Countdown', count: '1 ถ้วย' },
+                    { showName: 'SBS Inkigayo', count: '1 ถ้วย' }
+                ]
+            },
+            {
+                songTitle: 'Boom Boom Bass',
+                totalWinsBadge: '5 WINS 🏆🏆🏆🏆🏆',
+                winDate: 'มิ.ย. 2024',
+                isHighlight: true,
+                shows: [
+                    { showName: 'The Show', count: '1 ถ้วย' },
+                    { showName: 'MBC Show Champion', count: '1 ถ้วย' },
+                    { showName: 'Mnet M Countdown', count: '1 ถ้วย' },
+                    { showName: 'KBS Music Bank', count: '1 ถ้วย' },
+                    { showName: 'SBS Inkigayo', count: '1 ถ้วย' }
+                ]
+            },
+            {
+                songTitle: 'Fly Up',
+                totalWinsBadge: '4 WINS 🏆🏆🏆🏆',
+                winDate: 'พ.ค. 2025',
+                isHighlight: true,
+                shows: [
+                    { showName: 'MBC Show Champion', count: '1 ถ้วย' },
+                    { showName: 'KBS Music Bank', count: '1 ถ้วย' },
+                    { showName: 'Show! Music Core', count: '1 ถ้วย' },
+                    { showName: 'SBS Inkigayo', count: '1 ถ้วย' }
+                ]
+            },
+            {
+                songTitle: 'Do your Dance',
+                totalWinsBadge: '3 WINS 🏆🏆🏆',
+                winDate: 'มิ.ย 2026',
+                isHighlight: true,
+                shows: [
+                    { showName: 'MBC Show Champion', count: '1 ถ้วย' },
+                    { showName: 'KBS Music Bank', count: '1 ถ้วย' },
+                    { showName: 'SBS Inkigayo', count: '1 ถ้วย' }
+                ]
+            }
+        ];
+
+        /* -------------------------------------------------------------
+           4. ข้อมูลรางวัลอื่นๆ / ตำแหน่งเกียรติยศ (Other Honors)
+        ------------------------------------------------------------- */
+        const otherHonorsData = [
+                      {
+                year: '2023',
+                title: 'MUSINSA Ambassador',
+                desc: 'RIIZE ได้รับเลือกให้เป็น Brand Ambassador ของ MUSINSA และมีแคมเปญโปรโมทตั้งแต่ก่อนเดบิวต์ ',
+                isHighlight: true
+            },            
+                       {
+                year: '2023',
+                title: 'Louis Vuitton House Ambassador',
+                desc: 'RIIZE ได้รับแต่งตั้งเป็น House Ambassador ของ Louis Vuitton เมื่อวันที่ 11 ธันวาคม 2023 หลังการเดบิวต์ได้เพียง 3 เดือนเท่านั้น ',
+                isHighlight: true
+            },
+                                               {
+                year: '2023',
+                title: 'UIQ Ambassador',
+                desc: 'RIIZE ได้รับเลือกให้เป็น Ambassador ของ UIQ แบรนด์สกินแคร์ของเกาหลีตั้งแต่ปี 2023 จนถึงปัจจุบัน ',
+                isHighlight: true
+            },
+                        {
+                year: '2023',
+                title: 'Lotte Duty Free Global model',
+                desc: 'RIIZE ได้รับเลือกให้เป็น Global Model เพื่อโปรโมท Lotte Duty Free ',
+                isHighlight: true
+            },
+                                                {
+                year: '2024',
+                title: 'Woori Bank Brand Model',
+                desc: 'RIIZE ได้รับเลือกให้เป็น Model ของ Woori Bank ธนาคารชั้นนำของเกาหลีตั้งแต่ปี 2023 เพื่อโปรโมตส่วนของแอพพลิเคชั่นและดิจิทัลแบงค์กิ้งในแคมเปญ  우리WON뱅킹 – 원 More (Woori Won Banking - WON More) ร่วมกับ คิมฮีแอ ไอยู และวอนยอง IVE',
+                isHighlight: true
+            },
+                                                {
+                year: '2024',
+                title: 'Bacchus Jelly Brand Model',
+                desc: 'RIIZE ได้รับเลือกให้เป็น Model ของ Bacchus Jelly ผลิตภัณฑ์เยลลี่รสเครื่องดื่มบัคคัสจากบริษัท DONG-A-PHARM ของเกาหลี ',
+                isHighlight: true
+            },
+                                               {
+                year: '2024',
+                title: 'ETUDE Brand Model',
+                desc: 'RIIZE ได้รับเลือกให้เป็น Model ของ ETUDE เครื่องสำอางค์แบรนด์ดังของเกาหลี ',
+                isHighlight: true
+            },
+                                                {
+                year: '2024',
+                title: 'FANTA Brand Model',
+                desc: 'RIIZE ได้รับเลือกให้เป็น Model ของ FANTA ',
+                isHighlight: true
+            },
+                                                 {
+                year: '2024',
+                title: 'Crocs Japan Brand Ambassador',
+                desc: 'RIIZE ได้รับเลือกให้เป็น Brand Ambassador ประจำประเทศญี่ปุ่นของ Crocs Japan ',
+                isHighlight: true
+            },
+                                                  {
+                year: '2024',
+                title: 'SATUR Brand Ambassador',
+                desc: 'RIIZE ได้รับเลือกให้เป็น Brand Ambassador ของ SATUR ',
+                isHighlight: true
+            },
+                                                  {
+                year: '2024',
+                title: 'NATIONAL GEOGRAPHIC APPAREL Brand Ambassador',
+                desc: 'RIIZE ได้รับเลือกให้เป็น Brand Ambassador ของ NATIONAL GEOGRAPHIC APPAREL ',
+                isHighlight: true
+            },
+                         {
+                year: '2025',
+                title: 'Samsung Electronics Brand Ambassador',
+                desc: 'RIIZE ได้รับเลือกให้เป็น Brand Ambassador ของ Samsung Electronics ',
+                isHighlight: true
+            },
+                          {
+                year: '2026',
+                title: 'Seoul Tourism Honorary Ambassador',
+                desc: 'RIIZE ได้รับเลือกให้เป็นทูตกิตติมศักดิ์ด้านการท่องเที่ยวของกรุงโซล ร่วมกับ คาริน่าและวินเทอร์จาก Aespa',
+                isHighlight: true
+            }
+        ];
+
+
+        /* =============================================================
+           RENDER FUNCTIONS (ส่วนแปลงข้อมูลไปแสดงบนหน้าเว็บ)
+        ============================================================= */
+        function renderAwardsPage() {
+            // 1. Render Album Sales
+            const albumContainer = document.getElementById('album-sales-grid');
+            if (albumContainer) {
+                albumContainer.innerHTML = albumSalesData.map(item => `
+                    <div class="relative group rounded-2xl overflow-hidden bg-white/5 border border-white/10 hover:border-riize-orange transition-all duration-300 shadow-xl cursor-pointer">
+                        <div class="aspect-square overflow-hidden bg-black/50">
+                            <img src="${item.coverImg}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <div class="p-3 text-center bg-black/40 border-t border-white/5">
+                            <h5 class="text-sm font-bold text-white truncate">${item.title}</h5>
+                            <p class="text-xs text-riize-orange font-medium mt-0.5">${item.type}</p>
+                        </div>
+
+                        <div class="absolute inset-0 bg-black/90 backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 flex flex-col justify-center items-center text-center space-y-3 pointer-events-none group-hover:pointer-events-auto">
+                            <h5 class="text-base font-extrabold text-riize-orange border-b border-riize-orange/30 pb-1 w-full">${item.title}</h5>
+                            <div class="space-y-0.5">
+                                <span class="text-[10px] text-gray-400 uppercase tracking-widest block font-semibold">ยอดขายรวม (Total Sales)</span>
+                                <p class="text-lg font-black text-white">${item.totalSales} <span class="text-xs text-gray-400 font-normal">แผ่น</span></p>
+                            </div>
+                            <div class="space-y-1 w-full pt-1 border-t border-white/10">
+                                <span class="text-[10px] text-gray-400 uppercase tracking-widest block font-semibold">Certifications</span>
+                                <div class="flex flex-col gap-1 text-xs">
+                                    ${item.certs.map(c => `
+                                        <span class="px-2 py-0.5 rounded ${c.color === 'amber' ? 'bg-amber-400/20 text-amber-300 border border-amber-400/30' : 'bg-blue-500/20 text-blue-300 border border-blue-500/30'} font-bold text-[11px]">${c.name}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // 2. Render Major Awards
+            const majorContainer = document.getElementById('major-awards-timeline');
+            if (majorContainer) {
+                majorContainer.innerHTML = majorAwardsData.map(group => `
+                    <div class="relative group">
+                        <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full ${group.isHighlight ? 'bg-riize-orange border-4 border-black group-hover:scale-125 transition-transform shadow-[0_0_10px_#f97316]' : 'bg-white border-4 border-black group-hover:bg-riize-orange group-hover:scale-125 transition-all'}"></div>
+                        <div class="p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-riize-orange/40 backdrop-blur-md transition-all duration-300 space-y-3">
+                            <div class="flex justify-between items-center border-b border-white/10 pb-2">
+                                <span class="text-xs font-bold px-2.5 py-0.5 rounded-full ${group.isHighlight ? 'bg-riize-orange/20 text-riize-orange border border-riize-orange/30' : 'bg-white/10 text-gray-300'}">${group.year}</span>
+                                <i class="fas fa-trophy text-amber-400"></i>
+                            </div>
+                            <div class="space-y-3">
+                                ${group.awards.map(a => `
+                                    <div>
+                                        <h5 class="font-bold text-white text-base group-hover:text-riize-orange transition-colors">${a.title}</h5>
+                                        <p class="text-xs text-gray-300">${a.category}</p>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // 3. Render Music Show Wins
+            const musicContainer = document.getElementById('music-show-wins-list');
+            if (musicContainer) {
+                musicContainer.innerHTML = musicShowWinsData.map(item => `
+                    <div class="p-5 rounded-2xl ${item.isHighlight ? 'bg-gradient-to-br from-riize-orange/20 via-white/5 to-transparent border border-riize-orange/30' : 'bg-gradient-to-br from-white/10 via-white/5 to-transparent border border-white/10'} backdrop-blur-xl relative overflow-hidden group hover:border-riize-orange transition-all">
+                        <div class="flex justify-between items-start mb-3">
+                            <div>
+                                <span class="inline-block text-[10px] uppercase font-black tracking-widest px-2.5 py-0.5 rounded ${item.isHighlight ? 'bg-amber-400 text-black shadow-md' : 'bg-riize-orange/20 text-riize-orange border border-riize-orange/30'} mb-1">${item.totalWinsBadge}</span>
+                                <h5 class="text-xl font-black text-white">${item.songTitle}</h5>
+                            </div>
+                            <span class="text-xs text-gray-400 bg-black/40 px-2.5 py-1 rounded-full border border-white/10">${item.winDate}</span>
+                        </div>
+                        <div class="space-y-1.5 text-xs text-gray-300 border-t border-white/10 pt-2.5">
+                            ${item.shows.map(s => `
+                                <div class="flex justify-between items-center">
+                                    <span><i class="fas fa-check-circle text-riize-orange mr-1.5"></i>${s.showName}</span>
+                                    <span class="font-bold text-white bg-white/10 px-2 py-0.5 rounded">${s.count}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // 4. Render Other Honors
+            const otherContainer = document.getElementById('other-honors-timeline');
+            if (otherContainer) {
+                otherContainer.innerHTML = otherHonorsData.map(item => `
+                    <div class="relative group">
+                        <div class="absolute -left-[31px] top-1.5 w-3.5 h-3.5 rounded-full ${item.isHighlight ? 'bg-riize-orange border-2 border-black' : 'bg-white border-2 border-black group-hover:bg-riize-orange'} group-hover:scale-125 transition-transform"></div>
+                        <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-riize-orange/40 transition-all">
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded ${item.isHighlight ? 'bg-riize-orange/20 text-riize-orange' : 'bg-white/10 text-gray-300'}">${item.year}</span>
+                            <h5 class="text-sm font-bold text-white mt-1">${item.title}</h5>
+                            <p class="text-xs text-gray-400 mt-0.5">${item.desc}</p>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        // เรียกทำงาน Render เมื่อโหลด DOM เรียบร้อย (แก้ไขชื่อฟังก์ชันให้ถูกต้อง)
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAwardsPage();
+        });
+    </script>
 </body>
 </html>
