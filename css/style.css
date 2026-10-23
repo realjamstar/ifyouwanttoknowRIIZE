@@ -1,12 +1,18 @@
 /* นำเข้า Font Kanit & Inter */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&family=Kanit:wght@300;400;500;600;700&display=swap');
 
-/* Custom Scrollbar */
+/* ตั้งค่ารูปภาพพื้นหลังเต็มหน้าจอ */
+body {
+    min-height: 100vh;
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Custom Scrollbar (โทนสีส้ม RIIZE และแทร็กโทนน้ำเงินมืด) */
 ::-webkit-scrollbar {
     width: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #0A0B0E;
+    background: #060D17;
 }
 ::-webkit-scrollbar-thumb {
     background: #FF5500;
@@ -16,29 +22,27 @@
     background: #FF7744;
 }
 
-/* Glassmorphism Panel */
+/* Glassmorphism Panel (ปรับพื้นหลังเป็นโทน Deep Navy Blue ฝ้ากระจก) */
 .glass-panel {
-    background: rgba(20, 22, 29, 0.75);
+    background: rgba(12, 24, 44, 0.82);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 85, 0, 0.15);
+    border: 1px solid rgba(255, 85, 0, 0.25);
 }
 
 .glass-panel-hover:hover {
-    border-color: rgba(255, 85, 0, 0.5);
-    box-shadow: 0 8px 32px 0 rgba(255, 85, 0, 0.2);
+    border-color: rgba(255, 85, 0, 0.6);
+    box-shadow: 0 8px 32px 0 rgba(255, 85, 0, 0.25);
 }
 
-/* Gradient Text */
+/* Gradient Text (สีส้ม RIIZE ผสมกับสีฟ้า/น้ำเงินทะเล) */
 .text-gradient {
-    background: linear-gradient(135deg, #FF5500 0%, #FF9900 50%, #0066FF 100%);
+    background: linear-gradient(135deg, #FF5500 0%, #38BDF8 50%, #0066FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* =======================================================
-   PAGE & LANGUAGE TRANSITION SMOOTH EFFECT
-   ======================================================= */
+/* Smooth Fade In Effect */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -52,8 +56,4 @@
 
 .fade-in {
     animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-body {
-    animation: fadeIn 0.4s ease-out forwards;
 }

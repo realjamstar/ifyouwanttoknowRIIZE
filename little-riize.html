@@ -31,11 +31,117 @@
             }
         }
     </script>
+
+    <!-- Custom CSS สำหรับแอนิเมชั่นสวนสนุก แคนดี้ และตัวหมุนจัดเต็ม (ไม่จางหาย หล่นสุดจอ) -->
+    <style>
+        @keyframes float-slow {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-35px) rotate(15deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes float-reverse {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(40px) rotate(-15deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes fall-down {
+            0% { transform: translateY(-5vh) rotate(0deg); opacity: 0.9; }
+            95% { opacity: 0.9; }
+            100% { transform: translateY(105vh) rotate(360deg); opacity: 0.9; }
+        }
+        @keyframes spin-slow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @keyframes spin-reverse {
+            from { transform: rotate(360deg); }
+            to { transform: rotate(0deg); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.2); }
+        }
+        
+        .park-float-1 { animation: float-slow 6s ease-in-out infinite; }
+        .park-float-2 { animation: float-reverse 8s ease-in-out infinite; }
+        .park-float-3 { animation: float-slow 10s ease-in-out infinite; }
+        .park-spin { animation: spin-slow 20s linear infinite; }
+        .park-spin-fast { animation: spin-slow 10s linear infinite; }
+        .park-spin-rev { animation: spin-reverse 25s linear infinite; }
+        .park-glow { animation: pulse-glow 4s ease-in-out infinite; }
+        
+        /* ฝนแคนดี้โปรยปรายต่อเนื่อง ครอบคลุมตลอดหน้าจอ */
+        .candy-fall-1 { animation: fall-down 9s linear infinite; }
+        .candy-fall-2 { animation: fall-down 12s linear infinite 2s; }
+        .candy-fall-3 { animation: fall-down 7s linear infinite 4s; }
+        .candy-fall-4 { animation: fall-down 11s linear infinite 1s; }
+        .candy-fall-5 { animation: fall-down 8s linear infinite 5s; }
+    </style>
 </head>
-<body class="bg-gradient-to-b from-sky-100 via-white to-sky-50 text-skytheme-text font-sans antialiased selection:bg-sky-400 selection:text-white flex flex-col min-h-screen">
+<body class="bg-gradient-to-b from-sky-200 via-pink-100 to-purple-200 text-skytheme-text font-sans antialiased selection:bg-sky-400 selection:text-white flex flex-col min-h-screen relative overflow-x-hidden">
+
+    <!-- 🎡🎠 FIXED AMUSEMENT PARK & CANDY RAIN BACKGROUND 🎠🎡 -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        
+        <!-- ชิงช้าสวรรค์และวงล้อหมุนรอบจอ -->
+        <div class="absolute -top-12 -right-16 sm:right-5 w-[400px] h-[400px] sm:w-[500px] sm:h-[500px] rounded-full border-4 border-dashed border-pink-300/50 park-spin flex items-center justify-center opacity-40">
+            <div class="absolute w-14 h-14 rounded-full bg-yellow-300/70 top-6"></div>
+            <div class="absolute w-14 h-14 rounded-full bg-pink-300/70 bottom-6"></div>
+            <div class="absolute w-14 h-14 rounded-full bg-purple-300/70 left-6"></div>
+            <div class="absolute w-14 h-14 rounded-full bg-sky-300/70 right-6"></div>
+        </div>
+
+        <div class="absolute top-[35%] -left-24 sm:left-[-60px] w-80 h-80 sm:w-96 sm:h-96 rounded-full border-4 border-dotted border-purple-300/50 park-spin-rev flex items-center justify-center opacity-30">
+            <div class="absolute w-12 h-12 rounded-full bg-pink-400/60 top-6"></div>
+            <div class="absolute w-12 h-12 rounded-full bg-yellow-400/60 bottom-6"></div>
+        </div>
+
+        <div class="absolute bottom-10 right-[-100px] sm:right-[-50px] w-[350px] h-[350px] rounded-full border-4 border-dashed border-sky-300/50 park-spin-fast flex items-center justify-center opacity-35">
+            <div class="absolute w-10 h-10 rounded-full bg-emerald-300/75 top-8"></div>
+            <div class="absolute w-10 h-10 rounded-full bg-pink-300/75 bottom-8"></div>
+        </div>
+
+        <div class="absolute top-[75%] left-[5%] w-72 h-72 rounded-full border-4 border-dotted border-pink-300/40 park-spin flex items-center justify-center opacity-30">
+            <div class="absolute w-8 h-8 rounded-full bg-yellow-300/70 top-4"></div>
+        </div>
+
+        <!-- แคนดี้ ลูกกวาด ขนม และของเล่นโปรยปราย -->
+        <div class="absolute top-0 left-[3%] text-3xl candy-fall-1">🍬</div>
+        <div class="absolute top-0 left-[10%] text-4xl candy-fall-3">🍭</div>
+        <div class="absolute top-0 left-[18%] text-3xl candy-fall-2">🧁</div>
+        <div class="absolute top-0 left-[26%] text-4xl candy-fall-4">🧸</div>
+        <div class="absolute top-0 left-[34%] text-3xl candy-fall-5">🎈</div>
+        <div class="absolute top-0 left-[42%] text-4xl candy-fall-1">🍫</div>
+        <div class="absolute top-0 left-[50%] text-3xl candy-fall-3">⭐</div>
+        <div class="absolute top-0 left-[58%] text-4xl candy-fall-2">🍩</div>
+        <div class="absolute top-0 left-[66%] text-3xl candy-fall-4">🍪</div>
+        <div class="absolute top-0 left-[74%] text-4xl candy-fall-5">🍬</div>
+        <div class="absolute top-0 left-[82%] text-3xl candy-fall-1">🍭</div>
+        <div class="absolute top-0 left-[90%] text-4xl candy-fall-3">✨</div>
+        <div class="absolute top-0 left-[96%] text-3xl candy-fall-2">🧁</div>
+
+        <div class="absolute top-0 left-[7%] text-4xl candy-fall-5">🧸</div>
+        <div class="absolute top-0 left-[22%] text-3xl candy-fall-1">🎈</div>
+        <div class="absolute top-0 left-[38%] text-4xl candy-fall-2">🍩</div>
+        <div class="absolute top-0 left-[54%] text-3xl candy-fall-4">🍫</div>
+        <div class="absolute top-0 left-[70%] text-4xl candy-fall-3">⭐</div>
+        <div class="absolute top-0 left-[86%] text-3xl candy-fall-5">🍭</div>
+
+        <!-- ไอคอนสวนสนุกและขนมหวานลอยละล่อง -->
+        <div class="absolute top-1/4 left-[12%] text-pink-400 text-5xl park-float-1 opacity-65"><i class="fas fa-cloud"></i></div>
+        <div class="absolute top-[55%] right-[8%] text-purple-400 text-6xl park-float-2 opacity-60"><i class="fas fa-cloud"></i></div>
+        <div class="absolute bottom-32 left-[10%] text-yellow-400 text-4xl park-float-3 opacity-70"><i class="fas fa-cookie-bite"></i></div>
+        <div class="absolute top-[18%] left-[40%] text-sky-400 text-4xl park-float-2 opacity-60"><i class="fas fa-star"></i></div>
+        <div class="absolute bottom-[45%] right-[15%] text-pink-300 text-5xl park-float-1 opacity-65"><i class="fas fa-heart"></i></div>
+
+        <!-- แสงพาสเทลเรืองแสงพื้นหลัง -->
+        <div class="absolute top-1/4 left-1/4 w-72 h-72 rounded-full bg-pink-300/40 blur-3xl park-glow"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full bg-purple-300/40 blur-3xl park-glow"></div>
+        <div class="absolute top-2/3 left-12 w-72 h-72 rounded-full bg-yellow-200/40 blur-3xl park-glow"></div>
+    </div>
 
     <!-- Sticky Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-xl border-b border-sky-200 shadow-md">
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-sky-200 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 sm:h-20">
                 <!-- Logo -->
@@ -93,7 +199,7 @@
     </nav>
 
     <!-- Hero Banner Section (Playful Sky Theme) -->
-    <header class="relative w-full h-[55vh] sm:h-[70vh] overflow-hidden flex items-center justify-center bg-gradient-to-b from-sky-400 to-sky-200">
+    <header class="relative w-full h-[55vh] sm:h-[70vh] overflow-hidden flex items-center justify-center bg-gradient-to-b from-sky-400 to-sky-200 z-10">
         <!-- Floating Cloud Elements Decoration -->
         <div class="absolute inset-0 opacity-30 pointer-events-none bg-[radial-gradient(#fff_2px,transparent_2px)] [background-size:24px_24px]"></div>
 
@@ -113,61 +219,47 @@
         </div>
     </header>
 
-    <!-- UNDER DEVELOPMENT BANNER (Playful Sky Theme) -->
-<section class="min-h-[45vh] flex items-center justify-center py-12 px-4 relative overflow-hidden">
-    <!-- Glow Cloud Decoration Background -->
-    <div class="absolute w-80 h-80 bg-sky-300/30 blur-[100px] rounded-full pointer-events-none"></div>
-
-    <div class="relative z-10 max-w-lg w-full text-center p-8 rounded-3xl bg-white/80 border-2 border-sky-200 backdrop-blur-md shadow-xl space-y-5">
-        <!-- Icon Badge -->
-        <div class="w-16 h-16 mx-auto rounded-2xl bg-sky-100 border border-sky-300 flex items-center justify-center text-sky-500 text-3xl shadow-sm animate-bounce">
-            <i class="fas fa-tools"></i>
+    <!-- Main Content Area: Vertical Stack Layout -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12 flex-grow">
+        
+        <div class="text-center space-y-2">
+            <h2 class="text-3xl sm:text-4xl font-black text-sky-900 drop-shadow-sm" data-i18n="little-grid-title">
+                ✨ เหล่าผองเพื่อน Little RIIZE ✨
+            </h2>
+            <p class="text-sm text-sky-900 font-bold" data-i18n="little-grid-subtitle">ทำความรู้จักคาแรคเตอร์สุดน่ารักของแต่ละคนกันได้เลย!</p>
         </div>
 
-        <!-- Heading & Message -->
-        <div class="space-y-2">
-            <h3 data-i18n="dev-title" class="text-2xl font-black text-sky-900">ขออภัยในความไม่สะดวก</h3>
-            <p data-i18n="dev-desc" class="text-sm text-sky-800/80 leading-relaxed font-medium">
-                ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์จากผู้พัฒนา สามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว
-            </p>
-        </div>
+        <!-- Little RIIZE Characters Vertical Container -->
+        <div id="little-riize-grid" class="space-y-8 pt-4"></div>
 
-        <!-- Status Tag -->
-        <div class="pt-2">
-            <span class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-bold bg-sky-100 text-sky-600 border border-sky-300 shadow-sm">
-                <span class="w-2.5 h-2.5 rounded-full bg-sky-500 animate-pulse"></span>
-                <span data-i18n="dev-status">UNDER DEVELOPMENT</span>
-            </span>
-        </div>
-    </div>
-</section>
+    </main>
 
-    <!-- Footer (Sky Blue Theme - i18n Ready) -->
-<footer class="border-t border-sky-200 bg-white/60 backdrop-blur-md mt-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-            <div>
-                <p class="text-xl font-extrabold text-sky-900">Fanclub Site for <span class="text-sky-500">RIIZE</span></p>
-                <p data-i18n="footer-desc" class="text-xs text-sky-700/80 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+    <!-- Footer -->
+    <footer class="border-t border-sky-200 bg-white/80 backdrop-blur-md mt-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+                <div>
+                    <p class="text-xl font-extrabold text-sky-900">Fanclub Site for <span class="text-sky-500">RIIZE</span></p>
+                    <p data-i18n="footer-desc" class="text-xs text-sky-700/80 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+                </div>
+                <div class="text-xs text-sky-600 font-medium">
+                    Hosted with <i class="fas fa-heart text-sky-500"></i> for <span class="text-sky-900 font-bold">BRIIZE</span>
+                </div>
             </div>
-            <div class="text-xs text-sky-600 font-medium">
-                Hosted with <i class="fas fa-heart text-sky-500"></i> for <span class="text-sky-900 font-bold">BRIIZE</span>
-            </div>
-        </div>
 
-        <!-- หมายเหตุเพิ่มเติมสำหรับช่วงพัฒนาเว็บไซต์ (รองรับเปลี่ยนภาษา) -->
-        <div class="pt-6 border-t border-sky-200/60 text-center">
-            <div class="inline-block p-4 rounded-2xl bg-sky-100/70 border border-sky-200 max-w-2xl mx-auto shadow-sm">
-                <p class="text-xs text-sky-800 leading-relaxed font-medium">
-                    <i class="fas fa-info-circle text-sky-500 mr-1.5"></i>
-                    <span data-i18n="footer-notice-prefix">ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์ หากมีข้อมูลใดตกหล่น สามารถแจ้งเพิ่มเติมได้ที่</span> 
-                    <span class="text-sky-600 font-extrabold underline decoration-sky-400">@jamstarnkmt</span> 
-                    <span data-i18n="footer-notice-suffix">และสามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว</span>
-                </p>
+            <!-- หมายเหตุเพิ่มเติมสำหรับช่วงพัฒนาเว็บไซต์ -->
+            <div class="pt-6 border-t border-sky-200/60 text-center">
+                <div class="inline-block p-4 rounded-2xl bg-sky-100/70 border border-sky-200 max-w-2xl mx-auto shadow-sm">
+                    <p class="text-xs text-sky-800 leading-relaxed font-medium">
+                        <i class="fas fa-info-circle text-sky-500 mr-1.5"></i>
+                        ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์ หากมีข้อมูลใดตกหล่น สามารถแจ้งเพิ่มเติมได้ที่ 
+                        <span class="text-sky-600 font-extrabold underline decoration-sky-400">@jamstarnkmt</span> 
+                        และสามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <!-- JavaScript สำหรับ เปิด/ปิด Mobile Menu -->
     <script>
@@ -186,65 +278,104 @@
 
     <!-- Little RIIZE Data & Dynamic Render Script -->
     <script>
+        /* -------------------------------------------------------------
+           ⚙️ ข้อมูลคาแรคเตอร์ Little RIIZE (desc แบ่งเป็น highlight ตัวหนา และ text ปกติ)
+        ------------------------------------------------------------- */
         const littleRiizeData = [
             {
-                name: { th: 'ทารี (TARI)', en: 'TARI' },
-                memberName: { th: 'ชотAR / SHOTARO', en: 'SHOTARO' },
-                mascotImg: 'https://picsum.photos/300/300?random=20', // ภาพมาสคอตไดคัท
-                memberImg: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/513/3478513_20260612155050_500.jpg', // ภาพสมาชิกวงกลม
+                name: { th: 'ริจึโกะ (RIZUKO)', en: 'RIZUKO' },
+                memberName: { th: 'โชทาโร่ / SHOTARO', en: 'SHOTARO' },
+                mascotImg: 'https://img2.pic.in.th/115cf3b2866a9cd4a4.png',
+                memberImg: 'https://img2.pic.in.th/G1_Cw3La8AAWYcx.jpg',
                 desc: {
-                    th: 'คาแรคเตอร์สุดดุ๊กดิ๊ก ร่าเริงสดใส เต้นเก่งเหมือนเจ้าของและชอบสร้างรอยยิ้มให้ทุกคน',
-                    en: 'Super cute and energetic mascot who loves dancing and spreading happiness everywhere.'
+                    th: {
+                        highlight: 'ริจึโกะ หมีแดงอบอุ่นใจดีของพ่อโชทาโร่ที่พร้อมจะชวนคุณเต้นเสมอ',
+                        text: 'ที่มาน่ารักน่าเอ็นดู เพราะโชทาโร่แอบเข้าใจผิดตอนออกแบบว่าให้วาดคาแรคเตอร์แทนตัวแฟนคลับ โชทาโร่เลยเอาหมีแดงที่เคยวาดให้แฟนๆไว้ก่อนหน้านี้ และมีแฟนๆชาวญี่ปุ่นตั้งชื่อเรียกให้ว่าริจึโกะมาเป็นแบบตั้งต้น เจ้าน้องหมีแดงเลยออกมาหน้าตาน่ารักน่าเอ็นดู เพราะเป็นมุมมองของพี่เขาที่มีต่อแฟนคลับนั่นเอง ถึงจะเข้าใจผิด แต่ป่าป๊าเขาก็รักน้องริจึโกะมากๆ เหมือนที่รักแฟนๆเลยล่ะ!'
+                    },
+                    en: {
+                        highlight: 'RIZUKO, Shotaro\'s warm and cozy red bear who\'s always ready to get you dancing!',
+                        text: 'Such an adorable origin story! Shotaro accidentally misunderstood during the design process, thinking he was supposed to draw a character representing the fans. So, he used a red bear he had previously drawn for fans—which Japanese fans had affectionately nicknamed "RIZUKO"—as his base. That’s why little Rizuko turned out so cute and endearing, as it reflects how he sees his fans! Even though it was a sweet mistake, his papa loves little Rizuko just as much as he loves his fans!'
+                    }
                 }
             },
             {
-                name: { th: 'อึน토리 (EUNTORI)', en: 'EUNTORI' },
+                name: { th: 'ซงยงดลลี่ (SONGYONGDOLLI)', en: 'SONGYONGDOLLI' },
                 memberName: { th: 'อึนซอก / EUNSEOK', en: 'EUNSEOK' },
-                mascotImg: 'https://picsum.photos/300/300?random=21',
-                memberImg: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/515/3478515_20260612155110_500.jpg',
+                mascotImg: 'https://img1.pic.in.th/images/12df58f7164d81a078.png',
+                memberImg: 'https://img1.pic.in.th/images/G1_FNp-aEAAqBHW.jpg',
                 desc: {
-                    th: 'มาสคอตหน้านิ่งสุดเท่ แต่ข้างในอบอุ่นและมีมุมตลกธรรมชาติที่คาดไม่ถึง',
-                    en: 'Cool expression mascot with a warm heart and unexpected natural humor.'
+                    th: {
+                        highlight: 'ดลลี่ไงหนู ไม่คุ้นหูเลยหรอ ลูกพ่ออึนซอกเองคร้าบบ',
+                        text: 'อภิชาตบุตรที่พ่อเขาตั้งใจปั้นมาก เพราะคำว่า ซง มาจากนามสกุลของพ่อเขาเอง แถมคำว่าดลลี่ ก็มาจาก ดล ที่แปลว่าหิน เหมือนกับคำว่า ซอกในชื่อของพ่อแท้ๆ นี่เลยเป็นส่วนผสมของลูกพ่อของจริง! ดลลี่ของแท้ต้องแบร่ๆและมีเกี๊ยว อาหารโปรดของพี่อึนซอกอยู่ด้วยเสมอ คาแรคเตอร์ไม่ซ้ำใคร โดดเด่นขี้เล่นสุดๆ!'
+                    },
+                    en: {
+                        highlight: 'It\'s Dolly, sweetie! Doesn\'t sound familiar? Papa Eunseok\'s very own kiddo~',
+                        text: 'A true masterpiece son carefully crafted with love by his dad! The name "Song" comes from his dad’s actual last name, while "Dolly" comes from "Dol", which means "stone"—just like "Seok" in his dad\'s real name. Talk about the ultimate father-son blend! A real Dolly wouldn\'t be complete without the signature "blep" face and dumplings, Eunseok\'s all-time favorite food, always by their side. Such a uniquely one-of-a-kind, super playful, and standout character!'
+                    }
                 }
             },
             {
-                name: { th: 'ซอง토리 (SUNGTORI)', en: 'SUNGTORI' },
+                name: { th: 'อูรักบัม (URAKBAM)', en: 'URAKBAM' },
                 memberName: { th: 'ซองชาน / SUNGCHAN', en: 'SUNGCHAN' },
-                mascotImg: 'https://picsum.photos/300/300?random=22',
-                memberImg: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/028/92/718/2892718_20260612155125_500.jpg',
+                mascotImg: 'https://img2.pic.in.th/13ff7593db925ebb16.png',
+                memberImg: 'https://img2.pic.in.th/G1_GHmGboAA9EEF.jpg',
                 desc: {
-                    th: 'กวางน้อยตัวสูงใจดี พลังงานล้นเหลือ รักกีฬาสายลุยและมีความเป็นพี่ใหญ่ใจดี',
-                    en: 'Kind tall deer mascot full of energy, loves outdoor sports and friendly vibes.'
+                    th: {
+                        highlight: 'ล่ำบึ้ก ใจดี ตาแป๋ว ก็ต้องอูรักบัมสุดเท่ของพ่อซองชานน่ะสิ!',
+                        text: 'ด้วยเอกลักษณ์มัดกล้ามหน้าท้องแบบสามขีด อีกทั้งนัยน์ตาแบบกวางที่ใครก็ต่อใครก็บอกว่าเหมือนพ่อเป๊ะๆ เลยทำให้ทุกคนตกหลุมรักเจ้าแบมบี้ตัวนี้ได้ไม่ยาก ท่าทางเรียบร้อย ยืนเก็บมือประสานไว้ที่ข้างหน้า พร้อมจะอยู่ข้างๆทุกคนด้วยสายตาที่จริงใจพร้อมช่วยเหลือเสมอ นี่แหละๆ ลูกพ่อซองชานเขาล่ะ'
+                    },
+                    en: {
+                        highlight: 'Buff, kind-hearted, and bright-eyed—it\'s got to be Papa Sungchan\'s super cool URAKBAM!',
+                        text: 'With its signature three-line abs and those big deer-like eyes that everyone says look just like his dad\'s, it\'s easy for everyone to fall in love with this little Bambi! Standing politely with hands clasped in front, it\'s always ready to be by everyone\'s side with a sincere, helpful gaze. That\'s right, that\'s Papa Sungchan\'s kiddo for you!'
+                    }
                 }
             },
             {
-                name: { th: 'วอน토리 (WONTORI)', en: 'WONTORI' },
+                name: { th: 'โทน-นยังด็อก (TONYANGDEOK)', en: 'TONYANGDEOK' },
                 memberName: { th: 'วอนบิน / WONBIN', en: 'WONBIN' },
-                mascotImg: 'https://picsum.photos/300/300?random=23',
-                memberImg: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/517/3478517_20260612155139_500.jpg',
+                mascotImg: 'https://img1.pic.in.th/images/147f09c6f3f9876220.png',
+                memberImg: 'https://img2.pic.in.th/G1_G8vkbAAAhD_r.jpg',
                 desc: {
-                    th: 'เจ้าก้อนน่ารักน่าเอ็นดู ฝีมือฉกาจด้านดนตรีและเสน่ห์แพรวพราวสะกดใจ',
-                    en: 'Adorable fluffy mascot with exceptional musical talent and charming looks.'
+                    th: {
+                        highlight: 'โทน-นยัง-ด็อก เรียกให้ครบ เพราะลูกพ่อวอนบินมีทุกอย่างที่แฟนๆบอกว่าน่ารักเหมือนพ่อ!',
+                        text: 'จะแมว จะกระต่าย หรือเป็ด ไม่ต้องเลือกให้ยากเย็น เพราะพ่อวอนบินจัดให้ทั้งหมด ตามใจแฟนคลับเก่งที่หนึ่ง เลยกลายมาเป็นเจ้ากระแต่ว (กระต่าย+แมว) แถมเป็ดน้อยแสนจะน่ารักน่าเอ็นดูตัวนี้ให้แฟนๆได้หลงรัก ตามองบนตลอดเวลา เพราะเหมือนกับอิโมจิช้อนตาอ้อนที่พ่อเขาชอบใช้ประจำนั่นเอง'
+                    },
+                    en: {
+                        highlight: 'Ton-Nyang-Deok — say the full name, because Papa Wonbin\'s kiddo has everything fans say is as cute as his dad!',
+                        text: 'Cat, rabbit, or duck? No need to choose because Papa Wonbin delivered them all! He’s the absolute best at spoiling his fans, which is how we got this adorable "rabbcat" (rabbit + cat) plus this super cute little duck for everyone to fall in love with. It’s always looking up with big, bashful eyes—just like the pleading emoji his dad loves to use all the time!'
+                    }
                 }
             },
             {
-                name: { th: 'โซ토리 (SOHETORI)', en: 'SOHETORI' },
+                name: { th: 'ตล-บยอง (DOOLBYEONG)', en: 'DOOLBYEONG' },
                 memberName: { th: 'โซฮี / SOHEE', en: 'SOHEE' },
-                mascotImg: 'https://picsum.photos/300/300?random=24',
-                memberImg: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/523/3478523_20260612155158_500.jpg',
+                mascotImg: 'https://img1.pic.in.th/images/15df9ba10967cad299.png',
+                memberImg: 'https://img1.pic.in.th/images/G1_Hi0daYAADoCy.jpg',
                 desc: {
-                    th: 'เสียงร้องใสปิ๊งดั่งแก้วเจียระไน มาสคอตผู้สร้างเสียงหัวเราะและโวคอลนุ่มฟู',
-                    en: 'Crystal clear vocals mascot who brings bright laughter and sweet melodies.'
+                    th: {
+                        highlight: 'ตล-บยอง พลทหารเป็ดน้อยสุดน่ารัก พิทักษ์ความน่าเอ็นดู ลูกพ่อโซฮีคับผม!',
+                        text: 'จากอิโมจิประจำตัวของพ่อเขา 💂 บวกกับคาแรคเตอร์เป็ดน้อยที่มีจุดเสน่ห์บนใบหน้า กลายเป็นคาแรคเตอร์สุดจะน่าเอ็นดูที่มีหมวกสูงเป็นเอกลักษณ์ ใครเห็นก็รู้ได้ทันทีว่าลูกพ่อโซฮีมาแว้วววว'
+                    },
+                    en: {
+                        highlight: 'Dool-Byeong — the super cute soldier duck who protects all things adorable, Papa Sohee\'s kiddo right here!',
+                        text: 'Inspired by his dad’s signature emoji 💂 combined with a cute little duck character featuring a charming mole on its face, it turned into this super endearing character with a signature tall hat. Anyone who sees it will instantly know that Papa Sohee’s little one has arrived!'
+                    }
                 }
             },
             {
-                name: { th: 'แอน토리 (ANTORI)', en: 'ANTORI' },
+                name: { th: 'มองรยงงี่ (MEONGRYONGIE)', en: 'MEONGRYONGIE' },
                 memberName: { th: 'แอนตัน / ANTON', en: 'ANTON' },
-                mascotImg: 'https://picsum.photos/300/300?random=25',
-                memberImg: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/525/3478525_20260612155202_500.jpg',
+                mascotImg: 'https://img2.pic.in.th/16c9cc46be35c8526f.png',
+                memberImg: 'https://img1.pic.in.th/images/G1_II3na0AA9f7w.jpg',
                 desc: {
-                    th: 'น้องเล็กสุดอาร์ต โปรดิวเซอร์ตัวจิ๋วผู้รักเสียงเพลงและรอยยิ้มแสนหวาน',
-                    en: 'Artistic youngest mascot and tiny producer with a sweet smile and musical soul.'
+                    th: {
+                        highlight: 'ใครบอกไดโนเสาร์สูญพันธุ์! อย่าเพิ่งไปฟัง ให้มาเจอมองรยงงี่ลูกพ่อแอนตันซะก่อน!',
+                        text: 'ด้วยคาแรคเตอร์บ้อกแบ้กสุดน่ารักของเจ้าแอนตันมักเน่ตุวน้อย บวกกับความชื่นชอบส่วนตัวในพี่ๆไดโนเสาร์ และภาพจำบราคิโอซอรัสของตุวเอง ก็เลยกลายมาเป็น หมาไดโนเสาร์พันธุ์ใหม่สุดแสนจะน่ารัก! โดดเด่นด้วยหางเขียวๆและแผงคอสุดจะเท่!'
+                    },
+                    en: {
+                        highlight: 'Who says dinosaurs are extinct?! Don\'t listen to them—come check out MEONGRYONGIE, Papa Anton\'s kiddo first!',
+                        text: 'Inspired by little maknae Anton\'s super cute and playful puppy vibe, combined with his personal love for dinosaurs and his iconic self-image as a Brachiosaurus 🦕 , it turned into a brand-new, ultra-adorable dinosaur-dog breed! Featuring a cute green tail and a super cool mane!'
+                    }
                 }
             }
         ];
@@ -255,33 +386,35 @@
 
             const lang = typeof currentLang !== 'undefined' ? currentLang : 'th';
 
-            container.innerHTML = littleRiizeData.map(item => `
-                <div class="relative bg-white/90 backdrop-blur-md rounded-3xl p-6 pt-12 border-2 border-sky-200 shadow-xl hover:shadow-2xl hover:border-sky-400 transition-all duration-300 flex flex-col items-center text-center group">
+            container.innerHTML = littleRiizeData.map((item, index) => `
+                <div class="relative bg-white/95 backdrop-blur-md rounded-3xl p-6 sm:p-8 border-2 border-sky-200 shadow-xl hover:shadow-2xl hover:border-sky-400 transition-all duration-300 flex flex-col md:flex-row items-center gap-6 sm:gap-8 overflow-hidden group">
                     
-                    <!-- 2. ภาพสมาชิกวงกลมเล็กๆ (ลอยอยู่มุมขวาบนของการ์ด) -->
-                    <div class="absolute -top-6 right-6 w-16 h-16 rounded-full overflow-hidden border-4 border-white shadow-lg bg-sky-100 group-hover:scale-110 transition-transform">
-                        <img src="${item.memberImg}" alt="${item.memberName[lang]}" class="w-full h-full object-cover">
+                    <!-- 1. รูปโปสเตอร์แนวตั้ง (ทรงสี่เหลี่ยมผืนผ้าตั้ง) สำหรับใส่รูปศิลปิน -->
+                    <div class="w-36 sm:w-44 h-52 sm:h-64 rounded-2xl overflow-hidden border-2 border-sky-200 shadow-md bg-sky-50 flex-shrink-0 relative">
+                        <img src="${item.memberImg}" alt="${item.memberName[lang]}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute bottom-2 left-2 right-2 text-center px-2 py-1 rounded-full bg-sky-500/80 backdrop-blur-sm text-white text-[11px] font-bold shadow truncate">
+                            ${item.memberName[lang]}
+                        </div>
                     </div>
 
-                    <!-- 1. ภาพมาสคอตไดคัท (ลอยเด่น ไม่มีกรอบสี่เหลี่ยมทึบ) -->
-                    <div class="w-44 h-44 sm:w-48 sm:h-48 mb-4 relative flex items-center justify-center">
-                        <!-- แสงเรืองรองเบื้องหลังมาสคอต -->
-                        <div class="absolute inset-0 bg-sky-200/50 rounded-full blur-xl group-hover:bg-sky-300/60 transition-colors"></div>
-                        <img src="${item.mascotImg}" alt="${item.name[lang]}" class="relative z-10 w-full h-full object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-300">
+                    <!-- 2. ป็อปอัพดึ๋งๆ เป็นรูปไดคัทคาแรคเตอร์ Little RIIZE -->
+                    <div class="relative w-36 h-36 sm:w-44 sm:h-44 flex-shrink-0 flex items-center justify-center">
+                        <div class="absolute inset-0 bg-sky-200/40 rounded-full blur-xl group-hover:bg-sky-300/60 transition-colors"></div>
+                        <img src="${item.mascotImg}" alt="${item.name[lang]}" class="relative z-10 w-full h-full object-contain drop-shadow-2xl animate-bounce group-hover:scale-110 transition-transform duration-300" style="animation-duration: 3s;">
                     </div>
 
-                    <!-- ชื่อคาแรคเตอร์ และ เจ้าของ -->
-                    <div class="space-y-1 mb-3">
-                        <h3 class="text-2xl font-black text-sky-900 group-hover:text-sky-500 transition-colors">${item.name[lang]}</h3>
-                        <span class="inline-block px-3 py-0.5 rounded-full bg-sky-100 text-sky-600 text-xs font-bold tracking-wide">
-                            Owner: ${item.memberName[lang]}
-                        </span>
+                    <!-- 3. ข้อความบรรยายคาแรคเตอร์ (แบ่งไฮไลท์ตัวหนา และข้อความปกติ) -->
+                    <div class="flex-grow text-center md:text-left space-y-2">
+                        <div class="inline-block px-3 py-1 rounded-full bg-sky-100 text-sky-600 text-xs font-extrabold tracking-wide mb-1">
+                            Little RIIZE Character #${index + 1}
+                        </div>
+                        <h3 class="text-2xl sm:text-3xl font-black text-sky-900 group-hover:text-sky-500 transition-colors">
+                            ${item.name[lang]}
+                        </h3>
+                        <p class="text-sm sm:text-base text-sky-900/80 leading-relaxed font-medium">
+                            <strong class="font-extrabold text-sky-950">${item.desc[lang].highlight}</strong> ${item.desc[lang].text}
+                        </p>
                     </div>
-
-                    <!-- 3. ข้อมูลคร่าวๆ ของคาแรคเตอร์ -->
-                    <p class="text-sm text-sky-900/80 leading-relaxed px-2">
-                        ${item.desc[lang]}
-                    </p>
                 </div>
             `).join('');
         }

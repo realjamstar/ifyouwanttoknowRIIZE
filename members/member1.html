@@ -19,19 +19,36 @@
 
     <!-- Tailwind Custom Config -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { 
-                        riize: { orange: '#FF5500', coral: '#FF7744', blue: '#0066FF', dark: '#0A0B0E', card: '#14161D', border: '#242834' } 
-                    },
-                    fontFamily: { sans: ['Inter', 'Kanit', 'sans-serif'] }
-                }
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: { 
+                    riize: { 
+                        orange: '#FF5500', // โทนสีส้มหลักประจำวง (คงเดิม)
+                        coral: '#FF7744',  // สีส้มรอง (คงเดิม)
+                        blue: '#0066FF',   // สีฟ้า/น้ำเงิน (คงเดิม)
+                        dark: '#060D17',   // ปรับเป็นสีน้ำเงินเข้มลึก (Deep Navy) เข้ากับภาพ
+                        card: '#0C182C',   // สีการ์ดโทนน้ำเงินเข้ม
+                        border: '#1A2B47'  // สีเส้นขอบโทนน้ำเงิน
+                    } 
+                },
+                fontFamily: { sans: ['Inter', 'Kanit', 'sans-serif'] }
             }
         }
-    </script>
+    }
+</script>
 </head>
-<body class="bg-riize-dark text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen">
+<!-- 
+  วิธีเปลี่ยนรูปพื้นหลัง:
+  - วางลิงก์รูปแนวตั้ง (สำหรับมือถือ) ในช่อง bg-[url('...')] 
+  - วางลิงก์รูปแนวนอน (สำหรับคอม) ในช่อง md:bg-[url('...')]
+-->
+<body class="text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen bg-fixed bg-cover bg-center bg-no-repeat relative bg-[url('https://img2.pic.in.th/10e53a3d1ef39fe13.png')] md:bg-[url('https://img2.pic.in.th/Gemini_Generated_Image_mtbe2umtbe2umtbe.jpg')]">
+
+    <!-- ฉากหลังมืดโปร่งแสง เพื่อให้อ่านตัวหนังสือและเนื้อหาได้ชัดเจนยิ่งขึ้น -->
+    <div class="fixed inset-0 bg-[#060D17]/85 pointer-events-none z-0"></div>
+
+
 
     <!-- Sticky Navigation Bar -->
     <nav class="sticky top-0 z-50 bg-[#0A0B0E]/95 backdrop-blur-xl border-b border-riize-border shadow-lg">
@@ -92,19 +109,9 @@
     </nav>
 
     <!-- Hero Banner Section -->
-    <header class="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden flex items-center justify-center bg-riize-dark">
-        <!-- Background Image Container -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden">
-            <img src="https://i.postimg.cc/sxPgxcS4/optimize-(5).jpg" 
-                 alt="RIIZE Official Banner" 
-                 class="w-full h-full object-cover object-center opacity-60 filter brightness-90">
-        </div>
-
-        <!-- Dark Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-riize-dark via-riize-dark/40 to-transparent"></div>
-
+    <header class="relative z-10 w-full h-[50vh] sm:h-[65vh] flex items-center justify-center">
         <!-- Hero Content -->
-        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
+        <div class="text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
             <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-riize-orange/20 border border-riize-orange/50 backdrop-blur-md">
                 <span class="w-2 h-2 rounded-full bg-riize-orange animate-ping"></span>
                 <span class="text-xs sm:text-sm font-semibold text-riize-orange uppercase tracking-wider">MEMBER PROFILE</span>

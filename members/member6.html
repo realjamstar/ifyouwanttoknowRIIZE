@@ -19,22 +19,37 @@
 
     <!-- Tailwind Custom Config -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: { 
-                        riize: { orange: '#FF5500', coral: '#FF7744', blue: '#0066FF', dark: '#0A0B0E', card: '#14161D', border: '#242834' } 
-                    },
-                    fontFamily: { sans: ['Inter', 'Kanit', 'sans-serif'] }
-                }
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: { 
+                    riize: { 
+                        orange: '#FF5500', 
+                        coral: '#FF7744',  
+                        blue: '#0066FF',    
+                        dark: '#060D17',   
+                        card: '#0C182C',   
+                        border: '#1A2B47'  
+                    } 
+                },
+                fontFamily: { sans: ['Inter', 'Kanit', 'sans-serif'] }
             }
         }
+    }
     </script>
 </head>
-<body class="bg-riize-dark text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen">
+<!-- 
+  วิธีเปลี่ยนรูปพื้นหลัง:
+  - วางลิงก์รูปแนวตั้ง (สำหรับมือถือ) ในช่อง bg-[url('...')] 
+  - วางลิงก์รูปแนวนอน (สำหรับคอม) ในช่อง md:bg-[url('...')]
+-->
+<body class="text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen bg-fixed bg-cover bg-center bg-no-repeat relative bg-[url('https://img1.pic.in.th/images/60424b065928400a4.png')] md:bg-[url('https://img2.pic.in.th/Gemini_Generated_Image_gxenrggxenrggxen.jpg')]">
+
+    <!-- ฉากหลังมืดโปร่งแสง เพื่อให้อ่านตัวหนังสือและเนื้อหาได้ชัดเจนยิ่งขึ้น -->
+    <div class="fixed inset-0 bg-[#060D17]/85 pointer-events-none z-0"></div>
 
     <!-- Sticky Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-[#0A0B0E]/95 backdrop-blur-xl border-b border-riize-border shadow-lg">
+    <nav class="sticky top-0 z-50 bg-[#0A0B0E]/90 backdrop-blur-xl border-b border-riize-border shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 sm:h-20">
                 <!-- Logo -->
@@ -92,19 +107,9 @@
     </nav>
 
     <!-- Hero Banner Section -->
-    <header class="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden flex items-center justify-center bg-riize-dark">
-        <!-- Background Image Container -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden">
-            <img src="https://i.postimg.cc/X7FwcSKL/optimize.jpg" 
-                 alt="RIIZE Official Banner" 
-                 class="w-full h-full object-cover object-center opacity-60 filter brightness-90">
-        </div>
-
-        <!-- Dark Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-riize-dark via-riize-dark/40 to-transparent"></div>
-
+    <header class="relative z-10 w-full h-[50vh] sm:h-[65vh] flex items-center justify-center">
         <!-- Hero Content -->
-        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
+        <div class="text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
             <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-riize-orange/20 border border-riize-orange/50 backdrop-blur-md">
                 <span class="w-2 h-2 rounded-full bg-riize-orange animate-ping"></span>
                 <span class="text-xs sm:text-sm font-semibold text-riize-orange uppercase tracking-wider">MEMBER PROFILE</span>
@@ -121,8 +126,7 @@
     </header>
 
     <!-- Main Content Area -->
-    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
-        
+    <main class="relative z-10 flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8 w-full">
         <!-- ปุ่มย้อนกลับไปหน้ารวมสมาชิก -->
         <div>
             <a href="index.html" class="inline-flex items-center space-x-2 px-4 py-2 rounded-full glass-panel hover:bg-riize-orange/20 hover:border-riize-orange text-sm font-bold text-white transition-all">
@@ -133,35 +137,34 @@
 
         <!-- กล่องแสดงรายละเอียดของสมาชิก -->
         <div id="member-detail-box"></div>
-
     </main>
 
     <!-- Footer -->
-<footer class="border-t border-riize-border/60 glass-panel mt-20">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
-        <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-            <div>
-                <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
-                <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+    <footer class="relative z-10 border-t border-riize-border/60 glass-panel mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
+                <div>
+                    <p class="text-xl font-extrabold text-white">Fanclub Site for <span class="text-riize-orange">RIIZE</span></p>
+                    <p data-i18n="footer-desc" class="text-xs text-gray-400 mt-1">เว็บไซต์แฟนคลับอย่างไม่เป็นทางการ ทำขึ้นเพื่อสนับสนุนและรวบรวมข้อมูลศิลปินวง RIIZE (SM Entertainment)</p>
+                </div>
+                <div class="text-xs text-gray-500">
+                    Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
+                </div>
             </div>
-            <div class="text-xs text-gray-500">
-                Hosted with <i class="fas fa-heart text-riize-orange"></i> for <span class="text-white font-semibold">BRIIZE</span>
-            </div>
-        </div>
 
-        <!-- หมายเหตุเพิ่มเติมสำหรับช่วงพัฒนาเว็บไซต์ -->
-        <div class="pt-6 border-t border-white/5 text-center">
-            <div class="inline-block p-4 rounded-xl bg-riize-orange/10 border border-riize-orange/20 max-w-2xl mx-auto">
-                <p class="text-xs text-gray-300 leading-relaxed">
-                    <i class="fas fa-info-circle text-riize-orange mr-1.5"></i>
-                    ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์ หากมีข้อมูลใดตกหล่น สามารถแจ้งเพิ่มเติมได้ที่ 
-                    <span class="text-riize-orange font-bold">@jamstarnkmt</span> 
-                    และสามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว
-                </p>
+            <!-- หมายเหตุเพิ่มเติมสำหรับช่วงพัฒนาเว็บไซต์ -->
+            <div class="pt-6 border-t border-white/5 text-center">
+                <div class="inline-block p-4 rounded-xl bg-riize-orange/10 border border-riize-orange/20 max-w-2xl mx-auto">
+                    <p class="text-xs text-gray-300 leading-relaxed">
+                        <i class="fas fa-info-circle text-riize-orange mr-1.5"></i>
+                        ขณะนี้เว็บไซต์อยู่ในระหว่างการพัฒนาข้อมูลให้สมบูรณ์ หากมีข้อมูลใดตกหล่น สามารถแจ้งเพิ่มเติมได้ที่ 
+                        <span class="text-riize-orange font-bold">@jamstarnkmt</span> 
+                        และสามารถตรวจสอบอัปเดตได้อีกครั้งหลังจากที่ทำการอัปเดตข้อมูลแล้ว
+                    </p>
+                </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <!-- JavaScript เปิด/ปิด Mobile Menu -->
     <script>
@@ -190,13 +193,13 @@
             image: 'https://cdnimg.melon.co.kr/cm2/artistcrop/images/034/78/525/3478525_20260612155202_500.jpg',
             timeline: {
                 th: [
-                                        { era: 'Pre-Debut', detail: 'แอนตัน หรือ ลีชานยอง เป็นลูกชายคนโตของคุณยุนซัง นักร้องและนักทำเพลงชื่อดังของเกาหลี อดีตโปรดิวเซอร์หลักของเกิร์ลกรุ๊ปอย่าง Lovelyz กับคุณชิมฮเยจิน นักแสดงชื่อดังของเกาหลี เขาเกิดที่เมืองบอสตัน ก่อนจะย้ายไปอยู่ที่นิวเจอร์ซี และเริ่มเป็นนักกีฬาว่ายน้ำตั้งแต่เด็ก จนสามารถคว้าอันดับ 1 ของนิวเจอร์ซีได้ตอนอายุ 13 ปี และเป็นนักดนตรีคลาสสิค เล่นเชลโล่ร่วมกับวง Friends with Music มีทักษะในด้านการทำเพลงที่ถูกถ่ายทอดมาจากคุณพ่อและฝึกฝนเองด้วยใจรัก' },
+                    { era: 'Pre-Debut', detail: 'แอนตัน หรือ ลีชานยอง เป็นลูกชายคนโตของคุณยุนซัง นักร้องและนักทำเพลงชื่อดังของเกาหลี อดีตโปรดิวเซอร์หลักของเกิร์ลกรุ๊ปอย่าง Lovelyz กับคุณชิมฮเยจิน นักแสดงชื่อดังของเกาหลี เขาเกิดที่เมืองบอสตัน ก่อนจะย้ายไปอยู่ที่นิวเจอร์ซี และเริ่มเป็นนักกีฬาว่ายน้ำตั้งแต่เด็ก จนสามารถคว้าอันดับ 1 ของนิวเจอร์ซีได้ตอนอายุ 13 ปี และเป็นนักดนตรีคลาสสิค เล่นเชลโล่ร่วมกับวง Friends with Music มีทักษะในด้านการทำเพลงที่ถูกถ่ายทอดมาจากคุณพ่อและฝึกฝนเองด้วยใจรัก' },
                     { era: 'RIIZE', detail: 'แอนตันเข้ามาออดิชั่น และผ่านการคัดเลือก ปัจจุบันเดบิวต์เป็นศิลปินอยู่ในฐานะสมาชิกวง RIIZE ที่มีความสามารถโดดเด่นในด้านการร้องและการทำเพลง เป็นหนึ่งในออลราวเดอร์ของวง ที่รับหน้าที่การร้องและมีส่วนร่วมในการ Compose เพลงและซาวด์ต่างๆของวง รวมไปถึงมีความสามารถด้านการเต้นที่พัฒนาขึ้นอย่างก้าวกระโดด' }
-],
+                ],
                 en: [
                     { era: 'Pre-Debut', detail: 'Anton, whose birth name is Lee Chanyoung, is the eldest son of Yoon Sang, a renowned South Korean singer-songwriter and former lead producer for the girl group Lovelyz, and Shim Hyejin, a well-known Korean actress. Born in Boston, he later moved to New Jersey, where he began swimming at a young age. By the age of 13, he had become a top-ranked swimmer in New Jersey. Beyond sports, Anton is also a classically trained musician who plays the cello and has performed with the ensemble Friends with Music. He has also developed a passion for music production, learning from his father’s expertise while honing his own skills through self-study and dedication.' },
                     { era: 'RIIZE', detail: 'Anton successfully auditioned for SM Entertainment and is now a member of RIIZE. He stands out for his vocal abilities and musical talent, making him one of the group’s all-rounders. In addition to his role as a vocalist, he contributes to the group’s music production, including composing and creating various musical elements and sounds. He has also made remarkable progress in his dancing, showing significant improvement throughout his journey as an artist.' }
-]
+                ]
             },
             soloWorks: {
                 songs: [
@@ -218,7 +221,7 @@
                         title: { th: 'LOUIS VUITTON (2023-with RIIZE)', en: 'LOUIS VUITTON (2023-with RIIZE)' },
                         images: ['https://img2.pic.in.th/RIIZE-Louis-Vuitton.jpg']
                     },
-                                       {
+                    {
                         title: { th: 'Lotte Duty Free (2023-with RIIZE)', en: 'Lotte Duty Free (2023-with RIIZE)' },
                         images: ['https://img1.pic.in.th/images/484973571_1063803892460997_2620552381372286281_n.jpg']
                     },
@@ -394,7 +397,7 @@
                                 </h3>
                                 
                                 <div class="space-y-5">
-                                    <!-- 1. Brand Ambassador (Single Image View) -->
+                                    <!-- 1. Brand Ambassador -->
                                     ${brands.length > 0 ? `
                                     <div class="p-4 bg-black/30 rounded-xl border border-white/5 space-y-3">
                                         <h4 class="text-xs font-bold text-riize-orange uppercase tracking-wide flex items-center">
@@ -419,7 +422,7 @@
                                     </div>
                                     ` : ''}
 
-                                    <!-- 2. Solo Songs & OST (Spotify Embed) -->
+                                    <!-- 2. Solo Songs & OST -->
                                     ${songs.length > 0 ? `
                                     <div class="p-4 bg-black/30 rounded-xl border border-white/5 space-y-3">
                                         <h4 class="text-xs font-bold text-riize-orange uppercase tracking-wide flex items-center">
@@ -442,7 +445,7 @@
                                     </div>
                                     ` : ''}
 
-                                    <!-- 3. Shows / MC (YouTube Video Embed) -->
+                                    <!-- 3. Shows / MC -->
                                     ${shows.length > 0 ? `
                                     <div class="p-4 bg-black/30 rounded-xl border border-white/5 space-y-3">
                                         <h4 class="text-xs font-bold text-riize-orange uppercase tracking-wide flex items-center">

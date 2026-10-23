@@ -19,32 +19,31 @@
 
     <!-- Tailwind Custom Config -->
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        riize: {
-                            orange: '#FF5500',
-                            coral: '#FF7744',
-                            blue: '#0066FF',
-                            dark: '#0A0B0E',
-                            card: '#14161D',
-                            border: '#242834'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'Kanit', 'sans-serif'],
-                    }
-                }
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: { 
+                    riize: { 
+                        orange: '#FF5500', // โทนสีส้มหลักประจำวง (คงเดิม)
+                        coral: '#FF7744',  // สีส้มรอง (คงเดิม)
+                        blue: '#0066FF',   // สีฟ้า/น้ำเงิน (คงเดิม)
+                        dark: '#060D17',   // ปรับเป็นสีน้ำเงินเข้มลึก (Deep Navy) เข้ากับภาพ
+                        card: '#0C182C',   // สีการ์ดโทนน้ำเงินเข้ม
+                        border: '#1A2B47'  // สีเส้นขอบโทนน้ำเงิน
+                    } 
+                },
+                fontFamily: { sans: ['Inter', 'Kanit', 'sans-serif'] }
             }
         }
-    </script>
+    }
+</script>
 </head>
-<body class="bg-riize-dark text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen">
+<body class="text-gray-100 font-sans antialiased selection:bg-riize-orange selection:text-white flex flex-col min-h-screen bg-cover bg-center bg-no-repeat bg-fixed"
+      style="background-image: linear-gradient(to bottom, rgba(6, 13, 23, 0.75), rgba(6, 13, 23, 0.88)), url('https://img1.pic.in.th/images/HVSyt-FaMAA3nOB.png');">
 
-    <!-- Sticky Navigation Bar -->
-    <nav class="sticky top-0 z-50 bg-[#0A0B0E]/95 backdrop-blur-xl border-b border-riize-border shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Sticky Navigation Bar (โทนน้ำเงินเข้มโปร่งแสง + เส้นขอบสีส้มบางๆ) -->
+<nav class="sticky top-0 z-50 bg-[#060D17]/90 backdrop-blur-xl border-b border-riize-orange/30 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16 sm:h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center space-x-3">
@@ -94,41 +93,42 @@
     </nav>
 
     <!-- Hero Banner Section -->
-    <header class="relative w-full h-[60vh] sm:h-[75vh] overflow-hidden flex items-center justify-center bg-riize-dark">
-        <!-- Background Image -->
-        <div class="absolute inset-0 w-full h-full overflow-hidden">
-            <img src="https://cdnimg.melon.co.kr/cm2/photo/images/000/803/45/269/80345269_20260615183056_org.jpg" 
-                 alt="RIIZE Official Banner" 
-                 class="w-full h-full object-cover object-center opacity-60 filter brightness-90">
+<header class="relative w-full min-h-[60vh] sm:min-h-[75vh] flex items-center justify-center px-4 py-12 text-center overflow-hidden">
+    
+    <!-- Dark Gradient Overlay (เงาโปร่งแสงเบาๆ เพื่อให้ข้อความตรงกลางอ่านง่ายขึ้น) -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[#060D17] via-[#060D17]/40 to-transparent pointer-events-none"></div>
+
+    <!-- Hero Content Container (จัดกึ่งกลาง) -->
+    <div class="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center text-center space-y-4 sm:space-y-6">
+        
+        <!-- Tag Badge -->
+        <div class="inline-flex items-center justify-center space-x-2 px-3.5 py-1.5 rounded-full bg-riize-orange/20 border border-riize-orange/50 backdrop-blur-md shadow-md mx-auto">
+            <span class="w-2 h-2 rounded-full bg-riize-orange animate-ping"></span>
+            <span data-i18n="hero-tag" class="text-xs sm:text-sm font-semibold text-riize-orange uppercase tracking-wider">RISE & REALISE</span>
+        </div>
+        
+        <!-- Main Title (RIIZE) -->
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-none my-2 text-center w-full mx-auto">
+            <span class="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">R</span><span class="text-white">II</span><span class="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">ZE</span>
+        </h1>
+        
+        <!-- Subtitle -->
+        <p data-i18n="hero-desc" class="text-gray-200 text-base sm:text-xl max-w-2xl mx-auto font-light leading-relaxed text-center">
+            ศูนย์รวมข้อมูลและคอนเทนต์วง RIIZE สำหรับ BRIIZE
+        </p>
+        
+        <!-- Action Buttons -->
+        <div class="pt-4 flex flex-wrap justify-center items-center gap-4 w-full mx-auto">
+            <a href="members/index.html" data-i18n="hero-btn-member" class="px-6 py-3 rounded-full bg-riize-orange hover:bg-riize-coral text-white font-bold transition-all shadow-lg hover:shadow-riize-orange/50 hover:scale-105">
+                ทำความรู้จักสมาชิก <i class="fas fa-arrow-right ml-2"></i>
+            </a>
+            <a href="discography.html" data-i18n="hero-btn-discography" class="px-6 py-3 rounded-full glass-panel hover:bg-white/10 text-white font-semibold transition-all hover:border-riize-orange">
+                <i class="fas fa-music mr-2 text-riize-orange"></i> ผลงานของ RIIZE
+            </a>
         </div>
 
-        <!-- Dark Gradient Overlay -->
-        <div class="absolute inset-0 bg-gradient-to-t from-riize-dark via-riize-dark/40 to-transparent"></div>
-
-        <!-- Hero Content -->
-        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4 sm:space-y-6">
-            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-riize-orange/20 border border-riize-orange/50 backdrop-blur-md">
-                <span class="w-2 h-2 rounded-full bg-riize-orange animate-ping"></span>
-                <span data-i18n="hero-tag" class="text-xs sm:text-sm font-semibold text-riize-orange uppercase tracking-wider">RISE & REALISE</span>
-            </div>
-            
-            <h1 class="text-5xl md:text-7xl font-black tracking-tight leading-none my-4">
-                <span class="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">R</span><span class="text-white">II</span><span class="bg-gradient-to-r from-orange-500 to-amber-400 bg-clip-text text-transparent">ZE</span>
-            </h1>
-            
-            <!-- คำบรรยาย Hero -->
-            <p data-i18n="hero-desc" class="text-gray-300 text-base sm:text-xl max-w-2xl mx-auto font-light">ศูนย์รวมข้อมูลและคอนเทนต์วง RIIZE สำหรับ BRIIZE </p>
-            
-            <div class="pt-4 flex flex-wrap justify-center gap-4">
-                <a href="members/index.html" data-i18n="hero-btn-member" class="px-6 py-3 rounded-full bg-riize-orange hover:bg-riize-coral text-white font-bold transition-all shadow-lg hover:shadow-riize-orange/50 hover:scale-105">
-                    ทำความรู้จักสมาชิก <i class="fas fa-arrow-right ml-2"></i>
-                </a>
-                <a href="discography.html" data-i18n="hero-btn-discography" class="px-6 py-3 rounded-full glass-panel hover:bg-white/10 text-white font-semibold transition-all hover:border-riize-orange">
-                    <i class="fas fa-music mr-2 text-riize-orange"></i> ผลงานของ RIIZE
-                </a>
-            </div>
-        </div>
-    </header>
+    </div>
+</header>
 
     <!-- Main Content Area -->
     <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-16">
